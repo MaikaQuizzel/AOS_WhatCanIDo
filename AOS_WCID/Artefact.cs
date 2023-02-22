@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace AOS_WCID
 {
-    internal class Artefact
+    public class Artefact
     {
+        public string description;
     }
 }

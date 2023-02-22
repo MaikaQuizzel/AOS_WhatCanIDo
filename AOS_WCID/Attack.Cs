@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace AOS_WCID
 {
-    internal class Attack
+    public class Attack
     {
+        public int toHit;
+        public int toWound;
+        public int rend;
+        public int damage;
+        public int attackCount;
     }
 }

@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace AOS_WCID
 {
-    internal class Unit
+    public class Unit
     {
+        public int size;
+        public string name;
+        public string movementRange;
+        public List<Attack> attackList = new List<Attack>();
+
     }
 }

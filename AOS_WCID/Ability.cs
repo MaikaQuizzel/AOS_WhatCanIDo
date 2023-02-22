@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace AOS_WCID
 {
-    internal class Ability
+    public class Ability
     {
+       public string description;
+
     }
 }

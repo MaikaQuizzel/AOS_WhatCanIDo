@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AOS_WCID
 {
-    internal class Item
+    public class Item
     {
     }
 }
