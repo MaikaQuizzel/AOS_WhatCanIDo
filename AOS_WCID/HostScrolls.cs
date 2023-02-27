@@ -8,5 +8,6 @@ namespace AOS_WCID
 {
     public class HostScrolls
     {
+        public string scrollText { get; set; }
     }
 }

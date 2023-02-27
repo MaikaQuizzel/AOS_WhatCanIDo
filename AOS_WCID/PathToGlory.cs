@@ -8,5 +8,8 @@ namespace AOS_WCID
 {
     public class PathToGlory
     {
+        public int startingPointsValue { get; set; }
+        public GrandAlliance grandAlliance { get; set; }
+        public Faction faction { get; set; }
     }
 }
