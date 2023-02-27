@@ -8,5 +8,7 @@ namespace AOS_WCID
 {
     public class CustomHost
     {
+        public HostScrolls firstScroll { get; set; }
+        public HostScrolls secondScroll { get; set; }
     }
 }

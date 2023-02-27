@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace AOS_WCID
 {
-    public class GrandAlliance
+    public class HostScrolls
     {
-        public string name { get; set; }
     }
 }

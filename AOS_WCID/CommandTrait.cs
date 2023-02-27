@@ -8,5 +8,6 @@ namespace AOS_WCID
 {
     public class CommandTrait
     {
+        public string description { get; set; }
     }
 }
