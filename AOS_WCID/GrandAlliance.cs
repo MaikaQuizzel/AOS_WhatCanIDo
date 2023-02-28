@@ -8,6 +8,12 @@ namespace AOS_WCID
 {
     public class GrandAlliance
     {
-        public string name { get; set; }
+        private string name;
+        public GrandAlliance(string name)
+        {
+            this.Name = name;
+        }
+
+        public string Name { get => name; set => name = value; }
     }
 }
