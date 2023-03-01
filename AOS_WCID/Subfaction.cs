@@ -12,8 +12,8 @@
             this.description = description;
             this.faction = faction;
         }
-        private string Name { get => name; set => name = value; }
+        public string Name { get => name; set => name = value; }
         public string Description { get => description; set => description = value; }
-        private Faction Faction { get => faction; set => faction = value; }
+        public Faction Faction { get => faction; set => faction = value; }
     }
 }

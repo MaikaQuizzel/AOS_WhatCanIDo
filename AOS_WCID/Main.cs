@@ -25,8 +25,11 @@ namespace AOS_WCID
         public void StartGame()
         {
             InitializeStuff();
-            TestJSON();
+            //TestJSON();
             EingabeGameMode();
+            EingabeGrandAlliance();
+            EingabeFaction();
+            EingabeSubfaction();
         }
 
         private void InitializeStuff()
@@ -105,8 +108,53 @@ namespace AOS_WCID
                 }
             }
         }
-        void EingabeFaction() { }
-        void EingabeSubfaction() { }
+        void EingabeFaction() 
+        {
+            bool validEntry=false;
+            while (!validEntry)
+            {
+                Console.WriteLine("Welche Fraktion möchtest du spielen?");
+                int num =0;
+                foreach(Faction i in factionsList)
+                {
+                    Console.WriteLine($"{num} für {i.FactionName}.");
+                }
+                ConsolenReader reader = new ConsolenReader();
+                string eingabe = reader.GetLine();
+                int.TryParse(eingabe,out factionID);
+                validEntry= factionID >= 0 && factionID <= num;
+                if (!validEntry) { Console.WriteLine($"Wähle zwischen 0 und {num}."); }
+                if (validEntry)
+                {
+                    faction = factionsList[factionID];
+                    Console.WriteLine($"Du hast {faction.FactionName} als Fraktion gewählt");
+                }
+            }
+        }
+        void EingabeSubfaction() 
+        {
+            bool validEntry = false;
+            while (!validEntry)
+            {
+                Console.WriteLine("Welche Subfrakion möchtest du spielen?");
+                int num = 0;
+                foreach (Subfaction i in subfactionList)
+                {
+                    Console.WriteLine($"{num} für {i.Name}.");
+                }
+                ConsolenReader reader = new ConsolenReader();
+                string eingabe = reader.GetLine();
+                int.TryParse(eingabe, out subfactionID);
+                validEntry = subfactionID >= 0 && subfactionID <= num;
+                if (!validEntry) { Console.WriteLine($"Wähle zwischen 0 und {num}."); }
+                if (validEntry)
+                {
+                    subfaction = subfactionList[subfactionID];
+                    Console.WriteLine($"Du hast {subfaction.Name} als Subraktion gewählt");
+                }
+            }
+
+        }
         void TestJSON()
         {
             var testJsonAlliance = JsonSerializer.Serialize(alliancesList);
