@@ -21,6 +21,7 @@ namespace AOS_WCID
         private List<GrandAlliance> alliancesList;
         private List<Faction> factionsList;
         private List<Subfaction> subfactionList;
+        private List<Unit> armyList;
 
         public void StartGame()
         {
@@ -34,6 +35,7 @@ namespace AOS_WCID
 
         private void InitializeStuff()
         {
+            //Dummy Data 
             alliancesList = new List<GrandAlliance>() {
                  new GrandAlliance("Order"),
                  new GrandAlliance("Chaos"),
@@ -58,7 +60,7 @@ namespace AOS_WCID
                 new Subfaction("Hollowed Knights", "If a friendly HALLOWED KNIGHTS REDEEMER model is slain within 3inc of any enemy units, roll a dice. On a 4+, that model can fight before it is removed from play.", factionsList.FirstOrDefault(x=> x.FactionName.Equals("Stormcast Eternals")))
             };
 
-
+            //
         }
 
 
