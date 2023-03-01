@@ -13,7 +13,6 @@ namespace AOS_WCID
         private int gameMode;
         private string gameName ="";
         private int allianceID;
-        private GrandAlliance alliance;
         private int factionID;
         private int subfactionID;
         private GrandAlliance grandAlliance;
@@ -60,7 +59,7 @@ namespace AOS_WCID
         }
 
 
-         void EingabeGameMode()
+         public void EingabeGameMode()
         {
             bool validEntry = false;
             while (!validEntry) 
@@ -99,7 +98,11 @@ namespace AOS_WCID
                 int.TryParse(eingabe, out allianceID);
                 validEntry = allianceID >= 0 && allianceID <= num;
                 if (!validEntry) { Console.WriteLine($"Wähle zwischen 0 und {num}."); }
-                if
+                if (validEntry) 
+                {
+                    grandAlliance= alliancesList[allianceID];
+                    Console.WriteLine($"Du hast {grandAlliance.Name} gewählt");
+                }
             }
         }
         void EingabeFaction() { }
