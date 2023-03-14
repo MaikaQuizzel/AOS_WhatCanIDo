@@ -10,63 +10,37 @@ namespace AOS_WCID
 {
     public class Main
     {
-        private int gameMode;
         private string gameName ="";
-        private int allianceID;
-        private int factionID;
-        private int subfactionID;
         private GrandAlliance grandAlliance;
         private Faction faction;
         private Subfaction subfaction;
-        private List<GrandAlliance> alliancesList;
-        private List<Faction> factionsList;
-        private List<Subfaction> subfactionList;
+        private Batallion batallion;
         private List<Unit> armyList;
+
+        private PlayerPicks playerPick;
+        private InitialStuff initialStuff;
+
 
         public void StartGame()
         {
-            InitializeStuff();
-            //TestJSON();
+            initialStuff = new InitialStuff();
+            initialStuff.InitializeStuff();
+
+            playerPick = new PlayerPicks();
+
             EingabeGameMode();
             EingabeGrandAlliance();
             EingabeFaction();
             EingabeSubfaction();
         }
 
-        private void InitializeStuff()
-        {
-            //Dummy Data 
-            alliancesList = new List<GrandAlliance>() {
-                 new GrandAlliance("Order"),
-                 new GrandAlliance("Chaos"),
-                 new GrandAlliance("Death"),
-                 new GrandAlliance("Destruction")
-            };
-
-            factionsList = new List<Faction>() {
-                new Faction("Stormcast Eternals", alliancesList.FirstOrDefault(x => x.Name.Equals("Order"))),
-                new Faction("Seraphon", alliancesList.FirstOrDefault(x => x.Name.Equals("Order"))),
-                new Faction("Discipiles od Tzeentch", alliancesList.FirstOrDefault(x => x.Name.Equals("Chaos"))),
-                new Faction("Skaven", alliancesList.FirstOrDefault(x => x.Name.Equals("Chaos"))),
-                new Faction("Nighthaunt", alliancesList.FirstOrDefault(x => x.Name.Equals("Death"))),
-                new Faction("Flesh-Eater Courts", alliancesList.FirstOrDefault(x => x.Name.Equals("Death"))),
-                new Faction("Gloomspite Glitz", alliancesList.FirstOrDefault(x => x.Name.Equals("Destruction"))),
-                new Faction("Sons of Behemat", alliancesList.FirstOrDefault(x => x.Name.Equals("Destruction")))
-            };
-
-            subfactionList = new List<Subfaction>() {
-                new Subfaction("Atral Templars","Friendly ASTRAL TEMPLARS units cannot be picked when your opponent carries out a monstrous rampage." , factionsList.FirstOrDefault(x=> x.FactionName.Equals("Stormcast Eternals"))),
-                new Subfaction("No Subfaction", "", factionsList.FirstOrDefault(x=> x.FactionName.Equals("Stormcast Eternals"))),
-                new Subfaction("Hollowed Knights", "If a friendly HALLOWED KNIGHTS REDEEMER model is slain within 3inc of any enemy units, roll a dice. On a 4+, that model can fight before it is removed from play.", factionsList.FirstOrDefault(x=> x.FactionName.Equals("Stormcast Eternals")))
-            };
-
-            //
-        }
+       
 
 
          public void EingabeGameMode()
         {
             bool validEntry = false;
+            int gameMode;
             while (!validEntry) 
             {
                 Console.WriteLine("Für welchen Spielmodus möchtest du erstellen");
@@ -89,11 +63,12 @@ namespace AOS_WCID
         }
         void EingabeGrandAlliance() {
             bool validEntry = false;
+            int allianceID;
             while (!validEntry)
             {
                 Console.WriteLine("Welche Alliance willst du spielen");
                 int num = 0;
-                foreach (GrandAlliance i in alliancesList)
+                foreach (GrandAlliance i in initialStuff.AlliancesList)
                 {
                     Console.WriteLine($"{num} für {i}");
                     num++;
@@ -105,7 +80,7 @@ namespace AOS_WCID
                 if (!validEntry) { Console.WriteLine($"Wähle zwischen 0 und {num}."); }
                 if (validEntry) 
                 {
-                    grandAlliance= alliancesList[allianceID];
+                    grandAlliance= initialStuff.AlliancesList[allianceID];
                     Console.WriteLine($"Du hast {grandAlliance.Name} gewählt");
                 }
             }
@@ -113,11 +88,12 @@ namespace AOS_WCID
         void EingabeFaction() 
         {
             bool validEntry=false;
+            int factionID;
             while (!validEntry)
             {
                 Console.WriteLine("Welche Fraktion möchtest du spielen?");
                 int num =0;
-                foreach(Faction i in factionsList)
+                foreach(Faction i in initialStuff.FactionsList)
                 {
                     Console.WriteLine($"{num} für {i.FactionName}.");
                 }
@@ -128,7 +104,7 @@ namespace AOS_WCID
                 if (!validEntry) { Console.WriteLine($"Wähle zwischen 0 und {num}."); }
                 if (validEntry)
                 {
-                    faction = factionsList[factionID];
+                    faction = initialStuff.FactionsList[factionID];
                     Console.WriteLine($"Du hast {faction.FactionName} als Fraktion gewählt");
                 }
             }
@@ -136,11 +112,12 @@ namespace AOS_WCID
         void EingabeSubfaction() 
         {
             bool validEntry = false;
+            int subfactionID;
             while (!validEntry)
             {
                 Console.WriteLine("Welche Subfrakion möchtest du spielen?");
                 int num = 0;
-                foreach (Subfaction i in subfactionList)
+                foreach (Subfaction i in initialStuff.SubfactionList)
                 {
                     Console.WriteLine($"{num} für {i.Name}.");
                 }
@@ -151,18 +128,25 @@ namespace AOS_WCID
                 if (!validEntry) { Console.WriteLine($"Wähle zwischen 0 und {num}."); }
                 if (validEntry)
                 {
-                    subfaction = subfactionList[subfactionID];
+                    subfaction = initialStuff.SubfactionList[subfactionID];
                     Console.WriteLine($"Du hast {subfaction.Name} als Subraktion gewählt");
+                    if (gameName == "Path to Glory" && subfaction.Name == "No Subfaction")
+                    {
+                        CustomSubfaction();
+                    }
                 }
             }
-
         }
-        void TestJSON()
-        {
-            var testJsonAlliance = JsonSerializer.Serialize(alliancesList);
-            var testJsonfaction = JsonSerializer.Serialize(factionsList);   
-            var testJsonSubfaction = JsonSerializer.Serialize(subfactionList);
-
+        void CustomSubfaction() {
+            Console.WriteLine("Eye of the Storm und Celestial Radiance");            
         }
+        void EingabeGeneral() { }
+        void EingabeUnits() { }
+        void HeroPick() { }
+        void BattlelinePick() { }
+        void AttelleryPick() { }
+        void EndlessSpellPick() { }
+        void OtherPick() { }
+        void EingabeBattallion() { }
     }
 }
