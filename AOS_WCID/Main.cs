@@ -10,13 +10,6 @@ namespace AOS_WCID
 {
     public class Main
     {
-        private string gameName ="";
-        private GrandAlliance grandAlliance;
-        private Faction faction;
-        private Subfaction subfaction;
-        private Batallion batallion;
-        private List<Unit> armyList;
-
         private PlayerPicks playerPick;
         private InitialStuff initialStuff;
 
@@ -53,9 +46,9 @@ namespace AOS_WCID
                 validEntry = gameMode == 1 || gameMode == 2;
                 if (!validEntry) { Console.WriteLine("\" 1\" oder \" 2\" eingeben"); }
                 if (validEntry) {
-                    if (gameMode == 1) { gameName = "Path to Glory"; }
-                    if (gameMode == 2) { gameName = "Normal"; }
-                    Console.WriteLine($"Du hast {gameName} gewählt.");
+                    if (gameMode == 1) { playerPick.GameName = "Path to Glory"; }
+                    if (gameMode == 2) { playerPick.GameName = "Normal"; }
+                    Console.WriteLine($"Du hast {playerPick.GameName} gewählt.");
                 }
                 
             }
@@ -80,8 +73,8 @@ namespace AOS_WCID
                 if (!validEntry) { Console.WriteLine($"Wähle zwischen 0 und {num}."); }
                 if (validEntry) 
                 {
-                    grandAlliance= initialStuff.AlliancesList[allianceID];
-                    Console.WriteLine($"Du hast {grandAlliance.Name} gewählt");
+                    playerPick.GrandAlliance = initialStuff.AlliancesList[allianceID];
+                    Console.WriteLine($"Du hast {playerPick.GrandAlliance.Name} gewählt");
                 }
             }
         }
@@ -104,8 +97,8 @@ namespace AOS_WCID
                 if (!validEntry) { Console.WriteLine($"Wähle zwischen 0 und {num}."); }
                 if (validEntry)
                 {
-                    faction = initialStuff.FactionsList[factionID];
-                    Console.WriteLine($"Du hast {faction.FactionName} als Fraktion gewählt");
+                    playerPick.Faction = initialStuff.FactionsList[factionID];
+                    Console.WriteLine($"Du hast {playerPick.Faction.FactionName} als Fraktion gewählt");
                 }
             }
         }
@@ -128,9 +121,9 @@ namespace AOS_WCID
                 if (!validEntry) { Console.WriteLine($"Wähle zwischen 0 und {num}."); }
                 if (validEntry)
                 {
-                    subfaction = initialStuff.SubfactionList[subfactionID];
-                    Console.WriteLine($"Du hast {subfaction.Name} als Subraktion gewählt");
-                    if (gameName == "Path to Glory" && subfaction.Name == "No Subfaction")
+                    playerPick.Subfaction = initialStuff.SubfactionList[subfactionID];
+                    Console.WriteLine($"Du hast {playerPick.Subfaction.Name} als Subraktion gewählt");
+                    if (playerPick.GameName == "Path to Glory" && playerPick.Subfaction.Name == "No Subfaction")
                     {
                         CustomSubfaction();
                     }
