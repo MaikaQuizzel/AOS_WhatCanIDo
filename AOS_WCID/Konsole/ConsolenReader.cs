@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AOS_WCID
+namespace AOS_WCID.Konsole
 {
     public class ConsolenReader
     {
@@ -12,7 +12,7 @@ namespace AOS_WCID
         {
             string eingabe = Console.ReadLine();
 
-            if (!String.IsNullOrEmpty(eingabe))
+            if (!string.IsNullOrEmpty(eingabe))
                 return eingabe;
 
             return "";

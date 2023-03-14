@@ -1,5 +1,4 @@
-using AOS_WCID;
-using static AOS_WCID.Main;
+using static AOS_WCID.Logic.Main;
 
 namespace WCID_UnitTests
 {

@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AOS_WCID
+namespace AOS_WCID.Entities
 {
-    public class Ability
+    public class Artefact
     {
-       public string description;
-
+        public string description;
     }
 }

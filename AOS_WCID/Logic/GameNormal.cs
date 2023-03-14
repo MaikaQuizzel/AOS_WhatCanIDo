@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AOS_WCID
+namespace AOS_WCID.Logic
 {
-    public class Artefact
+    public class GameNormal
     {
-        public string description;
     }
 }

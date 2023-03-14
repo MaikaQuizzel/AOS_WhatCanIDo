@@ -1,21 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AOS_WCID
+﻿namespace AOS_WCID.Entities
 {
-    public class TenetAbility
+    public class Subfaction
     {
         private string name;
         private string description;
+        private Faction faction;
 
-        public TenetAbility(string name, string description) {
+        public Subfaction(string name, string description, Faction faction)
+        {
             this.name = name;
             this.description = description;
+            this.faction = faction;
         }
         public string Name { get => name; set => name = value; }
         public string Description { get => description; set => description = value; }
+        public Faction Faction { get => faction; set => faction = value; }
     }
 }
