@@ -27,10 +27,7 @@ namespace AOS_WCID
             EingabeSubfaction();
         }
 
-       
-
-
-         public void EingabeGameMode()
+        public void EingabeGameMode()
         {
             bool validEntry = false;
             int gameMode;
@@ -54,7 +51,7 @@ namespace AOS_WCID
             }
             
         }
-        void EingabeGrandAlliance() {
+        public void EingabeGrandAlliance() {
             bool validEntry = false;
             int allianceID;
             while (!validEntry)
@@ -78,7 +75,7 @@ namespace AOS_WCID
                 }
             }
         }
-        void EingabeFaction() 
+        public void EingabeFaction() 
         {
             bool validEntry=false;
             int factionID;
@@ -102,7 +99,7 @@ namespace AOS_WCID
                 }
             }
         }
-        void EingabeSubfaction() 
+        public void EingabeSubfaction() 
         {
             bool validEntry = false;
             int subfactionID;
@@ -130,16 +127,55 @@ namespace AOS_WCID
                 }
             }
         }
-        void CustomSubfaction() {
-            Console.WriteLine("Eye of the Storm und Celestial Radiance");            
+        public void CustomSubfaction() {
+            Console.WriteLine("Eye of the Storm und Celestial Radiance");
+            //2 listen auswählen
+
+            // 2 fähigkeiten auswählen
         }
-        void EingabeGeneral() { }
-        void EingabeUnits() { }
-        void HeroPick() { }
-        void BattlelinePick() { }
-        void AttelleryPick() { }
-        void EndlessSpellPick() { }
-        void OtherPick() { }
-        void EingabeBattallion() { }
+        public void EingabeBattallion()
+        {
+            //wähle eine Battallion aus
+        }
+        public void EingabeGeneral() 
+        { 
+            //wähle Hero als General
+            // HeroPick()
+            //wähle CommandTrait
+            // wähle Artefact
+            //wähle spell
+        }
+        public void EingabeUnits() 
+        {
+            bool auswahlFertig = false;
+            while (!auswahlFertig)
+            {
+                //HeroPick()
+                //BattlelinePick
+            }
+        }
+        public Unit HeroPick() { return null; }
+        public Unit BattlelinePick() { return null; }
+        public Unit AttelleryPick() { return null; }
+        public EndlessSpell EndlessSpellPick() { return null; }
+        public Unit OtherPick() { return null; }
+
+
+        public Ability AuswahlAbility()
+        {
+            return null;
+        }
+        public CommandTrait AuswahlCommandTrait()
+        {
+            return null;
+        }
+        public Artefact AuswahlArtefact()
+        {
+            return null;
+        }
+        public Spell AuswahlSpell()
+        {
+            return null;
+        }
     }
 }
