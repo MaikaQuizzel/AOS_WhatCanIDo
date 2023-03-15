@@ -37,7 +37,7 @@ namespace AOS_WCID.Konsole.Setup
                 
                 if (gameMode == 1 || gameMode == 2)
                 {
-                    playerPick.GameName = gameMode == 1 ? "Path to Glory" : "Normal";
+                    playerPick.GameName = gameMode == 1 ? StringConstants.GAMEMODEPATH : "Normal";
                     Console.WriteLine($"Du hast {playerPick.GameName} gewählt.");
                     continue;
                 }
@@ -79,57 +79,68 @@ namespace AOS_WCID.Konsole.Setup
 
         public void EingabeFaction()
         {
-            bool validEntry = false;
-            int factionID;
-            while (!validEntry)
+            StringBuilder chooseText = new StringBuilder();
+            chooseText.AppendLine("Welche Fraktion möchtest du spielen?");
+
+            int factionID= -1;
+            int factionCount = initialStuff.FactionsList.Count();
+
+            while (!IsValidFaction(factionID, factionCount))
             {
-                Console.WriteLine("Welche Fraktion möchtest du spielen?");
-                int num = 0;
-                foreach (Faction i in initialStuff.FactionsList)
+                Console.WriteLine(chooseText.ToString());
+                for (int i = 0; i < factionCount; i++)
                 {
-                    Console.WriteLine($"{num} für {i.FactionName}.");
+                    Console.WriteLine($"{i} für {initialStuff.FactionsList[i].FactionName}");
                 }
-                ConsolenReader reader = new ConsolenReader();
-                string eingabe = reader.GetLine();
-                int.TryParse(eingabe, out factionID);
-                validEntry = factionID >= 0 && factionID <= num;
-                if (!validEntry) { Console.WriteLine($"Wähle zwischen 0 und {num}."); }
-                if (validEntry)
+
+                int.TryParse(consolenReader.GetLine(), out factionID);
+
+                if (IsValidFaction(factionID, factionCount))
                 {
                     playerPick.Faction = initialStuff.FactionsList[factionID];
                     Console.WriteLine($"Du hast {playerPick.Faction.FactionName} als Fraktion gewählt");
                 }
             }
         }
-        private static bool IsValidFaction() { }
+        private static bool IsValidFaction(int factionID, int listCount) 
+        {
+            return factionID >= 0 && factionID < listCount;
+        }
         public void EingabeSubfaction()
         {
-            bool validEntry = false;
-            int subfactionID;
-            while (!validEntry)
+            StringBuilder chooseText = new StringBuilder();
+            chooseText.AppendLine("Welche Subfrakion möchtest du spielen?");
+
+            int subfactionCount = initialStuff.SubfactionList.Count();
+            int subfactionID = -1;
+            while (!IsValidSubfaction(subfactionID,subfactionCount))
             {
-                Console.WriteLine("Welche Subfrakion möchtest du spielen?");
+                Console.WriteLine(chooseText.ToString());
                 int num = 0;
                 foreach (Subfaction i in initialStuff.SubfactionList)
                 {
                     Console.WriteLine($"{num} für {i.Name}.");
                 }
-                ConsolenReader reader = new ConsolenReader();
-                string eingabe = reader.GetLine();
-                int.TryParse(eingabe, out subfactionID);
-                validEntry = subfactionID >= 0 && subfactionID <= num;
-                if (!validEntry) { Console.WriteLine($"Wähle zwischen 0 und {num}."); }
-                if (validEntry)
+
+                int.TryParse(consolenReader.GetLine(), out subfactionID);
+
+                if (!IsValidSubfaction(subfactionID, subfactionCount))
+                    continue;
+
+                playerPick.Subfaction = initialStuff.SubfactionList[subfactionID];
+                Console.WriteLine($"Du hast {playerPick.Subfaction.Name} als Subraktion gewählt");
+                if (playerPick.GameName.Equals(StringConstants.GAMEMODEPATH) && playerPick.Subfaction.Name.Equals(StringConstants.NOSUBFACTION))
                 {
-                    playerPick.Subfaction = initialStuff.SubfactionList[subfactionID];
-                    Console.WriteLine($"Du hast {playerPick.Subfaction.Name} als Subraktion gewählt");
-                    if (playerPick.GameName == "Path to Glory" && playerPick.Subfaction.Name == "No Subfaction")
-                    {
-                        CustomSubfaction();
-                    }
+                    CustomSubfaction();
+                    
                 }
             }
         }
+        public static bool IsValidSubfaction(int subfactionID, int subfactionCount)
+        {
+            return subfactionID >= 0 && subfactionID < subfactionCount;
+        }
+        publich
         public void CustomSubfaction()
         {
             Console.WriteLine("Eye of the Storm und Celestial Radiance");
