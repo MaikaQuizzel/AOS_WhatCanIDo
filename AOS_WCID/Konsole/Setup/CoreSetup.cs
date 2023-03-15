@@ -129,10 +129,9 @@ namespace AOS_WCID.Konsole.Setup
 
                 playerPick.Subfaction = initialStuff.SubfactionList[subfactionID];
                 Console.WriteLine($"Du hast {playerPick.Subfaction.Name} als Subraktion gewählt");
-                if (playerPick.GameName.Equals(StringConstants.GAMEMODEPATH) && playerPick.Subfaction.Name.Equals(StringConstants.NOSUBFACTION))
+                if (NeedsCustomSubfaction(playerPick))
                 {
                     CustomSubfaction();
-                    
                 }
             }
         }
@@ -140,9 +139,16 @@ namespace AOS_WCID.Konsole.Setup
         {
             return subfactionID >= 0 && subfactionID < subfactionCount;
         }
-        publich
+        public static bool NeedsCustomSubfaction(PlayerPicks playerPick)
+        {
+            return playerPick.GameName.Equals(StringConstants.GAMEMODEPATH) && playerPick.Subfaction.Name.Equals(StringConstants.NOSUBFACTION);
+        }
+       
         public void CustomSubfaction()
         {
+            StringBuilder chooseText = new StringBuilder();
+
+            while () { }
             Console.WriteLine("Eye of the Storm und Celestial Radiance");
             //2 listen auswählen
 
