@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace AOS_WCID.Konsole.Setup
 {
-    public class CoreSetup
+    public class CoreSetup:InputValidator
     {
         private PlayerPicks playerPick;
         private InitialStuff initialStuff;
-        private ConsolenReader consolenReader;
+        
 
         public CoreSetup(PlayerPicks picks, InitialStuff initStuff)
         {
@@ -33,8 +33,11 @@ namespace AOS_WCID.Konsole.Setup
             while (gameMode != 1 && gameMode != 2)
             {
                 Console.WriteLine(chooseText.ToString());
-                int.TryParse(consolenReader.GetLine(), out gameMode);
                 
+                IsValidInput(new List<int> { 1, 2 }, out gameMode);
+
+                IsValidInput(new List<string> { "Maike" });
+
                 if (gameMode == 1 || gameMode == 2)
                 {
                     playerPick.GameName = gameMode == 1 ? StringConstants.GAMEMODEPATH : "Normal";
@@ -151,7 +154,7 @@ namespace AOS_WCID.Konsole.Setup
             int tenetID = -1;
             int tenetCount = initialStuff.TenetList.Count();
 
-            while (IsValidPickTenet()) {
+            while (!IsValidPickTenet()) {
                 Console.WriteLine(chooseText.ToString());
                 for (int i = 0; i < tenetCount; i++)
                 {
