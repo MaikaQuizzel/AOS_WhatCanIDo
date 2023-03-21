@@ -28,6 +28,23 @@ namespace AOS_WCID.Data
             return true;
         }
 
+        public bool IsValidInput(int maxInt, out int value)
+        {
+            string input = consolenReader.GetLine();
+
+            value = -1;
+
+            if (string.IsNullOrEmpty(input) || !input.All(Char.IsDigit))
+                return false;
+
+
+            if (Int32.Parse(input) > maxInt)
+                return false;
+
+            value = Int32.Parse(input);
+            return true;
+        }
+
         public bool IsValidInput(List<string> texts)
         {
             string input = consolenReader.GetLine();

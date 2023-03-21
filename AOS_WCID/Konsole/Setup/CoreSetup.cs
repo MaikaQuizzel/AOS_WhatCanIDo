@@ -36,8 +36,6 @@ namespace AOS_WCID.Konsole.Setup
                 
                 IsValidInput(new List<int> { 1, 2 }, out gameMode);
 
-                IsValidInput(new List<string> { "Maike" });
-
                 if (gameMode == 1 || gameMode == 2)
                 {
                     playerPick.GameName = gameMode == 1 ? StringConstants.GAMEMODEPATH : "Normal";
@@ -149,82 +147,61 @@ namespace AOS_WCID.Konsole.Setup
        
         public void CustomSubfaction()
         {
+            PickTenet();
+            PickTenetAbillity();
+            PickTenet();
+            PickTenetAbillity();
+
+        }
+
+        public void PickTenet() 
+        {
             StringBuilder chooseText = new StringBuilder();
-            chooseText.AppendLine("Was ist deine erste Liste?");
+            
+            chooseText.AppendLine(playerPick.Tenets.Any() ? "Was ist deine erste Liste?" : "Was ist deine zweite Liste?") ;
+
             int tenetID = -1;
             int tenetCount = initialStuff.TenetList.Count();
+            bool isValidTenet = false;
 
-            while (!IsValidPickTenet()) {
-                Console.WriteLine(chooseText.ToString());
-                for (int i = 0; i < tenetCount; i++)
-                {
-                    Console.WriteLine($"{i} für {initialStuff.TenetList[i].Name}");
-                }
-                int.TryParse(consolenReader.GetLine(), out tenetID);
-                if (IsValidPickTenet())
-                {
-                    int tenetAbilityID = -1;
-                    Tenets currentTenet = initialStuff.TenetList[tenetID];
-                    chooseText.Clear();
-                    chooseText.AppendLine("Wähle deine erste Fähigkeit");
-
-                    while (IsValidPickTenetAbility())
-                    {
-                        for (int i = 0; i < currentTenet.Abilities.Count(); i++)
-                        {
-                            Console.WriteLine($"{i} für {currentTenet.Abilities[i].Name}");
-                        }
-                        int.TryParse(consolenReader.GetLine(), out tenetAbilityID);
-                        if (IsValidPickTenetAbility())
-                        {
-                            playerPick.TenetAbilities.Add(currentTenet.Abilities[tenetAbilityID]);
-                        }
-                    }
-                }
-            }
-            chooseText.Clear();
-            chooseText.AppendLine("Wähle deine zweite Liste");
-            int secondTenetID = -1;
-            while (IsValidPickTenet())
+            while (!isValidTenet)
             {
                 Console.WriteLine(chooseText.ToString());
                 for (int i = 0; i < tenetCount; i++)
                 {
-                    if(i != tenetID)
                     Console.WriteLine($"{i} für {initialStuff.TenetList[i].Name}");
                 }
-                int.TryParse(consolenReader.GetLine(), out secondTenetID);
-                if (IsValidPickTenet())
-                {
-                    int tenetAbilityID = -1;
-                    Tenets currentTenet = initialStuff.TenetList[secondTenetID];
-                    chooseText.Clear();
-                    chooseText.AppendLine("Wähle deine zweite Fähigkeit");
 
-                    while (IsValidPickTenetAbility())
-                    {
-                        for (int i = 0; i < currentTenet.Abilities.Count(); i++)
-                        {
-                            Console.WriteLine($"{i} für {currentTenet.Abilities[i].Name}");
-                        }
-                        int.TryParse(consolenReader.GetLine(), out tenetAbilityID);
-                        if (IsValidPickTenetAbility())
-                        {
-                            playerPick.TenetAbilities.Add(currentTenet.Abilities[tenetAbilityID]);
-                        }
-                    }
+                isValidTenet = IsValidInput(tenetCount, out tenetID);
+            }
+            playerPick.Tenets.Add( initialStuff.TenetList[tenetID]);
+        }
+
+        public void PickTenetAbillity()
+        {
+            Tenets currentTenet = playerPick.Tenets.Last();
+            int tenetAbilityID = -1;
+            StringBuilder chooseText = new StringBuilder();
+          
+            chooseText.AppendLine(playerPick.TenetAbilities.Any()? "Was ist deine erste Fähigkeit?" : "Was ist deine zweite Fähigkeit?");
+
+            bool isValidAbilityId = false;
+
+            while (!isValidAbilityId)
+            {
+                Console.WriteLine(chooseText.ToString());
+                for (int i = 0; i < currentTenet.Abilities.Count(); i++)
+                {
+                    Console.WriteLine($"{i} für {currentTenet.Abilities[i].Name}");
+                }
+
+                isValidAbilityId = IsValidInput(currentTenet.Abilities.Count, out tenetAbilityID);
+
+                if (isValidAbilityId)
+                {
+                    playerPick.TenetAbilities.Add(currentTenet.Abilities[tenetAbilityID]);
                 }
             }
-
-
-        }
-        public static bool IsValidPickTenet() 
-        { 
-            return false; 
-        }
-        public static bool IsValidPickTenetAbility() 
-        { 
-            return false; 
         }
 
     }

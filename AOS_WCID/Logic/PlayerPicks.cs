@@ -16,11 +16,14 @@ namespace AOS_WCID.Logic
         private Batallion batallion;
         private List<Unit> armyList;
         private List<TenetAbility> tenetAbilities;
+        private List<Tenets> tenets;
+
 
         public PlayerPicks() 
         {
             tenetAbilities = new List<TenetAbility>();
             armyList = new List<Unit>();
+            Tenets = new List<Tenets>();
         }
 
         public string GameName { get => gameName; set => gameName = value; }
@@ -30,5 +33,6 @@ namespace AOS_WCID.Logic
         public Batallion Batallion { get => batallion; set => batallion = value; }
         public List<Unit> ArmyList { get => armyList; set => armyList = value; }
         public List<TenetAbility> TenetAbilities { get => tenetAbilities; set => tenetAbilities = value; }
+        public List<Tenets> Tenets { get => tenets; set => tenets = value; }
     }
 }
