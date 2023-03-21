@@ -13,7 +13,9 @@ namespace AOS_WCID.Konsole.Setup
     {
         private PlayerPicks playerPick;
         private DataProvider initialStuff;
-        
+
+        public PlayerPicks PlayerPick { get => playerPick; set => playerPick = value; }
+        public DataProvider InitialStuff { get => initialStuff; set => initialStuff = value; }
 
         public CoreSetup(PlayerPicks picks, DataProvider initStuff)
         {
@@ -21,6 +23,8 @@ namespace AOS_WCID.Konsole.Setup
             initialStuff = initStuff;
             consolenReader = new ConsolenReader();
         }
+
+        
 
         public void EingabeGameMode()
         {

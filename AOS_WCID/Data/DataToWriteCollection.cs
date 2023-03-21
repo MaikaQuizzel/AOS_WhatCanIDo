@@ -16,6 +16,7 @@ namespace AOS_WCID.Data
         private List<TenetAbility> tenetAbilityListHammer;
         private List<TenetAbility> tenetAbilityListShield;
         private List<TenetAbility> tenetAbilityListTempest;
+        private List<Batallion> batallionList;
 
 
         public DataToWriteCollection() { }
@@ -27,6 +28,7 @@ namespace AOS_WCID.Data
         public List<TenetAbility> TenetAbilityListHammer { get => tenetAbilityListHammer; set => tenetAbilityListHammer = value; }
         public List<TenetAbility> TenetAbilityListShield { get => tenetAbilityListShield; set => tenetAbilityListShield = value; }
         public List<TenetAbility> TenetAbilityListTempest { get => tenetAbilityListTempest; set => tenetAbilityListTempest = value; }
+        public List<Batallion> BatallionList { get => batallionList; set => batallionList = value; }
 
         public void WriteStuffNow()
         {
@@ -52,18 +54,17 @@ namespace AOS_WCID.Data
                 new TenetAbility("Beast Hunter","Add +1 to hit against monsters."),
                 new TenetAbility("Champion Warriors","Add +1 to hit against heros.")
             };
+            DataManager.WriteHammerAbilitiesListJsonToPath(TenetAbilityListHammer);
             TenetAbilityListShield = new List<TenetAbility>() {
                 new TenetAbility("Celestial Radiance","+6 Ward save."),
                 new TenetAbility("Here we stand","Rerole Bravery test.")
             };
+            DataManager.WriteShiedAbilitiesListJsonToPath(TenetAbilityListShield);
             TenetAbilityListTempest = new List<TenetAbility>() {
                 new TenetAbility("Eye of the Storm","Enemies can not fall back during combat."),
                 new TenetAbility("Master of Heavenly Lore","Rerole 1s on casting rolls")
             };
-            List<TenetAbility> savepoint = TenetAbilityListHammer;
-            savepoint.AddRange(TenetAbilityListShield);
-            savepoint.AddRange(TenetAbilityListTempest);
-            DataManager.WriteTenetAbilitiesListJsonToPath(savepoint);
+            DataManager.WriteTempestAbilitiesListJsonToPath(TenetAbilityListTempest);
 
             TenetList = new List<Tenets>() {
                 new Tenets("Tenates of the Hammer", TenetAbilityListHammer),
@@ -71,7 +72,13 @@ namespace AOS_WCID.Data
                 new Tenets("Tenates of the Tempest", TenetAbilityListTempest)
             };
             DataManager.WriteTenetsJsonToPath(TenetList);
-            
+            batallionList = new List<Batallion>
+            {
+                new Batallion("No Batallion", "", 1,0,1,0,0),
+                new Batallion("Battle Regiment","One-drop Deployment", 1,0,1,0,0),
+                new Batallion("Linebreaker", "Once per battle, 1 unit from this batallion can receive the All-out Attack or All-out Defence command without the comman being issued and without a point beeing spend.", 1,0,0,2,0)
+            };
+            DataManager.WriteBatallionListJsonToPath(batallionList);
         }
     }
 }

@@ -24,6 +24,7 @@ namespace AOS_WCID.Logic
 
             playerPick = new PlayerPicks();
             CoreSetup setup = new CoreSetup(playerPick, initialStuff);
+            UnitsSetup unitSetup = new UnitsSetup(playerPick, initialStuff);
 
 
             setup.EingabeGameMode();
@@ -31,12 +32,10 @@ namespace AOS_WCID.Logic
             setup.EingabeFaction();
             setup.EingabeSubfaction();
 
-            PickUnits();
+            unitSetup.EingabeBattallion();
+
+            
         }
 
-        public void PickUnits()
-        {
-
-        }
     }
 }

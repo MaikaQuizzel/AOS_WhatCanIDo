@@ -14,7 +14,10 @@ namespace AOS_WCID.Data
         private static readonly string GAJASON = "GrandAlliance.json";
         private static readonly string FACTIONSJSON = "Factions.json";
         private static readonly string SUBFACTIONSJSON = "SubFactions.json";
-        private static readonly string TENETABILITIES = "TenetsAbilities.json";
+        private static readonly string HAMMERABILITIES = "HammerAbilities.json";
+        private static readonly string SHIELSABILITIES = "ShieldAbilities.json";
+        private static readonly string TEMPESTABILITIES = "TempestAbilities.json";
+        private static readonly string BATALLION = "Batallion.json";
 
 
 
@@ -92,23 +95,96 @@ namespace AOS_WCID.Data
             }
             return entities;
         }
-        public static void WriteTenetAbilitiesListJsonToPath(List<TenetAbility> entities)
+        public static void WriteHammerAbilitiesListJsonToPath(List<TenetAbility> entities)
         {
-            string path = TENETABILITIES;
+            string path = HAMMERABILITIES;
             string json = JsonSerializer.Serialize(entities);
             File.WriteAllText(path, json);
         }
-        public static List<TenetAbility> ReadTenetAbilitiesListJsonToPath()
+        public static List<TenetAbility> ReadHammerAbilitiesListJsonToPath()
         {
             List<TenetAbility> entities = new List<TenetAbility>();
 
-            using (StreamReader r = new StreamReader(TENETABILITIES))
+            using (StreamReader r = new StreamReader(HAMMERABILITIES))
             {
                 string json = r.ReadToEnd();
                 entities = JsonSerializer.Deserialize<List<TenetAbility>>(json);
             }
             return entities;
         }
+        public static void WriteShiedAbilitiesListJsonToPath(List<TenetAbility> entities)
+        {
+            string path = SHIELSABILITIES;
+            string json = JsonSerializer.Serialize(entities);
+            File.WriteAllText(path, json);
+        }
+        public static List<TenetAbility> ReadShieldAbilitiesListJsonToPath()
+        {
+            List<TenetAbility> entities = new List<TenetAbility>();
+
+            using (StreamReader r = new StreamReader(SHIELSABILITIES))
+            {
+                string json = r.ReadToEnd();
+                entities = JsonSerializer.Deserialize<List<TenetAbility>>(json);
+            }
+            return entities;
+        }
+        public static void WriteTempestAbilitiesListJsonToPath(List<TenetAbility> entities)
+        {
+            string path = TEMPESTABILITIES;
+            string json = JsonSerializer.Serialize(entities);
+            File.WriteAllText(path, json);
+        }
+        public static List<TenetAbility> ReadTempestAbilitiesListJsonToPath()
+        {
+            List<TenetAbility> entities = new List<TenetAbility>();
+
+            using (StreamReader r = new StreamReader(TEMPESTABILITIES))
+            {
+                string json = r.ReadToEnd();
+                entities = JsonSerializer.Deserialize<List<TenetAbility>>(json);
+            }
+            return entities;
+        }
+
+        public static void WriteBatallionListJsonToPath(List<Batallion> entities)
+        {
+            string path = BATALLION;
+            string json = JsonSerializer.Serialize(entities);
+            File.WriteAllText(path, json);
+        }
+        public static List<Batallion> ReadBatallionListJsonToPath()
+        {
+            List<Batallion> entities = new List<Batallion>();
+
+            using (StreamReader r = new StreamReader(BATALLION))
+            {
+                string json = r.ReadToEnd();
+                entities = JsonSerializer.Deserialize<List<Batallion>>(json);
+            }
+            return entities;
+        }
+
+
+
+
+        //public static void WriteListJsonToPath(List<> entities)
+        //{
+        //    string path = ;
+        //    string json = JsonSerializer.Serialize(entities);
+        //    File.WriteAllText(path, json);
+        //}
+        //public static List<> ReadListJsonToPath()
+        //{
+        //    List<> entities = new List<>();
+
+        //    using (StreamReader r = new StreamReader())
+        //    {
+        //        string json = r.ReadToEnd();
+        //        entities = JsonSerializer.Deserialize<List<>>(json);
+        //    }
+        //    return entities;
+        //}
 
     }
 }

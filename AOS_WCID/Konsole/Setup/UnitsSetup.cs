@@ -1,4 +1,6 @@
-﻿using AOS_WCID.Entities;
+﻿using AOS_WCID.Data;
+using AOS_WCID.Entities;
+using AOS_WCID.Logic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,11 +9,36 @@ using System.Threading.Tasks;
 
 namespace AOS_WCID.Konsole.Setup
 {
-    public class UnitsSetup
+    public class UnitsSetup: InputValidator
     {
+        StringBuilder chooseText = new StringBuilder();
+        private PlayerPicks playerPick;
+        private DataProvider initialStuff;
+
+        public UnitsSetup(PlayerPicks playerPick, DataProvider initialStuff)
+        {
+            this.playerPick = playerPick;
+            this.initialStuff = initialStuff;
+        }
+
         public void EingabeBattallion()
         {
-            //wähle eine Battallion aus
+            chooseText.AppendLine("Welches Batallion willst du spielen?");
+
+            int batallionID = -1;
+            int batallionListCount = initialStuff.BatallionList.Count();
+            bool isValidID = false;
+
+            while (!isValidID)
+            {
+                Console.WriteLine(chooseText.ToString());
+                for (int i = 0; i < batallionListCount; i++)
+                {
+                    Console.WriteLine($"{i} für {initialStuff.BatallionList[i]}");
+                }
+                isValidID = IsValidInput(batallionListCount, out batallionID);
+            }
+            playerPick.Batallion = initialStuff.BatallionList[batallionID];
         }
         public void EingabeGeneral()
         {

@@ -14,7 +14,7 @@ namespace AOS_WCID.Entities
         public Tenets(string name, List<TenetAbility> abilities)
         {
             _name = name;
-            Abilities = abilities;
+            _abilities = abilities;
         }
 
         public List<TenetAbility> Abilities { get => _abilities; internal set => _abilities = value; }

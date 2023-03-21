@@ -38,7 +38,7 @@ namespace AOS_WCID.Data
                 return false;
 
 
-            if (Int32.Parse(input) > maxInt)
+            if (Int32.Parse(input) > maxInt-1)
                 return false;
 
             value = Int32.Parse(input);

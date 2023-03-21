@@ -16,6 +16,7 @@ namespace AOS_WCID.Data
         private List<TenetAbility> tenetAbilityListHammer;
         private List<TenetAbility> tenetAbilityListShield;
         private List<TenetAbility> tenetAbilityListTempest;
+        private List<Batallion> batallionList;
 
 
         public DataProvider() { }
@@ -27,6 +28,7 @@ namespace AOS_WCID.Data
         public List<TenetAbility> TenetAbilityListHammer { get => tenetAbilityListHammer; set => tenetAbilityListHammer = value; }
         public List<TenetAbility> TenetAbilityListShield { get => tenetAbilityListShield; set => tenetAbilityListShield = value; }
         public List<TenetAbility> TenetAbilityListTempest { get => tenetAbilityListTempest; set => tenetAbilityListTempest = value; }
+        public List<Batallion> BatallionList { get => batallionList; set => batallionList = value; }
 
         public void InitializeStuff()
         {
@@ -37,21 +39,15 @@ namespace AOS_WCID.Data
 
             SubfactionList =DataManager.ReadSubfactionListJsonToPath();
 
-            var list = DataManager.ReadTenetAbilitiesListJsonToPath();
+            TenetAbilityListHammer = DataManager.ReadHammerAbilitiesListJsonToPath();
 
-            TenetAbilityListHammer = new List<TenetAbility>();
-            TenetAbilityListHammer.Add(list[0]);
-            TenetAbilityListHammer.Add(list[1]);
+            TenetAbilityListShield = DataManager.ReadShieldAbilitiesListJsonToPath();
 
-            TenetAbilityListShield = new List<TenetAbility>();
-            TenetAbilityListShield.Add(list[2]);
-            TenetAbilityListShield.Add(list[3]);
-
-            TenetAbilityListTempest = new List<TenetAbility>();
-            TenetAbilityListTempest.Add(list[4]);
-            TenetAbilityListTempest.Add(list[5]);
+            TenetAbilityListTempest = DataManager.ReadTempestAbilitiesListJsonToPath();
 
             TenetList = DataManager.ReadTenetsJsonToPath();
+
+            BatallionList = DataManager.ReadBatallionListJsonToPath();
         }
     }
 }
