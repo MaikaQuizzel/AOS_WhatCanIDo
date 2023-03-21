@@ -14,12 +14,12 @@ namespace AOS_WCID.Logic
     public class Main
     {
         private PlayerPicks playerPick;
-        private InitialStuff initialStuff;
+        private DataProvider initialStuff;
 
 
         public void StartGame()
         {
-            initialStuff = new InitialStuff();
+            initialStuff = new DataProvider();
             initialStuff.InitializeStuff();
 
             playerPick = new PlayerPicks();

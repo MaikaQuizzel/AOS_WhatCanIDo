@@ -12,10 +12,10 @@ namespace AOS_WCID.Konsole.Setup
     public class CoreSetup:InputValidator
     {
         private PlayerPicks playerPick;
-        private InitialStuff initialStuff;
+        private DataProvider initialStuff;
         
 
-        public CoreSetup(PlayerPicks picks, InitialStuff initStuff)
+        public CoreSetup(PlayerPicks picks, DataProvider initStuff)
         {
             playerPick = picks;
             initialStuff = initStuff;
