@@ -26,24 +26,23 @@ namespace AOS_WCID.Konsole.Setup
         {
             StringBuilder chooseText = new StringBuilder();
             chooseText.Append("Für welchen Spielmodus möchtest du erstellen");
-            chooseText.AppendLine("\n 1 für Path to Glory \n 2 für normal");
+            chooseText.AppendLine("\n 0 für Path to Glory \n 1 für normal");
 
             int gameMode = -1;
 
-            while (gameMode != 1 && gameMode != 2)
+            while (gameMode != 0 && gameMode != 1)
             {
                 Console.WriteLine(chooseText.ToString());
                 
-                IsValidInput(new List<int> { 1, 2 }, out gameMode);
+                IsValidInput(new List<int> { 0, 1 }, out gameMode);
 
-                if (gameMode == 1 || gameMode == 2)
+                if (gameMode == 0 || gameMode == 1)
                 {
-                    playerPick.GameName = gameMode == 1 ? StringConstants.GAMEMODEPATH : "Normal";
+                    playerPick.GameName = gameMode == 0 ? StringConstants.GAMEMODEPATH : "Normal";
                     Console.WriteLine($"Du hast {playerPick.GameName} gewählt.");
                     continue;
                 }
-
-                Console.WriteLine("\" 1\" oder \" 2\" eingeben");
+                Console.WriteLine("\" 0\" oder \" 1\" eingeben");
             }
 
         }
@@ -114,13 +113,14 @@ namespace AOS_WCID.Konsole.Setup
 
             int subfactionCount = initialStuff.SubfactionList.Count();
             int subfactionID = -1;
+
             while (!IsValidSubfaction(subfactionID,subfactionCount))
             {
                 Console.WriteLine(chooseText.ToString());
                 int num = 0;
-                foreach (Subfaction i in initialStuff.SubfactionList)
+                for (int i = 0; i < subfactionCount; i++)
                 {
-                    Console.WriteLine($"{num} für {i.Name}.");
+                    Console.WriteLine($"{i} für {initialStuff.SubfactionList[i].Name}.");
                 }
 
                 int.TryParse(consolenReader.GetLine(), out subfactionID);
@@ -130,9 +130,13 @@ namespace AOS_WCID.Konsole.Setup
 
                 playerPick.Subfaction = initialStuff.SubfactionList[subfactionID];
                 Console.WriteLine($"Du hast {playerPick.Subfaction.Name} als Subraktion gewählt");
+                
                 if (NeedsCustomSubfaction(playerPick))
                 {
-                    CustomSubfaction();
+                    PickTenet();
+                    PickTenetAbillity();
+                    PickTenet();
+                    PickTenetAbillity();
                 }
             }
         }
@@ -145,20 +149,12 @@ namespace AOS_WCID.Konsole.Setup
             return playerPick.GameName.Equals(StringConstants.GAMEMODEPATH) && playerPick.Subfaction.Name.Equals(StringConstants.NOSUBFACTION);
         }
        
-        public void CustomSubfaction()
-        {
-            PickTenet();
-            PickTenetAbillity();
-            PickTenet();
-            PickTenetAbillity();
-
-        }
 
         public void PickTenet() 
         {
             StringBuilder chooseText = new StringBuilder();
             
-            chooseText.AppendLine(playerPick.Tenets.Any() ? "Was ist deine erste Liste?" : "Was ist deine zweite Liste?") ;
+            chooseText.AppendLine(playerPick.Tenets.Count()==0 ? "Was ist deine erste Liste?" : "Was ist deine zweite Liste?") ;
 
             int tenetID = -1;
             int tenetCount = initialStuff.TenetList.Count();
@@ -183,7 +179,7 @@ namespace AOS_WCID.Konsole.Setup
             int tenetAbilityID = -1;
             StringBuilder chooseText = new StringBuilder();
           
-            chooseText.AppendLine(playerPick.TenetAbilities.Any()? "Was ist deine erste Fähigkeit?" : "Was ist deine zweite Fähigkeit?");
+            chooseText.AppendLine(playerPick.TenetAbilities.Count()==0 ? "Was ist deine erste Fähigkeit?" : "Was ist deine zweite Fähigkeit?");
 
             bool isValidAbilityId = false;
 

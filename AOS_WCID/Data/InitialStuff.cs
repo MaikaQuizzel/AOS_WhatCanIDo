@@ -44,11 +44,6 @@ namespace AOS_WCID.Data
                 new Subfaction("No Subfaction", "", FactionsList.FirstOrDefault(x=> x.FactionName.Equals("Stormcast Eternals"))),
                 new Subfaction("Hollowed Knights", "If a friendly HALLOWED KNIGHTS REDEEMER model is slain within 3inc of any enemy units, roll a dice. On a 4+, that model can fight before it is removed from play.", FactionsList.FirstOrDefault(x=> x.FactionName.Equals("Stormcast Eternals")))
             };
-            TenetList = new List<Tenets>() {
-                new Tenets("Tenates of the Hammer", TenetAbilityListHammer),
-                new Tenets("Tenates of the Shield", TenetAbilityListShield),
-                new Tenets("Tenates of the Tempest", TenetAbilityListTempest)
-            };
             TenetAbilityListHammer = new List<TenetAbility>() {
                 new TenetAbility("Beast Hunter","Add +1 to hit against monsters."),
                 new TenetAbility("Champion Warriors","Add +1 to hit against heros.")
@@ -61,9 +56,11 @@ namespace AOS_WCID.Data
                 new TenetAbility("Eye of the Storm","Enemies can not fall back during combat."),
                 new TenetAbility("Master of Heavenly Lore","Rerole 1s on casting rolls")
             };
-
-
-            //
+            TenetList = new List<Tenets>() {
+                new Tenets("Tenates of the Hammer", TenetAbilityListHammer),
+                new Tenets("Tenates of the Shield", TenetAbilityListShield),
+                new Tenets("Tenates of the Tempest", TenetAbilityListTempest)
+            };
         }
     }
 }
