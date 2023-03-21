@@ -19,6 +19,10 @@ namespace AOS_WCID.Logic
 
         public void StartGame()
         {
+            //DELETE ME IF ALL DATA IS WRITTEN !!!!!!1111elf
+            DataToWriteCollection coll = new DataToWriteCollection();
+            coll.WriteStuffNow();
+
             initialStuff = new DataProvider();
             initialStuff.InitializeStuff();
 
@@ -26,6 +30,7 @@ namespace AOS_WCID.Logic
             CoreSetup setup = new CoreSetup(playerPick, initialStuff);
             UnitsSetup unitSetup = new UnitsSetup(playerPick, initialStuff);
 
+            Console.WriteLine(initialStuff.);
 
             setup.EingabeGameMode();
             setup.EingabeGrandAlliance();

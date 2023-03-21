@@ -17,6 +17,7 @@ namespace AOS_WCID.Data
         private List<TenetAbility> tenetAbilityListShield;
         private List<TenetAbility> tenetAbilityListTempest;
         private List<Batallion> batallionList;
+        private List<EndlessSpell> endlessSpellList;
 
 
         public DataToWriteCollection() { }
@@ -29,6 +30,7 @@ namespace AOS_WCID.Data
         public List<TenetAbility> TenetAbilityListShield { get => tenetAbilityListShield; set => tenetAbilityListShield = value; }
         public List<TenetAbility> TenetAbilityListTempest { get => tenetAbilityListTempest; set => tenetAbilityListTempest = value; }
         public List<Batallion> BatallionList { get => batallionList; set => batallionList = value; }
+        public List<EndlessSpell> EndlessSpellList { get => endlessSpellList; set => endlessSpellList = value; }
 
         public void WriteStuffNow()
         {
@@ -79,6 +81,24 @@ namespace AOS_WCID.Data
                 new Batallion("Linebreaker", "Once per battle, 1 unit from this batallion can receive the All-out Attack or All-out Defence command without the comman being issued and without a point beeing spend.", 1,0,0,2,0)
             };
             DataManager.WriteBatallionListJsonToPath(batallionList);
+            endlessSpellList = new List<EndlessSpell>()
+            {
+                new EndlessSpell("CELESTIAN VORTEX",0,"Summon Celestian Vortex: The wizard\r\ncasts a pair of ensorcelled hammers into the\r\nair, which begin to spin. " +
+                "As the vortex gets\r\nmore intense, the hammers multiply to form\r\na maelstrom of skull-crushing force.\r\n" +
+                "Summon Celestian Vortex has a casting\r\nvalue of 6. Only Stormcast Eternal\r\nWizards can attempt to cast this " +
+                "spell. If\r\nsuccessfully cast, set up a Celestian Vortex\r\nmodel wholly within 12\" of the caster.","A Celestian Vortex is a\r\npredatory endless spell. " +
+                "A Celestian Vortex\r\ncan move up to 8\" and can fly.0", new List<string>{"Swirling Doom: When a Celestian Vortex is\r\nsummoned, it immediately swirls " +
+                "across the\r\nbattlefield leaving devastation in its wake.\r\nWhen this model is set up, the player who set\r\nit up can immediately make a move with" +
+                " it.","Storm of Vengeance: Those caught in this\r\ndeadly maelstrom find themselves battered\r\nby magical hammers" +
+                " and crushed by furious\r\nAzyrite energy.\r\nAfter moving this model, you can pick 1\r\nenemy unit within 1\" " +
+                "of this model and roll\r\n12 dice. For each roll of 6+, that unit suffers 1\r\nmortal wound. If the unit being rolled" +
+                " for is\r\na Chaos unit, it suffers 1 mortal wound for\r\neach roll of 5+ instead.","Tornado of Magic: A " +
+                "Celestian Vortex whips\r\nthe air around it into a tornado that disrupts\r\nattacks made with missile weapons." +
+                "\r\nSubtract 1 from hit rolls for attacks made\r\nwith missile weapons by units while they are\r\nwithin 6\" of this" +
+                " model." }, "A Celestian Vortex is a single model.", new List<string>{"ENDLESS SPELL", "AZYR", "CELESTIAN VORTEX"}),
+                new EndlessSpell()
+            };
+
         }
     }
 }
