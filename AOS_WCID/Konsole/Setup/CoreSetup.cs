@@ -134,6 +134,7 @@ namespace AOS_WCID.Konsole.Setup
                 if (NeedsCustomSubfaction(playerPick))
                 {
                     PickTenet();
+                    initialStuff.TenetList.Remove(playerPick.Tenets[0]);
                     PickTenetAbillity();
                     PickTenet();
                     PickTenetAbillity();
@@ -157,6 +158,7 @@ namespace AOS_WCID.Konsole.Setup
             chooseText.AppendLine(playerPick.Tenets.Count()==0 ? "Was ist deine erste Liste?" : "Was ist deine zweite Liste?") ;
 
             int tenetID = -1;
+            
             int tenetCount = initialStuff.TenetList.Count();
             bool isValidTenet = false;
 
@@ -167,7 +169,6 @@ namespace AOS_WCID.Konsole.Setup
                 {
                     Console.WriteLine($"{i} für {initialStuff.TenetList[i].Name}");
                 }
-
                 isValidTenet = IsValidInput(tenetCount, out tenetID);
             }
             playerPick.Tenets.Add( initialStuff.TenetList[tenetID]);
