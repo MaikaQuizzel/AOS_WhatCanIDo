@@ -30,7 +30,7 @@ namespace AOS_WCID.Logic
             CoreSetup setup = new CoreSetup(playerPick, initialStuff);
             UnitsSetup unitSetup = new UnitsSetup(playerPick, initialStuff);
 
-            Console.WriteLine(initialStuff.);
+            //Console.WriteLine(initialStuff.);
 
             setup.EingabeGameMode();
             setup.EingabeGrandAlliance();

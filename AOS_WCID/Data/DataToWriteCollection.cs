@@ -95,8 +95,8 @@ namespace AOS_WCID.Data
                 " for is\r\na Chaos unit, it suffers 1 mortal wound for\r\neach roll of 5+ instead.","Tornado of Magic: A " +
                 "Celestian Vortex whips\r\nthe air around it into a tornado that disrupts\r\nattacks made with missile weapons." +
                 "\r\nSubtract 1 from hit rolls for attacks made\r\nwith missile weapons by units while they are\r\nwithin 6\" of this" +
-                " model." }, "A Celestian Vortex is a single model.", new List<string>{"ENDLESS SPELL", "AZYR", "CELESTIAN VORTEX"}),
-                new EndlessSpell()
+                " model." }, "A Celestian Vortex is a single model.", new List<string>{"ENDLESS SPELL", "AZYR", "CELESTIAN VORTEX"})
+                //new EndlessSpell()
             };
 
         }
