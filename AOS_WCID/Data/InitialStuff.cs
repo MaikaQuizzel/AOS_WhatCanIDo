@@ -61,6 +61,8 @@ namespace AOS_WCID.Data
                 new Tenets("Tenates of the Shield", TenetAbilityListShield),
                 new Tenets("Tenates of the Tempest", TenetAbilityListTempest)
             };
+            DataManager.WriteTenetsJsonToPath(TenetList);
+            var test = DataManager.ReadTenetsJsonToPath();
         }
     }
 }
