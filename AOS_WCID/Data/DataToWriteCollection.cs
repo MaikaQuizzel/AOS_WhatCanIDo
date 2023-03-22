@@ -96,7 +96,20 @@ namespace AOS_WCID.Data
                 "Celestian Vortex whips\r\nthe air around it into a tornado that disrupts\r\nattacks made with missile weapons." +
                 "\r\nSubtract 1 from hit rolls for attacks made\r\nwith missile weapons by units while they are\r\nwithin 6\" of this" +
                 " model." }, "A Celestian Vortex is a single model.", new List<string>{"ENDLESS SPELL", "AZYR", "CELESTIAN VORTEX"}),
-                new EndlessSpell()
+                new EndlessSpell("EVERBLAZE COMET",0, "Summon Everblaze Comet: Reaching an\r\narm to the heavens, the wizard calls" +
+                " down a\r\npure comet of Azyrite energy. Radiating the\r\npure light of Sigmar’s realm, it crashes into\r\nthe foe’s " +
+                "ranks with devastating effect.\r\nSummon Everblaze Comet has a casting\r\nvalue of 6. Only Stormcast Eternal\r\nWizards" +
+                " can attempt to cast this spell. If\r\nsuccessfully cast, set up an Everblaze Comet\r\nmodel wholly within 36\" " +
+                "of the caster.", "", new List<string>{"Burning Vengeance: An Everblaze Comet\r\nsmashes into " +
+                "the battlefield with tremendous\r\nforce, whereupon it embeds itself into\r\nthe ground, " +
+                "radiating a corona of deadly\r\nAzyrite energies.\r\nAfter this model is set up, roll a dice" +
+                " for each\r\nunit within 10\" of this model. On a 1-2, that\r\nunit suffers 1 mortal wound." +
+                " On a 3-4, that\r\nunit suffers D3 mortal wounds. On a 5-6,\r\nthat unit suffers 3 mortal" +
+                " wounds.\r\nIn addition, at the start of each battle round,\r\nroll a dice for each unit" +
+                " within 5\" of this\r\nmodel. On a 1-3, that unit suffers 1 mortal\r\nwound. On a 4-6, that" +
+                " unit suffers D3\r\nmortal wounds.", "Arcane Disruption: The emanations from\r\nan Everblaze" +
+                " Comet disrupt the arcane\r\nabilities of nearby wizards.\r\nSubtract 1 from casting rolls" +
+                " for Wizards\r\nwhile they are within 5\" of this model."}, "An Everblaze Comet is a single model.", new List<string>{"ENDLESS SPELL", "AZYR", "EVERBLAZE COMET"})
             };
 
         }
