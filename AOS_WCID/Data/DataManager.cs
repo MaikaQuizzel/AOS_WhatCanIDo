@@ -19,6 +19,7 @@ namespace AOS_WCID.Data
         private static readonly string TEMPESTABILITIES = "TempestAbilities.json";
         private static readonly string BATALLION = "Batallion.json";
         private static readonly string ENDLESSSPELLS = "EndlessSpells.json";
+        private static readonly string HEROS = "Heros.json";
 
 
 
@@ -183,7 +184,23 @@ namespace AOS_WCID.Data
             return entities;
         }
 
+        public static void WriteHeroListJsonToPath(List<Hero> entities)
+        {
+            string path = HEROS;
+            string json = JsonSerializer.Serialize(entities);
+            File.WriteAllText(path, json);
+        }
+        public static List<Hero> ReadHeroListJsonToPath()
+        {
+            List<Hero> entities = new List<Hero>();
 
+            using (StreamReader r = new StreamReader(HEROS))
+            {
+                string json = r.ReadToEnd();
+                entities = JsonSerializer.Deserialize<List<Hero>>(json);
+            }
+            return entities;
+        }
 
         //public static void WriteListJsonToPath(List<> entities)
         //{
