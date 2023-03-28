@@ -184,7 +184,7 @@ namespace AOS_WCID.Data
             return entities;
         }
 
-        public static void WriteHeroListJsonToPath(List<Hero> entities)
+        public static void WriteHeroListJsonToPath(List<Entities.Hero> entities)
         {
             string path = HEROS;
             string json = JsonSerializer.Serialize(entities);

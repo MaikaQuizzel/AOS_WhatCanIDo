@@ -14,7 +14,8 @@ namespace AOS_WCID.Logic
         private Faction faction;
         private Subfaction subfaction;
         private Batallion batallion;
-        private List<Unit> armyList;
+        private List<Hero> _heroList;
+        private List<IUnit> _unitsList;
         private List<TenetAbility> tenetAbilities;
         private List<Tenets> tenets;
 
@@ -22,8 +23,9 @@ namespace AOS_WCID.Logic
         public PlayerPicks() 
         {
             tenetAbilities = new List<TenetAbility>();
-            armyList = new List<Unit>();
+            _heroList = new List<Hero>();
             Tenets = new List<Tenets>();
+            _unitsList = new List<IUnit>();
         }
 
         public string GameName { get => gameName; set => gameName = value; }
@@ -31,8 +33,9 @@ namespace AOS_WCID.Logic
         public Faction Faction { get => faction; set => faction = value; }
         public Subfaction Subfaction { get => subfaction; set => subfaction = value; }
         public Batallion Batallion { get => batallion; set => batallion = value; }
-        public List<Unit> ArmyList { get => armyList; set => armyList = value; }
+        public List<Hero> HeroList { get => _heroList; set => _heroList = value; }
         public List<TenetAbility> TenetAbilities { get => tenetAbilities; set => tenetAbilities = value; }
         public List<Tenets> Tenets { get => tenets; set => tenets = value; }
+        public List<IUnit> UnitsList { get => _unitsList; set => _unitsList = value; }
     }
 }

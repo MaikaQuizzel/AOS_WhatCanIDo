@@ -7,7 +7,7 @@ using AOS_WCID.Entities;
 
 namespace AOS_WCID
 {
-    public class Unit
+    public class Unit : IUnit
     {
         private int size;
         private string name;
@@ -50,5 +50,55 @@ namespace AOS_WCID
         public int Renown { get => renown; set => renown = value; }
         public bool IsGeneral { get => isGeneral; set => isGeneral = value; }
         public List<Ability> Abilities { get => abilities; set => abilities = value; }
+
+        public List<Attack> Attacks()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Move()
+        {
+            throw new NotImplementedException();
+        }
+
+        List<string> IModels.Abilities()
+        {
+            throw new NotImplementedException();
+        }
+
+        int IUnit.Bravery()
+        {
+            throw new NotImplementedException();
+        }
+
+        List<string> IModels.Keywords()
+        {
+            throw new NotImplementedException();
+        }
+
+        string IModels.Name()
+        {
+            throw new NotImplementedException();
+        }
+
+        int IUnit.Points()
+        {
+            throw new NotImplementedException();
+        }
+
+        int IUnit.Save()
+        {
+            throw new NotImplementedException();
+        }
+
+        int IUnit.Size()
+        {
+            throw new NotImplementedException();
+        }
+
+        int IUnit.Wounds()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

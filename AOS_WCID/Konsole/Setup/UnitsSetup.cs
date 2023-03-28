@@ -1,11 +1,7 @@
 ﻿using AOS_WCID.Data;
 using AOS_WCID.Entities;
 using AOS_WCID.Logic;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace AOS_WCID.Konsole.Setup
 {
@@ -43,7 +39,7 @@ namespace AOS_WCID.Konsole.Setup
         public void EingabeGeneral()
         {
             //wähle Hero als General
-            var general = HeroPick();
+            HeroPick(true);
             //wähle CommandTrait
             // wähle Artefact
             //wähle spell
@@ -57,16 +53,24 @@ namespace AOS_WCID.Konsole.Setup
                 //BattlelinePick
             }
         }
-        public Unit HeroPick() 
+        public void HeroPick(bool isGeneralPick) 
         {
             chooseText.Clear();
             chooseText.AppendLine("Wähle dein ");
-            chooseText.Append(playerPick.GameName.Equals(StringConstants.GAMEMODEPATH) ? "Kriegsherr" : "General");
+            if (isGeneralPick)
+            {
+                chooseText.Append(playerPick.GameName.Equals(StringConstants.GAMEMODEPATH) ? "Kriegsherr" : "General");
+            }
+            if (!isGeneralPick)
+            {
+                chooseText.Append("Helden");
+            }
+            
 
             int heroID = -1;
             bool isValidGeneral = false;
             int heroListCount = 0;
-            if (playerPick.GameName.Equals(StringConstants.GAMEMODEPATH))
+            if (playerPick.GameName.Equals(StringConstants.GAMEMODEPATH)&& isGeneralPick)
             {
                 int nonUniqueHerosCounter = 0;
                 for (int i = 0; i < initialStuff.HeroList.Count(); i++)
@@ -78,7 +82,7 @@ namespace AOS_WCID.Konsole.Setup
                 }
                 heroListCount = nonUniqueHerosCounter;
             }
-            if (playerPick.GameName.Equals("Normal")){
+           else{
                 heroListCount = initialStuff.HeroList.Count();
             }
             while (!isValidGeneral)
@@ -86,38 +90,57 @@ namespace AOS_WCID.Konsole.Setup
                 Console.WriteLine(chooseText.ToString());
                 for (int i = 0; i < heroListCount; i++)
                 {   
-                    //PTG WarlordPick
-                    if (playerPick.GameName.Equals(StringConstants.GAMEMODEPATH) && !initialStuff.HeroList[i].Keywords().Contains("UNIQUE"))
+
+                    if (isGeneralPick)
                     {
-                        Console.WriteLine();
+                        if (playerPick.GameName.Equals(StringConstants.GAMEMODEPATH))
+                        {
+                            //PTG Warlord
+                            if (!initialStuff.HeroList[i].Keywords().Contains("UNIQUE"))
+                            {
+                                Console.WriteLine($"{i} für  {initialStuff.HeroList[i].Name}");
+                            }
+                        }
+                        else
+                        {
+                            //General
+                            Console.WriteLine($"{i} für  {initialStuff.HeroList[i].Name}");
+                        }
                     }
-                    //Normal General Pick
+                    else
+                    {
+                        //normaler Hero in liste
+                        Console.WriteLine($"{i} für  {initialStuff.HeroList[i].Name}");
+                    }
+                    
                 }
+
+                isValidGeneral = IsValidInput(heroListCount,out heroID);
+
+                playerPick.HeroList.Add(initialStuff.HeroList[heroID]);
             }
+        }
+        public void BattlelinePick() {  }
+        public void AttelleryPick() {  }
+        public void EndlessSpellPick() {  }
+        public void OtherPick() {  }
+
+
+        public void AuswahlAbility()
+        {
+           
+        }
+        public void AuswahlCommandTrait()
+        {
             
-            return null;
         }
-        public Unit BattlelinePick() { return null; }
-        public Unit AttelleryPick() { return null; }
-        public EndlessSpell EndlessSpellPick() { return null; }
-        public Unit OtherPick() { return null; }
-
-
-        public Ability AuswahlAbility()
+        public void AuswahlArtefact()
         {
-            return null;
+            
         }
-        public CommandTrait AuswahlCommandTrait()
+        public void AuswahlSpell()
         {
-            return null;
-        }
-        public Artefact AuswahlArtefact()
-        {
-            return null;
-        }
-        public Spell AuswahlSpell()
-        {
-            return null;
+            
         }
     }
 }
