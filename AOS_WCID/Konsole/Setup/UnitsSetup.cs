@@ -180,6 +180,9 @@ namespace AOS_WCID.Konsole.Setup
         }
         public void AuswahlSpell()
         {
+            int spellID = -1;
+            int spellListCount = initialStuff.SpellList.Count();
+            bool isValidID = false;
             
         }
     }
