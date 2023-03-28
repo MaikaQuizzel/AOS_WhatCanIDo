@@ -43,8 +43,12 @@ namespace AOS_WCID.Konsole.Setup
             //wähle CommandTrait
             AuswahlCommandTrait();
             // wähle Artefact
-           
+            AuswahlArtefact();
             //wähle spell
+            if (playerPick.HeroList.First().Keywords().Contains("WIZARD"))
+            {
+                AuswahlSpell();
+            }
         }
         public void EingabeUnits()
         {
@@ -156,7 +160,23 @@ namespace AOS_WCID.Konsole.Setup
         }
         public void AuswahlArtefact()
         {
-            
+            int artefactID = -1;
+            int artefactListCount = initialStuff.ArtefactList.Count();
+            bool isValidID = false;
+
+            chooseText.Clear();
+            chooseText.AppendLine($"Choose your Artefacts.");
+            while (!isValidID)
+            {
+                Console.WriteLine(chooseText.ToString());
+                for (int i = 0; i < artefactListCount; i++)
+                {
+                    Console.WriteLine($"{i} für {initialStuff.ArtefactList[i].Name}");
+                }
+                isValidID = IsValidInput(artefactListCount, out artefactID);
+            }
+            playerPick.ArtefactList.Add(initialStuff.ArtefactList[artefactID]);
+            chooseText.Clear();
         }
         public void AuswahlSpell()
         {

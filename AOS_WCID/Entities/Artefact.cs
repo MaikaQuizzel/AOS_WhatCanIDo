@@ -8,6 +8,16 @@ namespace AOS_WCID.Entities
 {
     public class Artefact
     {
-        public string description;
+        private string _name;
+        private string _description;
+
+        public Artefact(string name, string description)
+        {
+            _name = name;
+            _description = description;
+        }
+
+        public string Name { get => _name; set => _name = value; }
+        public string Description { get => _description; set => _description = value; }
     }
 }
