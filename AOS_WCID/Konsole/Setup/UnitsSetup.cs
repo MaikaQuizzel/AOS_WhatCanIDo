@@ -43,7 +43,7 @@ namespace AOS_WCID.Konsole.Setup
         public void EingabeGeneral()
         {
             //wähle Hero als General
-            // HeroPick()
+            var general = HeroPick();
             //wähle CommandTrait
             // wähle Artefact
             //wähle spell
@@ -57,7 +57,46 @@ namespace AOS_WCID.Konsole.Setup
                 //BattlelinePick
             }
         }
-        public Unit HeroPick() { return null; }
+        public Unit HeroPick() 
+        {
+            chooseText.Clear();
+            chooseText.AppendLine("Wähle dein ");
+            chooseText.Append(playerPick.GameName.Equals(StringConstants.GAMEMODEPATH) ? "Kriegsherr" : "General");
+
+            int heroID = -1;
+            bool isValidGeneral = false;
+            int heroListCount = 0;
+            if (playerPick.GameName.Equals(StringConstants.GAMEMODEPATH))
+            {
+                int nonUniqueHerosCounter = 0;
+                for (int i = 0; i < initialStuff.HeroList.Count(); i++)
+                {
+                    if (!initialStuff.HeroList[i].Keywords().Contains("UNIQUE"))
+                    {
+                        nonUniqueHerosCounter++;
+                    }
+                }
+                heroListCount = nonUniqueHerosCounter;
+            }
+            if (playerPick.GameName.Equals("Normal")){
+                heroListCount = initialStuff.HeroList.Count();
+            }
+            while (!isValidGeneral)
+            {
+                Console.WriteLine(chooseText.ToString());
+                for (int i = 0; i < heroListCount; i++)
+                {   
+                    //PTG WarlordPick
+                    if (playerPick.GameName.Equals(StringConstants.GAMEMODEPATH) && !initialStuff.HeroList[i].Keywords().Contains("UNIQUE"))
+                    {
+                        Console.WriteLine();
+                    }
+                    //Normal General Pick
+                }
+            }
+            
+            return null;
+        }
         public Unit BattlelinePick() { return null; }
         public Unit AttelleryPick() { return null; }
         public EndlessSpell EndlessSpellPick() { return null; }
