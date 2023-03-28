@@ -41,6 +41,7 @@ namespace AOS_WCID.Konsole.Setup
             //wähle Hero als General
             HeroPick(true);
             //wähle CommandTrait
+
             // wähle Artefact
             //wähle spell
         }

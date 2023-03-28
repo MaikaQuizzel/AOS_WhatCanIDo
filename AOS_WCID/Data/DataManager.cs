@@ -20,6 +20,7 @@ namespace AOS_WCID.Data
         private static readonly string BATALLION = "Batallion.json";
         private static readonly string ENDLESSSPELLS = "EndlessSpells.json";
         private static readonly string HEROS = "Heros.json";
+        private static readonly string COMMANDTRAITS = "CommandTraits.json";
 
 
 
@@ -198,6 +199,23 @@ namespace AOS_WCID.Data
             {
                 string json = r.ReadToEnd();
                 entities = JsonSerializer.Deserialize<List<Hero>>(json);
+            }
+            return entities;
+        }
+        public static void WriteCommandsListJsonToPath(List<CommandTrait> entities)
+        {
+            string path = COMMANDTRAITS;
+            string json = JsonSerializer.Serialize(entities);
+            File.WriteAllText(path, json);
+        }
+        public static List<CommandTrait> ReadCommandsListJsonToPath()
+        {
+            List<CommandTrait> entities = new List<CommandTrait>();
+
+            using (StreamReader r = new StreamReader(COMMANDTRAITS))
+            {
+                string json = r.ReadToEnd();
+                entities = JsonSerializer.Deserialize<List<CommandTrait>>(json);
             }
             return entities;
         }

@@ -18,6 +18,7 @@ namespace AOS_WCID.Data
         private List<TenetAbility> tenetAbilityListTempest;
         private List<Batallion> batallionList;
         private List<Hero> heroList;
+        private List<CommandTrait> _commandTraitList;
 
 
         public DataProvider() { }
@@ -31,6 +32,7 @@ namespace AOS_WCID.Data
         public List<TenetAbility> TenetAbilityListTempest { get => tenetAbilityListTempest; set => tenetAbilityListTempest = value; }
         public List<Batallion> BatallionList { get => batallionList; set => batallionList = value; }
         public List<Hero> HeroList { get => heroList; set => heroList = value; }
+        public List<CommandTrait> CommandTraitList { get => _commandTraitList; set => _commandTraitList = value; }
 
         public void InitializeStuff()
         {
@@ -51,7 +53,9 @@ namespace AOS_WCID.Data
 
             BatallionList = DataManager.ReadBatallionListJsonToPath();
 
-            HeroList = DataManager.ReadHeroListJsonToPath();   
+            HeroList = DataManager.ReadHeroListJsonToPath();  
+            
+            CommandTraitList = DataManager.ReadCommandsListJsonToPath();
         }
     }
 }

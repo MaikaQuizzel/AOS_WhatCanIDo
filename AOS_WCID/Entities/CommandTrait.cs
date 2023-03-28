@@ -8,6 +8,16 @@ namespace AOS_WCID.Entities
 {
     public class CommandTrait
     {
-        public string description { get; set; }
+        string name;
+        string description;
+
+        public CommandTrait(string name, string description)
+        {
+            this.name = name;
+            this.description = description;
+        }
+
+        public string Name { get => name;  }
+        public string Description { get => description;  }
     }
 }
