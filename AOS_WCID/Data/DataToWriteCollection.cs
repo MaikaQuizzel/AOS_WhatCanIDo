@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,6 +20,7 @@ namespace AOS_WCID.Data
         private List<Batallion> batallionList;
         private List<EndlessSpell> endlessSpellList;
         private List<Entities.Hero> _herolist; 
+        private List<CommandTrait> _commandTraitList;
 
 
         public DataToWriteCollection() { }
@@ -33,6 +35,7 @@ namespace AOS_WCID.Data
         public List<Batallion> BatallionList { get => batallionList; set => batallionList = value; }
         public List<EndlessSpell> EndlessSpellList { get => endlessSpellList; set => endlessSpellList = value; }
         public List<Entities.Hero> Herlist { get => _herolist; set => _herolist = value; }
+        public List<CommandTrait> CommandTraitList { get => _commandTraitList; set => _commandTraitList = value; }
 
         public void WriteStuffNow()
         {
@@ -137,7 +140,11 @@ namespace AOS_WCID.Data
                 "cannot be re-rolled, but any modifiers are applied to it as normal.", "Eye of the Celestial Storm: This unit has a ward of 4+." })
             };
             DataManager.WriteHeroListJsonToPath(_herolist);
-
+            _commandTraitList = new List<CommandTrait>()
+            {
+                new CommandTrait("Master of Magic", "nce per hero phase, you can re-roll one casting roll, dispelling roll or unbinding roll for this general."),
+                new CommandTrait("Battle-lust", "You can re-roll run rolls and charge rolls for this general.")
+            };
  
         }
     }

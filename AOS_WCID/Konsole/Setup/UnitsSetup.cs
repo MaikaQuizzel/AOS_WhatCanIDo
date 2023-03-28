@@ -41,8 +41,9 @@ namespace AOS_WCID.Konsole.Setup
             //wähle Hero als General
             HeroPick(true);
             //wähle CommandTrait
-
+            AuswahlCommandTrait();
             // wähle Artefact
+           
             //wähle spell
         }
         public void EingabeUnits()
@@ -133,6 +134,24 @@ namespace AOS_WCID.Konsole.Setup
         }
         public void AuswahlCommandTrait()
         {
+            int commandTraitID = -1;
+            int commandTraitListCount = initialStuff.CommandTraitList.Count();
+            bool isValidID = false;
+
+            chooseText.Clear();
+            chooseText.AppendLine($"Choose your command trait for {playerPick.HeroList.First().Name}");
+
+            while (!isValidID)
+            {
+                Console.WriteLine(chooseText.ToString());
+                for (int i = 0; i < commandTraitListCount; i++)
+                {
+                    Console.WriteLine($"{i} für {initialStuff.CommandTraitList[i].Name}");
+                }
+                isValidID = IsValidInput(commandTraitListCount, out commandTraitID);
+            }
+            playerPick.CommandTrait = initialStuff.CommandTraitList[commandTraitID];
+            chooseText.Clear();
             
         }
         public void AuswahlArtefact()

@@ -18,6 +18,7 @@ namespace AOS_WCID.Logic
         private List<IUnit> _unitsList;
         private List<TenetAbility> tenetAbilities;
         private List<Tenets> tenets;
+        private CommandTrait _commandTrait;
 
 
         public PlayerPicks() 
@@ -37,5 +38,6 @@ namespace AOS_WCID.Logic
         public List<TenetAbility> TenetAbilities { get => tenetAbilities; set => tenetAbilities = value; }
         public List<Tenets> Tenets { get => tenets; set => tenets = value; }
         public List<IUnit> UnitsList { get => _unitsList; set => _unitsList = value; }
+        public CommandTrait CommandTrait { get => _commandTrait; set => _commandTrait = value; }
     }
 }
