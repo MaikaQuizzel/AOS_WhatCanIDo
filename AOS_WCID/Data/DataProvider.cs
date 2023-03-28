@@ -19,6 +19,8 @@ namespace AOS_WCID.Data
         private List<Batallion> batallionList;
         private List<Hero> heroList;
         private List<CommandTrait> _commandTraitList;
+        private List<Artefact> _artefactList;
+        private List<Spell> _spellList;
 
 
         public DataProvider() { }
@@ -33,6 +35,8 @@ namespace AOS_WCID.Data
         public List<Batallion> BatallionList { get => batallionList; set => batallionList = value; }
         public List<Hero> HeroList { get => heroList; set => heroList = value; }
         public List<CommandTrait> CommandTraitList { get => _commandTraitList; set => _commandTraitList = value; }
+        public List<Artefact> ArtefactList { get => _artefactList; set => _artefactList = value; }
+        public List<Spell> SpellList { get => _spellList; set => _spellList = value; }
 
         public void InitializeStuff()
         {
@@ -56,6 +60,10 @@ namespace AOS_WCID.Data
             HeroList = DataManager.ReadHeroListJsonToPath();  
             
             CommandTraitList = DataManager.ReadCommandsListJsonToPath();
+
+            ArtefactList = DataManager.ReadArtefactListJsonToPath();   
+            
+            SpellList = DataManager.ReadSpellListJsonToPath();  
         }
     }
 }

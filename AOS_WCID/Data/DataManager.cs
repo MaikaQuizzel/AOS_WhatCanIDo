@@ -21,6 +21,8 @@ namespace AOS_WCID.Data
         private static readonly string ENDLESSSPELLS = "EndlessSpells.json";
         private static readonly string HEROS = "Heros.json";
         private static readonly string COMMANDTRAITS = "CommandTraits.json";
+        private static readonly string ARTAFACTS = "Artefacrts.json";
+        private static readonly string SPELLS = "Spells.json";
 
 
 
@@ -216,6 +218,40 @@ namespace AOS_WCID.Data
             {
                 string json = r.ReadToEnd();
                 entities = JsonSerializer.Deserialize<List<CommandTrait>>(json);
+            }
+            return entities;
+        }
+        public static void WriteArtefactListJsonToPath(List<Artefact> entities)
+        {
+            string path = ARTAFACTS;
+            string json = JsonSerializer.Serialize(entities);
+            File.WriteAllText(path, json);
+        }
+        public static List<Artefact> ReadArtefactListJsonToPath()
+        {
+            List<Artefact> entities = new List<Artefact>();
+
+            using (StreamReader r = new StreamReader(ARTAFACTS))
+            {
+                string json = r.ReadToEnd();
+                entities = JsonSerializer.Deserialize<List<Artefact>>(json);
+            }
+            return entities;
+        }
+        public static void WriteSpellListJsonToPath(List<Spell> entities)
+        {
+            string path = SPELLS;
+            string json = JsonSerializer.Serialize(entities);
+            File.WriteAllText(path, json);
+        }
+        public static List<Spell> ReadSpellListJsonToPath()
+        {
+            List<Spell> entities = new List<Spell>();
+
+            using (StreamReader r = new StreamReader(SPELLS))
+            {
+                string json = r.ReadToEnd();
+                entities = JsonSerializer.Deserialize<List<Spell>>(json);
             }
             return entities;
         }
