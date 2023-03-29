@@ -23,6 +23,7 @@ namespace AOS_WCID.Data
         private static readonly string COMMANDTRAITS = "CommandTraits.json";
         private static readonly string ARTAFACTS = "Artefacrts.json";
         private static readonly string SPELLS = "Spells.json";
+        private static readonly string PRAYER = "Prayer.json";
 
 
 
@@ -252,6 +253,23 @@ namespace AOS_WCID.Data
             {
                 string json = r.ReadToEnd();
                 entities = JsonSerializer.Deserialize<List<Spell>>(json);
+            }
+            return entities;
+        }
+        public static void WritePrayerListJsonToPath(List<Prayer> entities)
+        {
+            string path = PRAYER;
+            string json = JsonSerializer.Serialize(entities);
+            File.WriteAllText(path, json);
+        }
+        public static List<Prayer> ReadPrayerListJsonToPath()
+        {
+            List<Prayer> entities = new List<Prayer>();
+
+            using (StreamReader r = new StreamReader(PRAYER))
+            {
+                string json = r.ReadToEnd();
+                entities = JsonSerializer.Deserialize<List<Prayer>>(json);
             }
             return entities;
         }

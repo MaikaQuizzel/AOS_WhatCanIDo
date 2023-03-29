@@ -22,6 +22,7 @@ namespace AOS_WCID.Data
         private List<Entities.Hero> _herolist; 
         private List<CommandTrait> _commandTraitList;
         private List<Spell> _spellList;
+        private List<Prayer> _prayerList;
 
 
         public DataToWriteCollection() { }
@@ -38,6 +39,7 @@ namespace AOS_WCID.Data
         public List<Entities.Hero> Herlist { get => _herolist; set => _herolist = value; }
         public List<CommandTrait> CommandTraitList { get => _commandTraitList; set => _commandTraitList = value; }
         public List<Spell> SpellList { get => _spellList; set => _spellList = value; }
+        public List<Prayer> PrayerList { get => _prayerList; set => _prayerList = value; }
 
         public void WriteStuffNow()
         {
@@ -147,11 +149,20 @@ namespace AOS_WCID.Data
                 new CommandTrait("Master of Magic", "nce per hero phase, you can re-roll one casting roll, dispelling roll or unbinding roll for this general."),
                 new CommandTrait("Battle-lust", "You can re-roll run rolls and charge rolls for this general.")
             };
+            DataManager.WriteCommandsListJsonToPath(_commandTraitList);
             _spellList = new List<Spell>()
             {
                 new Spell("Arcane Bolt", "Arcane Bolt is a spell that has a casting value of 5 and a range of 12\". If successfully cast, at the start of any 1 phase before your next hero phase, you can pick 1 enemy unit within range and visible to the caster. That unit suffers 1 mortal wound. If that unit is within 3\" of the caster, it suffers D3 mortal wounds instead of 1."),
                 new Spell("Mystic Shield", "Mystic Shield is a spell that has a casting value of 5 and a range of 12\". If successfully cast, pick 1 friendly unit wholly within range and visible to the caster. Add 1 to save rolls for attacks that target that unit until your next hero phase.")
             };
+            DataManager.WriteSpellListJsonToPath(_spellList);
+            _prayerList = new List<Prayer>()
+            {
+                new Prayer("Heal", "Answer value 3. Pick 1 friendly model within 12″ and visible to the chanter. You can heal up to D3 wounds allocated to that model."),
+                new Prayer("Guidance","Answer value 5. Receive 1 command point."),
+                new Prayer("Curse","Answer value 4. Pick 1 enemy unit within 9″ and visible to the chanter. Until your next hero phase, if the unmodified hit roll for an attack that targets that unit is 6, that unit suffers 1 mortal wound in addition to any normal damage")
+            };
+            
  
         }
     }

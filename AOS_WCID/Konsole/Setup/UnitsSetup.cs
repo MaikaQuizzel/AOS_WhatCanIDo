@@ -51,7 +51,7 @@ namespace AOS_WCID.Konsole.Setup
             }
             if (playerPick.HeroList.First().Keywords().Contains(""))
             {
-
+                PickPrayer();
             }
         }
         public void EingabeUnits()
@@ -206,7 +206,23 @@ namespace AOS_WCID.Konsole.Setup
         public void PickPrayer()
         {
             int prayerID = -1;
+            int prayerListCount = initialStuff.PrayerList.Count();
+            bool isValidID = false;
 
+            chooseText.Clear();
+            chooseText.AppendLine("Choose a Prayer");
+
+            while (!isValidID)
+            {
+                Console.WriteLine(chooseText.ToString());
+                for (int i = 0; i < prayerListCount; i++)
+                {
+                    Console.WriteLine($"{i} für {initialStuff.PrayerList[i].Name}");
+                }
+                isValidID = IsValidInput(prayerListCount, out prayerID);
+            }
+            playerPick.PrayerList.Add(initialStuff.PrayerList[prayerID]);
+            chooseText.Clear();
         }
     }
 }

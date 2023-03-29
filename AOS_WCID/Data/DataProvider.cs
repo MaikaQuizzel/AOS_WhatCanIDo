@@ -21,6 +21,7 @@ namespace AOS_WCID.Data
         private List<CommandTrait> _commandTraitList;
         private List<Artefact> _artefactList;
         private List<Spell> _spellList;
+        private List<Prayer> _prayerList;
 
 
         public DataProvider() { }
@@ -37,6 +38,7 @@ namespace AOS_WCID.Data
         public List<CommandTrait> CommandTraitList { get => _commandTraitList; set => _commandTraitList = value; }
         public List<Artefact> ArtefactList { get => _artefactList; set => _artefactList = value; }
         public List<Spell> SpellList { get => _spellList; set => _spellList = value; }
+        public List<Prayer> PrayerList { get => _prayerList; set => _prayerList = value; }
 
         public void InitializeStuff()
         {
@@ -64,6 +66,8 @@ namespace AOS_WCID.Data
             ArtefactList = DataManager.ReadArtefactListJsonToPath();   
             
             SpellList = DataManager.ReadSpellListJsonToPath();  
+
+            PrayerList = DataManager.ReadPrayerListJsonToPath();
         }
     }
 }

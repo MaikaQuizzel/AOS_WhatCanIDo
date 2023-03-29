@@ -21,6 +21,7 @@ namespace AOS_WCID.Logic
         private CommandTrait _commandTrait;
         private List<Artefact> _artefactList;
         private List<Spell> _spellList;
+        private List<Prayer> _prayerList;
 
 
         public PlayerPicks() 
@@ -31,6 +32,7 @@ namespace AOS_WCID.Logic
             _unitsList = new List<IUnit>();
             _artefactList = new List<Artefact>();
             _spellList = new List<Spell>();
+            _prayerList = new List<Prayer>();
         }
 
         public string GameName { get => gameName; set => gameName = value; }
@@ -45,5 +47,6 @@ namespace AOS_WCID.Logic
         public CommandTrait CommandTrait { get => _commandTrait; set => _commandTrait = value; }
         public List<Artefact> ArtefactList { get => _artefactList; set => _artefactList = value; }
         public List<Spell> SpellList { get => _spellList; set => _spellList = value; }
+        public List<Prayer> PrayerList { get => _prayerList; set => _prayerList = value; }
     }
 }
