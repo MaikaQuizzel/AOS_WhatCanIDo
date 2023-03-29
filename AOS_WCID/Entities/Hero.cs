@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AOS_WCID.Entities
 {
-    public class Hero 
+    public class Hero :IUnit
     {
         string _name;
         int _move;

@@ -38,21 +38,8 @@ namespace AOS_WCID.Konsole.Setup
         }
         public void EingabeGeneral()
         {
-            //wähle Hero als General
             HeroPick(true);
-            //wähle CommandTrait
             AuswahlCommandTrait();
-            // wähle Artefact
-            AuswahlArtefact();
-            //wähle spell
-            if (playerPick.HeroList.First().Keywords().Contains("WIZARD"))
-            {
-                AuswahlSpell();
-            }
-            if (playerPick.HeroList.First().Keywords().Contains(""))
-            {
-                PickPrayer();
-            }
         }
         public void EingabeUnits()
         {
@@ -76,7 +63,6 @@ namespace AOS_WCID.Konsole.Setup
                 chooseText.Append("Helden");
             }
             
-
             int heroID = -1;
             bool isValidGeneral = false;
             int heroListCount = 0;
@@ -127,27 +113,56 @@ namespace AOS_WCID.Konsole.Setup
 
                 isValidGeneral = IsValidInput(heroListCount,out heroID);
 
-                playerPick.HeroList.Add(initialStuff.HeroList[heroID]);
+                
             }
+            playerPick.HeroList.Add(initialStuff.HeroList[heroID]);
+            if (playerPick.HeroList.Last().Keywords().Contains("WIZARD"))
+            {
+                AuswahlSpell();
+            }
+            if (playerPick.HeroList.Last().Keywords().Contains(""))
+            {
+                PickPrayer();
+            }
+            AuswahlArtefact();
         }
         public void BattlelinePick() {  }
         public void AttelleryPick() {  }
         public void EndlessSpellPick() {  }
         public void OtherPick() {  }
-
-
-        public void AuswahlAbility()
-        {
-           
-        }
         public void AuswahlCommandTrait()
         {
             int commandTraitID = -1;
             int commandTraitListCount = initialStuff.CommandTraitList.Count();
             bool isValidID = false;
 
+            Hero hero;
             chooseText.Clear();
-            chooseText.AppendLine($"Choose your command trait for {playerPick.HeroList.First().Name}");
+            if (playerPick.HeroList.Count()>1 && playerPick.GameName == StringConstants.GAMEMODEPATH)
+            {
+                    hero = playerPick.HeroList.Last();
+            }
+            else
+            {
+                hero = playerPick.HeroList.First();
+            }
+            chooseText.AppendLine($"Choose your command trait for {hero.Name}");
+            while (!isValidID)
+            {
+                Console.WriteLine(chooseText.ToString());
+                for (int i = 0; i < commandTraitListCount; i++)
+                {
+                    Console.WriteLine($"{i} für {initialStuff.CommandTraitList[i].Name}");
+                }
+                isValidID = IsValidInput(commandTraitListCount, out commandTraitID);
+            }
+            playerPick.CommandTrait = initialStuff.CommandTraitList[commandTraitID];
+            playerPick.CommandTrait.Owner = hero;
+
+            chooseText.Clear();
+            
+            chooseText.Clear();
+            chooseText.AppendLine($"Choose your command trait for {hero.Name}");
 
             while (!isValidID)
             {
@@ -159,6 +174,8 @@ namespace AOS_WCID.Konsole.Setup
                 isValidID = IsValidInput(commandTraitListCount, out commandTraitID);
             }
             playerPick.CommandTrait = initialStuff.CommandTraitList[commandTraitID];
+            playerPick.CommandTrait.Owner = playerPick.HeroList.First();
+
             chooseText.Clear();
             
         }
@@ -167,9 +184,9 @@ namespace AOS_WCID.Konsole.Setup
             int artefactID = -1;
             int artefactListCount = initialStuff.ArtefactList.Count();
             bool isValidID = false;
-
+            Hero hero = playerPick.HeroList.Last();
             chooseText.Clear();
-            chooseText.AppendLine($"Choose your Artefacts.");
+            chooseText.AppendLine($"Choose your Artefacts for {hero.Name}");
             while (!isValidID)
             {
                 Console.WriteLine(chooseText.ToString());
@@ -180,6 +197,7 @@ namespace AOS_WCID.Konsole.Setup
                 isValidID = IsValidInput(artefactListCount, out artefactID);
             }
             playerPick.ArtefactList.Add(initialStuff.ArtefactList[artefactID]);
+            playerPick.ArtefactList.Last().Owner = hero;
             chooseText.Clear();
         }
         public void AuswahlSpell()
@@ -187,9 +205,10 @@ namespace AOS_WCID.Konsole.Setup
             int spellID = -1;
             int spellListCount = initialStuff.SpellList.Count();
             bool isValidID = false;
+            Hero hero = playerPick.HeroList.Last();
 
             chooseText.Clear();
-            chooseText.AppendLine("Choose a Spell");
+            chooseText.AppendLine($"Choose a Spell for {hero.Name}");
 
             while (!isValidID)
             {
@@ -201,6 +220,7 @@ namespace AOS_WCID.Konsole.Setup
                 isValidID = IsValidInput(spellListCount, out spellID);
             }
             playerPick.SpellList.Add(initialStuff.SpellList[spellID]);
+            playerPick.SpellList.Last().Owner = hero;
             chooseText.Clear();
         }
         public void PickPrayer()
@@ -208,9 +228,10 @@ namespace AOS_WCID.Konsole.Setup
             int prayerID = -1;
             int prayerListCount = initialStuff.PrayerList.Count();
             bool isValidID = false;
+            Hero hero = playerPick.HeroList.Last();
 
             chooseText.Clear();
-            chooseText.AppendLine("Choose a Prayer");
+            chooseText.AppendLine($"Choose a Prayer for {hero.Name}" );
 
             while (!isValidID)
             {
@@ -222,6 +243,7 @@ namespace AOS_WCID.Konsole.Setup
                 isValidID = IsValidInput(prayerListCount, out prayerID);
             }
             playerPick.PrayerList.Add(initialStuff.PrayerList[prayerID]);
+            playerPick.PrayerList.Last().Owner = hero;
             chooseText.Clear();
         }
     }
