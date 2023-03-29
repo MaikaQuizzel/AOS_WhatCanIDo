@@ -44,10 +44,55 @@ namespace AOS_WCID.Konsole.Setup
         public void EingabeUnits()
         {
             bool auswahlFertig = false;
+            chooseText.Clear();
+            chooseText.AppendLine("What do you want to add?");
+            chooseText.AppendLine("1 for hero");
+            chooseText.AppendLine("2 for battleline");
+            chooseText.AppendLine("3 for attelery");
+            chooseText.AppendLine("4 for  endless spell");
+            chooseText.AppendLine("5 for other");
+            chooseText.AppendLine("f for finish");
+            
+            ConsolenReader reader = new ConsolenReader();
+            string userinput = reader.GetLine();
+            int userInt;
             while (!auswahlFertig)
             {
-                //HeroPick()
-                //BattlelinePick
+                Console.WriteLine(chooseText.ToString());
+
+                if (userinput.Equals("f"))
+                {
+                    auswahlFertig = true;
+                    return;
+                }
+                if(int.TryParse(userinput, out userInt))
+                {
+                    if (userInt ==1)
+                    {
+                        HeroPick(false);
+                        continue;
+                    }
+                    if (userInt == 2)
+                    {
+                        BattlelinePick();
+                        continue;
+                    }
+                    if (userInt == 3)
+                    {
+                        AttelleryPick();
+                        continue;
+                    }
+                    if (userInt == 4)
+                    {
+                        EndlessSpellPick();
+                        continue;
+                    }
+                    if (userInt == 5)
+                    {
+                        OtherPick();
+                        continue;
+                    }
+                }
             }
         }
         public void HeroPick(bool isGeneralPick) 
