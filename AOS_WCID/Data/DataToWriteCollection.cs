@@ -23,6 +23,7 @@ namespace AOS_WCID.Data
         private List<CommandTrait> _commandTraitList;
         private List<Spell> _spellList;
         private List<Prayer> _prayerList;
+        private List<Artefact> _artefactList;
 
 
         public DataToWriteCollection() { }
@@ -40,6 +41,7 @@ namespace AOS_WCID.Data
         public List<CommandTrait> CommandTraitList { get => _commandTraitList; set => _commandTraitList = value; }
         public List<Spell> SpellList { get => _spellList; set => _spellList = value; }
         public List<Prayer> PrayerList { get => _prayerList; set => _prayerList = value; }
+        public List<Artefact> ArtefactList { get => _artefactList; set => _artefactList = value; }
 
         public void WriteStuffNow()
         {
@@ -162,7 +164,14 @@ namespace AOS_WCID.Data
                 new Prayer("Guidance","Answer value 5. Receive 1 command point."),
                 new Prayer("Curse","Answer value 4. Pick 1 enemy unit within 9″ and visible to the chanter. Until your next hero phase, if the unmodified hit roll for an attack that targets that unit is 6, that unit suffers 1 mortal wound in addition to any normal damage")
             };
-            
+            DataManager.WritePrayerListJsonToPath(_prayerList);
+            _artefactList = new List<Artefact>()
+            {
+                new Artefact("Amulet of Destiny","The bearer has a ward of 5+. "),
+                new Artefact("Vial of Manticore Venom","Pick 1 of the bearer’s melee weapons. Add 1 to wound rolls for attacks made with that weapon."),
+                new Artefact("Arcane Tome","The bearer becomes a Wizard that knows the Arcane Bolt and Mystic Shield spells. They can attempt to cast 1 spell in your hero phase and attempt to unbind 1 spell in the enemy hero phase. If the bearer is already a Wizard, they can attempt to cast 1 additional spell instead.")
+            };
+            DataManager.WriteArtefactListJsonToPath(_artefactList);
  
         }
     }
