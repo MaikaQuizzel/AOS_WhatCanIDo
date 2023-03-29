@@ -49,6 +49,10 @@ namespace AOS_WCID.Konsole.Setup
             {
                 AuswahlSpell();
             }
+            if (playerPick.HeroList.First().Keywords().Contains(""))
+            {
+
+            }
         }
         public void EingabeUnits()
         {
@@ -183,7 +187,26 @@ namespace AOS_WCID.Konsole.Setup
             int spellID = -1;
             int spellListCount = initialStuff.SpellList.Count();
             bool isValidID = false;
-            
+
+            chooseText.Clear();
+            chooseText.AppendLine("Choose a Spell");
+
+            while (!isValidID)
+            {
+                Console.WriteLine(chooseText.ToString());
+                for (int i = 0; i < spellListCount; i++)
+                {
+                    Console.WriteLine($"{i} für {initialStuff.SpellList[i].Name}");
+                }
+                isValidID = IsValidInput(spellListCount, out spellID);
+            }
+            playerPick.SpellList.Add(initialStuff.SpellList[spellID]);
+            chooseText.Clear();
+        }
+        public void PickPrayer()
+        {
+            int prayerID = -1;
+
         }
     }
 }
