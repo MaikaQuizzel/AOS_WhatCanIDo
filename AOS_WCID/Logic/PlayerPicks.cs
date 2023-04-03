@@ -22,6 +22,7 @@ namespace AOS_WCID.Logic
         private List<Artefact> _artefactList;
         private List<Spell> _spellList;
         private List<Prayer> _prayerList;
+        private List<EndlessSpell> _endlessSpellList;
 
 
         public PlayerPicks() 
@@ -33,6 +34,7 @@ namespace AOS_WCID.Logic
             _artefactList = new List<Artefact>();
             _spellList = new List<Spell>();
             _prayerList = new List<Prayer>();
+            _endlessSpellList = new List<EndlessSpell>();
         }
 
         public string GameName { get => gameName; set => gameName = value; }
@@ -48,5 +50,6 @@ namespace AOS_WCID.Logic
         public List<Artefact> ArtefactList { get => _artefactList; set => _artefactList = value; }
         public List<Spell> SpellList { get => _spellList; set => _spellList = value; }
         public List<Prayer> PrayerList { get => _prayerList; set => _prayerList = value; }
+        public List<EndlessSpell> EndlessSpellList { get => _endlessSpellList; set => _endlessSpellList = value; }
     }
 }

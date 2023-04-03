@@ -19,7 +19,7 @@ namespace AOS_WCID.Konsole.Setup
 
         public void EingabeBattallion()
         {
-            chooseText.AppendLine("Welches Batallion willst du spielen?");
+            chooseText.AppendLine("Which Battalion you want to play?");
 
             int batallionID = -1;
             int batallionListCount = initialStuff.BatallionList.Count();
@@ -79,7 +79,7 @@ namespace AOS_WCID.Konsole.Setup
                     }
                     if (userInt == 3)
                     {
-                        AttelleryPick();
+                        ArtelleryPick();
                         continue;
                     }
                     if (userInt == 4)
@@ -199,14 +199,14 @@ namespace AOS_WCID.Konsole.Setup
             playerPick.UnitsList.Add(battlelineList[battlelineID]);
 
         }
-        public void AttelleryPick() 
+        public void ArtelleryPick() 
         {
             chooseText.Clear();
-            chooseText.AppendLine("Which atillery wuld you like to add?");
+            chooseText.AppendLine("Which artillery wuld you like to add?");
             List<Units> attileryList = new List<Units>();
             for (int i = 0; i < initialStuff.UnitsList.Count(); i++)
             {
-                if (initialStuff.UnitsList[i].Keywords().Contains("ATTI"))
+                if (initialStuff.UnitsList[i].Keywords().Contains("ARTILLARY"))
                 {
                     attileryList.Add(initialStuff.UnitsList[i]);
                 }
@@ -228,24 +228,50 @@ namespace AOS_WCID.Konsole.Setup
         }
         public void EndlessSpellPick() 
         {
-            chooseText.AppendLine("Welches Batallion willst du spielen?");
+            chooseText.AppendLine("Which endlessspell do you want to add?");
 
-            int batallionID = -1;
-            int batallionListCount = initialStuff.BatallionList.Count();
+            int endlessSpellID = -1;
+            int endlessSpellCount = initialStuff.EndlessSpellsList.Count();
             bool isValidID = false;
 
             while (!isValidID)
             {
                 Console.WriteLine(chooseText.ToString());
-                for (int i = 0; i < batallionListCount; i++)
+                for (int i = 0; i < endlessSpellCount; i++)
                 {
-                    Console.WriteLine($"{i} für {initialStuff.BatallionList[i]}");
+                    Console.WriteLine($"{i} für {initialStuff.EndlessSpellsList[i]}");
                 }
-                isValidID = IsValidInput(batallionListCount, out batallionID);
+                isValidID = IsValidInput(endlessSpellCount, out endlessSpellID);
             }
-            playerPick.Batallion = initialStuff.BatallionList[batallionID];
+            playerPick.EndlessSpellList.Add( initialStuff.EndlessSpellsList[endlessSpellID]);
         }
-        public void OtherPick() {  }
+        public void OtherPick() 
+        {
+            chooseText.Clear();
+            chooseText.AppendLine("Which unit would you like to add?");
+            List<Units> otherlist = new List<Units>();
+            for (int i = 0; i < initialStuff.UnitsList.Count(); i++)
+            {
+                if (!initialStuff.UnitsList[i].Keywords().Contains("BATTLELINE")&&!initialStuff.UnitsList[i].Keywords().Contains("ARTILLARY"))
+                {
+                    otherlist.Add(initialStuff.UnitsList[i]);
+                }
+            }
+            int otherID = -1;
+            int otherListCount = otherlist.Count();
+            bool isValidID = false;
+
+            while (!isValidID)
+            {
+                Console.WriteLine(chooseText.ToString());
+                for (int i = 0; i < otherListCount; i++)
+                {
+                    Console.WriteLine($"{i} für {otherlist[i]}");
+                }
+                isValidID = IsValidInput(otherListCount, out otherID);
+            }
+            playerPick.UnitsList.Add(otherlist[otherID]);
+        }
         public void AuswahlCommandTrait()
         {
             int commandTraitID = -1;
