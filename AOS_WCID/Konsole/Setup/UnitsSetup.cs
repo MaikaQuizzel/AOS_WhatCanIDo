@@ -114,9 +114,9 @@ namespace AOS_WCID.Konsole.Setup
             if (playerPick.GameName.Equals(StringConstants.GAMEMODEPATH)&& isGeneralPick)
             {
                 int nonUniqueHerosCounter = 0;
-                for (int i = 0; i < initialStuff.HeroList.Count(); i++)
+                for (int i = 0; i < initialStuff.HeroList.Heros.Count(); i++)
                 {
-                    if (!initialStuff.HeroList[i].Keywords().Contains("UNIQUE"))
+                    if (!initialStuff.HeroList.Heros[i].Keywords.Contains("UNIQUE"))
                     {
                         nonUniqueHerosCounter++;
                     }
@@ -124,7 +124,7 @@ namespace AOS_WCID.Konsole.Setup
                 heroListCount = nonUniqueHerosCounter;
             }
            else{
-                heroListCount = initialStuff.HeroList.Count();
+                heroListCount = initialStuff.HeroList.Heros.Count();
             }
             while (!isValidGeneral)
             {
@@ -137,21 +137,21 @@ namespace AOS_WCID.Konsole.Setup
                         if (playerPick.GameName.Equals(StringConstants.GAMEMODEPATH))
                         {
                             //PTG Warlord
-                            if (!initialStuff.HeroList[i].Keywords().Contains("UNIQUE"))
+                            if (!initialStuff.HeroList.Heros[i].Keywords.Contains("UNIQUE"))
                             {
-                                Console.WriteLine($"{i} für  {initialStuff.HeroList[i].Name}");
+                                Console.WriteLine($"{i} für  {initialStuff.HeroList.Heros[i].Name}");
                             }
                         }
                         else
                         {
                             //General
-                            Console.WriteLine($"{i} für  {initialStuff.HeroList[i].Name}");
+                            Console.WriteLine($"{i} für  {initialStuff.HeroList.Heros[i].Name}");
                         }
                     }
                     else
                     {
                         //normaler Hero in liste
-                        Console.WriteLine($"{i} für  {initialStuff.HeroList[i].Name}");
+                        Console.WriteLine($"{i} für  {initialStuff.HeroList.Heros[i].Name}");
                     }
                     
                 }
@@ -160,12 +160,12 @@ namespace AOS_WCID.Konsole.Setup
 
                 
             }
-            playerPick.HeroList.Add(initialStuff.HeroList[heroID]);
-            if (playerPick.HeroList.Last().Keywords().Contains("WIZARD"))
+            playerPick.HeroList.Add(initialStuff.HeroList.Heros[heroID]);
+            if (playerPick.HeroList.Last().Keywords.Contains("WIZARD"))
             {
                 AuswahlSpell();
             }
-            if (playerPick.HeroList.Last().Keywords().Contains(""))
+            if (playerPick.HeroList.Last().Keywords.Contains(""))
             {
                 PickPrayer();
             }
@@ -176,11 +176,11 @@ namespace AOS_WCID.Konsole.Setup
             chooseText.Clear();
             chooseText.AppendLine("Which battleline would you like to add?");
             List<Units> battlelineList= new List<Units>();
-            for (int i = 0; i < initialStuff.UnitsList.Count(); i++)
+            for (int i = 0; i < initialStuff.UnitsList.Unitss.Count(); i++)
             {
-                if (initialStuff.UnitsList[i].Keywords().Contains("BATTLELINE"))
+                if (initialStuff.UnitsList.Unitss[i].Keywords().Contains("BATTLELINE"))
                 {
-                    battlelineList.Add(initialStuff.UnitsList[i]);
+                    battlelineList.Add(initialStuff.UnitsList.Unitss[i]);
                 }
             }
             int battlelineID = -1;
@@ -204,11 +204,11 @@ namespace AOS_WCID.Konsole.Setup
             chooseText.Clear();
             chooseText.AppendLine("Which artillery wuld you like to add?");
             List<Units> attileryList = new List<Units>();
-            for (int i = 0; i < initialStuff.UnitsList.Count(); i++)
+            for (int i = 0; i < initialStuff.UnitsList.Unitss.Count(); i++)
             {
-                if (initialStuff.UnitsList[i].Keywords().Contains("ARTILLARY"))
+                if (initialStuff.UnitsList.Unitss[i].Keywords().Contains("ARTILLARY"))
                 {
-                    attileryList.Add(initialStuff.UnitsList[i]);
+                    attileryList.Add(initialStuff.UnitsList.Unitss[i]);
                 }
             }
             int attileryID = -1;
@@ -250,11 +250,11 @@ namespace AOS_WCID.Konsole.Setup
             chooseText.Clear();
             chooseText.AppendLine("Which unit would you like to add?");
             List<Units> otherlist = new List<Units>();
-            for (int i = 0; i < initialStuff.UnitsList.Count(); i++)
+            for (int i = 0; i < initialStuff.UnitsList.Unitss.Count(); i++)
             {
-                if (!initialStuff.UnitsList[i].Keywords().Contains("BATTLELINE")&&!initialStuff.UnitsList[i].Keywords().Contains("ARTILLARY"))
+                if (!initialStuff.UnitsList.Unitss[i].Keywords().Contains("BATTLELINE")&&!initialStuff.UnitsList.Unitss[i].Keywords().Contains("ARTILLARY"))
                 {
-                    otherlist.Add(initialStuff.UnitsList[i]);
+                    otherlist.Add(initialStuff.UnitsList.Unitss[i]);
                 }
             }
             int otherID = -1;

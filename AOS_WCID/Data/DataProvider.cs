@@ -17,12 +17,12 @@ namespace AOS_WCID.Data
         private List<TenetAbility> tenetAbilityListShield;
         private List<TenetAbility> tenetAbilityListTempest;
         private List<Batallion> batallionList;
-        private List<Hero> heroList;
+        private HeroesList heroList;
         private List<CommandTrait> _commandTraitList;
         private List<Artefact> _artefactList;
         private List<Spell> _spellList;
         private List<Prayer> _prayerList;
-        private List<Units> _unitsList;
+        private UnitList _unitsList;
         private List<Reactions> _reactionList;
         private List<EndlessSpell> endlessSpellsList;
 
@@ -37,12 +37,12 @@ namespace AOS_WCID.Data
         public List<TenetAbility> TenetAbilityListShield { get => tenetAbilityListShield; set => tenetAbilityListShield = value; }
         public List<TenetAbility> TenetAbilityListTempest { get => tenetAbilityListTempest; set => tenetAbilityListTempest = value; }
         public List<Batallion> BatallionList { get => batallionList; set => batallionList = value; }
-        public List<Hero> HeroList { get => heroList; set => heroList = value; }
+        public HeroesList HeroList { get => heroList; set => heroList = value; }
         public List<CommandTrait> CommandTraitList { get => _commandTraitList; set => _commandTraitList = value; }
         public List<Artefact> ArtefactList { get => _artefactList; set => _artefactList = value; }
         public List<Spell> SpellList { get => _spellList; set => _spellList = value; }
         public List<Prayer> PrayerList { get => _prayerList; set => _prayerList = value; }
-        public List<Units> UnitsList { get => _unitsList; set => _unitsList = value; }
+        public UnitList UnitsList { get => _unitsList; set => _unitsList = value; }
         public List<Reactions> ReactionList { get => _reactionList; set => _reactionList = value; }
         public List<EndlessSpell> EndlessSpellsList { get => endlessSpellsList; set => endlessSpellsList = value; }
 

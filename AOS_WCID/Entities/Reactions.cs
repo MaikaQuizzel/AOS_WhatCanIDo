@@ -9,25 +9,12 @@ namespace AOS_WCID.Entities
     public class Reactions
     {
         private string _name;
-        private string _whenReaction;
-        private string _whatReaction;
-        private string _text;
 
         public Reactions(string name)
         {
             _name = name;
         }
 
-        public Reactions(string name, string whenReaction, string whatReaction, string text)
-        {
-            _name = name;
-            _whenReaction = whenReaction;
-            _whatReaction = whatReaction;
-            _text = text;
-        }
-
-        public string WhenReaction { get => _whenReaction; }
-        public string WhatReaction { get => _whatReaction; }
-        public string Text { get => _text; }
+        public string Name { get => _name; set => _name = value; }
     }
 }

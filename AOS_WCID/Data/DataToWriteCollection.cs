@@ -19,12 +19,12 @@ namespace AOS_WCID.Data
         private List<TenetAbility> tenetAbilityListTempest;
         private List<Batallion> batallionList;
         private List<EndlessSpell> endlessSpellList;
-        private List<Entities.Hero> _herolist; 
+        private HeroesList _herolist = new HeroesList(); 
         private List<CommandTrait> _commandTraitList;
         private List<Spell> _spellList;
         private List<Prayer> _prayerList;
         private List<Artefact> _artefactList;
-        private List<Units> _units;
+        private UnitList _units = new UnitList();
         private List<Reactions> _reactionsList;
 
 
@@ -39,12 +39,12 @@ namespace AOS_WCID.Data
         public List<TenetAbility> TenetAbilityListTempest { get => tenetAbilityListTempest; set => tenetAbilityListTempest = value; }
         public List<Batallion> BatallionList { get => batallionList; set => batallionList = value; }
         public List<EndlessSpell> EndlessSpellList { get => endlessSpellList; set => endlessSpellList = value; }
-        public List<Entities.Hero> Herlist { get => _herolist; set => _herolist = value; }
+        public HeroesList Herolist { get => _herolist; set => _herolist = value; }
         public List<CommandTrait> CommandTraitList { get => _commandTraitList; set => _commandTraitList = value; }
         public List<Spell> SpellList { get => _spellList; set => _spellList = value; }
         public List<Prayer> PrayerList { get => _prayerList; set => _prayerList = value; }
         public List<Artefact> ArtefactList { get => _artefactList; set => _artefactList = value; }
-        public List<Units> Units { get => _units; set => _units = value; }
+        public UnitList Units { get => _units; set => _units = value; }
         public List<Reactions> ReactionsList { get => _reactionsList; set => _reactionsList = value; }
 
         public void WriteStuffNow()
@@ -126,9 +126,10 @@ namespace AOS_WCID.Data
                 " Comet disrupt the arcane\r\nabilities of nearby wizards.\r\nSubtract 1 from casting rolls" +
                 " for Wizards\r\nwhile they are within 5\" of this model."}, "An Everblaze Comet is a single model.", new List<string>{"ENDLESS SPELL", "AZYR", "EVERBLAZE COMET"})
             };
-            _herolist = new List<Entities.Hero>()
+
+            var heroes = new List<Hero>()
             {
-                new Entities.Hero("Yndrasta", 12, 3, 10, 8, 1, 280, new List<string>(){"ORDER", "STORMCAST ETERNALS", "THUNDERSTRIKE", "HERO", "YNDRASTA", "SINGLE", "UNIQUE" }, new List<Attack>(){ new Attack("" +
+                new Hero("Yndrasta", 12, 3, 10, 8, 1, 280, new List<string>(){"ORDER", "STORMCAST ETERNALS", "THUNDERSTRIKE", "HERO", "YNDRASTA", "SINGLE", "UNIQUE" }, new List<Attack>(){ new Attack("" +
                 "Thengavar", 2, 2, 2, "D6", "1", 18, false), new Attack("Blade of the High Heavens", 3, 2, 2, "3", "4",1, true ) }, new List<string>(){ "The Prime Huntress: " +
                 "If any enemy MONSTERS are within 3\" of this unit, add 10 to the number of wounds suffered by those MONSTERS when determining which row on their damage table to use.", "Champion of Sigmar" +
                 ":This unit has a 4+ ward.", "Dazzling Radiance:Once per turn in your hero phase, if this unit is on the battlefield, you can return 1 slain model to each friendly STORMCAST ETERNALS unit" +
@@ -149,6 +150,9 @@ namespace AOS_WCID.Data
                 " The result chosen for a D6 roll must be a whole number from 1 to 6, and the result chosen for a 2D6 roll must be a whole number from 2 to 12. The result " +
                 "cannot be re-rolled, but any modifiers are applied to it as normal.", "Eye of the Celestial Storm: This unit has a ward of 4+." })
             };
+            _herolist.Heros = new List<Hero>();
+            _herolist.Heros.AddRange(heroes);
+
             DataManager.WriteHeroListJsonToPath(_herolist);
             _commandTraitList = new List<CommandTrait>()
             {
@@ -176,7 +180,7 @@ namespace AOS_WCID.Data
                 new Artefact("Arcane Tome","The bearer becomes a Wizard that knows the Arcane Bolt and Mystic Shield spells. They can attempt to cast 1 spell in your hero phase and attempt to unbind 1 spell in the enemy hero phase. If the bearer is already a Wizard, they can attempt to cast 1 additional spell instead.")
             };
             DataManager.WriteArtefactListJsonToPath(_artefactList);
-            _units = new List<Units>()
+            var unitsLists = new List<Units>()
             {
                 new Units("Vindictors", 5, 3,7,2, 5, 130, new List<string>(){"ORDER", "STORMCAST ETERNALS", "THUNDERSTRIKE", "REDEEMER", "VINDICTORS", "BATTLELINE"}, new List<Attack>(){new Attack("Stormspear", 3,3,1,"1","2",2,true)}, new List<string>(){"CHAMPION: 1 model in this unit can be a Vindictor-Prime. Add 1 to the Attacks characteristic of that model’s Stormspear.", "STANDARD BEARER: 1 in every 5 models in this unit can be an Azyrite Signifier. Add 1 to the Bravery characteristic of a unit that includes any Azyrite Signifiers.", "Stormsoul Arsenal:If the unmodified hit roll for an attack made with a Stormspear is 6, the target suffers 1 mortal wound and the attack sequence ends (do not make a wound or save roll)."}),
                 new Units("Sequitors",5,4,7,2, 5, 120, new List<string>(){"ORDER", "STORMCAST ETERNALS", "SACROSANCT", "REDEEMER", "SEQUITORS","BATTLELINE"}, new List<Attack>(){new Attack("Sacrosanct Weapons", 3,3,1,"1","2",1,true), new Attack("Stormsmite Greatmace", 3,3,1,"2","2",1, true)}, new List<string>(){"CHAMPION: 1 model in this unit can be a Sequitor-Prime. Add 1 to the Attacks characteristic of that model’s Sacrosanct Weapons or Stormsmite Greatmace. If a Sequitor-Prime is armed with Sacrosanct Weapons and a Soulshield, it can also carry a Redemption Cache.", "Redemption Cache:Slain models cannot be returned to enemy units that are within 3\" of this unit’s Sequitor-Prime.","Sequitor Aetheric Channelling: At the start of the combat phase, you must say whether this unit will channel aetheric power into its weapons or into its shields.\r\n\r\nIf you pick its weapons, until the end of that phase, if the unmodified hit roll for an attack made by this unit is 6, that attack scores 2 hits on the target instead of 1. Make a wound and save roll for each hit.\r\n\r\nIf you pick its shields, until the end of that phase, this unit has a ward of 5+."}),
@@ -185,10 +189,14 @@ namespace AOS_WCID.Data
                 new Units("Gryph-hounds", 9,0,6,2, 6,90, new List<string>(){"ORDER", "STORMCAST ETERNALS", "GRYPH-HOUNDS"}, new List<Attack>(){new Attack("Vicious Beak and Claws", 3,4,0,"1","4",1,true)}, new List<string>(){"CHAMPION: If this unit has 3 or more models, 1 model in this unit can be a Gryph-hound Alpha. Add 1 to the Attacks characteristics of that model’s Vicious Beak and Claws.", "Darting Attacks: After this unit has fought and all of its attacks have been resolved, it can retreat 6\".", "Warning Cry: If an enemy reserve unit or summoned unit is set up on the battlefield for the first time within 12\" of this unit, you can pick up to 3 friendly STORMCAST ETERNALS units wholly within 12\" of this unit to shoot. Any shooting attacks made by a STORMCAST ETERNALS unit picked with this ability must target that reserve unit or summoned unit."})
             };
             DataManager.WriteUnitListJsonToPath(_units);
+            _units.Unitss = new List<Units>() { };
+            _units.Unitss.AddRange(unitsLists);
+
             _reactionsList = new List<Reactions>()
             {
                 new Reactions("If a friendly STORMCAST ETERNALS model is slain within 1\" of an enemy unit, before removing that model from play, pick 1 enemy unit within 1\" of that model and roll a number of dice equal to the Wounds characteristic of that slain model. Add 1 to the number of dice you roll if the slain model has the THUNDERSTRIKE keyword. For each 6+, the target suffers 1 mortal wound at the end of that phase.")
             };
+            DataManager.WriteReactionsListJsonToPath(_reactionsList);
 
  
         }

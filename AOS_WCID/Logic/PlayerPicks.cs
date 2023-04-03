@@ -15,7 +15,7 @@ namespace AOS_WCID.Logic
         private Subfaction subfaction;
         private Batallion batallion;
         private List<Hero> _heroList;
-        private List<IUnit> _unitsList;
+        private List<Units> _unitsList;
         private List<TenetAbility> tenetAbilities;
         private List<Tenets> tenets;
         private CommandTrait _commandTrait;
@@ -30,7 +30,7 @@ namespace AOS_WCID.Logic
             tenetAbilities = new List<TenetAbility>();
             _heroList = new List<Hero>();
             Tenets = new List<Tenets>();
-            _unitsList = new List<IUnit>();
+            _unitsList = new List<Units>();
             _artefactList = new List<Artefact>();
             _spellList = new List<Spell>();
             _prayerList = new List<Prayer>();
@@ -45,7 +45,7 @@ namespace AOS_WCID.Logic
         public List<Hero> HeroList { get => _heroList; set => _heroList = value; }
         public List<TenetAbility> TenetAbilities { get => tenetAbilities; set => tenetAbilities = value; }
         public List<Tenets> Tenets { get => tenets; set => tenets = value; }
-        public List<IUnit> UnitsList { get => _unitsList; set => _unitsList = value; }
+        public List<Units> UnitsList { get => _unitsList; set => _unitsList = value; }
         public CommandTrait CommandTrait { get => _commandTrait; set => _commandTrait = value; }
         public List<Artefact> ArtefactList { get => _artefactList; set => _artefactList = value; }
         public List<Spell> SpellList { get => _spellList; set => _spellList = value; }

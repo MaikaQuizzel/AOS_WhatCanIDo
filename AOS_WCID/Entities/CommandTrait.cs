@@ -10,7 +10,7 @@ namespace AOS_WCID.Entities
     {
         string name;
         string description;
-        private IUnit _owner;
+        private Hero _owner;
 
         public CommandTrait(string name, string description)
         {
@@ -20,6 +20,6 @@ namespace AOS_WCID.Entities
 
         public string Name { get => name;  }
         public string Description { get => description;  }
-        public IUnit Owner { get => _owner; set => _owner = value; }
+        public Hero Owner { get => _owner; set => _owner = value; }
     }
 }

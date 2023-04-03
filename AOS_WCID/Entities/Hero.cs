@@ -6,8 +6,19 @@ using System.Threading.Tasks;
 
 namespace AOS_WCID.Entities
 {
-    public class Hero :IUnit
+    public class Hero 
     {
+        //public string Name1;
+        //public int Move1;
+        //public int Saver1;
+        //public int Bravery1;
+        //public int Wounds1;
+        //public int Size1;
+        //public int Points1;
+        //public List<string> Keywords1;
+        //public List<Attack> Attacks1;
+        //public List<string> Abilities1;
+
         string _name;
         int _move;
         int _save;
@@ -33,54 +44,15 @@ namespace AOS_WCID.Entities
             _abilities = abilities;
         }
 
-        public List<string> Abilities()
-        {
-            return _abilities; 
-        }
-
-        public List<Attack> Attacks()
-        {
-            return _attacks;
-        }
-
-        public int Bravery()
-        {
-            return _bravery;
-        }
-
-        public List<string> Keywords()
-        {
-            return _keywords;
-        }
-
-        public int Move()
-        {
-            return _move;
-        }
-
-        public string Name()
-        {
-            return _name;
-        }
-
-        public int Points()
-        {
-            return _points;
-        }
-
-        public int Save()
-        {
-            return _save;
-        }
-
-        public int Size()
-        {
-            return _size;
-        }
-
-        public int Wounds()
-        {
-            return _wounds;
-        }
+        public string Name { get => _name; set => _name = value; }
+        public int Move { get => _move; set => _move = value; }
+        public int Save { get => _save; set => _save = value; }
+        public int Bravery { get => _bravery; set => _bravery = value; }
+        public int Wounds { get => _wounds; set => _wounds = value; }
+        public int Size { get => _size; set => _size = value; }
+        public int Points { get => _points; set => _points = value; }
+        public List<string> Keywords { get => _keywords; set => _keywords = value; }
+        public List<Attack> Attacks { get => _attacks; set => _attacks = value; }
+        public List<string> Abilities { get => _abilities; set => _abilities = value; }
     }
 }

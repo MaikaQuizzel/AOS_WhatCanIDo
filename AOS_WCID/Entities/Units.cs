@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AOS_WCID.Entities
 {
-    public class Units : IUnit
+    public class Units 
     {
         string _name;
         int _move;

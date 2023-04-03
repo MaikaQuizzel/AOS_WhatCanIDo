@@ -190,20 +190,20 @@ namespace AOS_WCID.Data
             return entities;
         }
 
-        public static void WriteHeroListJsonToPath(List<Entities.Hero> entities)
+        public static void WriteHeroListJsonToPath(HeroesList heroes)
         {
             string path = HEROS;
-            string json = JsonSerializer.Serialize(entities);
+            string json = JsonSerializer.Serialize(heroes);
             File.WriteAllText(path, json);
         }
-        public static List<Hero> ReadHeroListJsonToPath()
+        public static HeroesList ReadHeroListJsonToPath()
         {
-            List<Hero> entities = new List<Hero>();
+            HeroesList entities = new HeroesList();
 
             using (StreamReader r = new StreamReader(HEROS))
             {
                 string json = r.ReadToEnd();
-                entities = JsonSerializer.Deserialize<List<Hero>>(json);
+                entities = JsonSerializer.Deserialize<HeroesList>(json);
             }
             return entities;
         }
@@ -275,20 +275,20 @@ namespace AOS_WCID.Data
             }
             return entities;
         }
-        public static void WriteUnitListJsonToPath(List<Units> entities)
+        public static void WriteUnitListJsonToPath(UnitList entities)
         {
             string path = UNITS;
             string json = JsonSerializer.Serialize(entities);
             File.WriteAllText(path, json);
         }
-        public static List<Units> ReadUnitListJsonToPath()
+        public static UnitList ReadUnitListJsonToPath()
         {
-            List<Units> entities = new List<Units>();
+            UnitList entities = new UnitList();
 
             using (StreamReader r = new StreamReader(UNITS))
             {
                 string json = r.ReadToEnd();
-                entities = JsonSerializer.Deserialize<List<Units>>(json);
+                entities = JsonSerializer.Deserialize<UnitList>(json);
             }
             return entities;
         }
