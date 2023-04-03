@@ -12,7 +12,7 @@ namespace AOS_WCID.Entities
         private int _toWound;
         private int _rend;
         private string _damage;
-        private int _attackCount;
+        private string _attackCount;
         private int _range;
         private bool _isMelee;
         private string _attackName;
@@ -21,12 +21,12 @@ namespace AOS_WCID.Entities
         public int ToWound { get => _toWound;  }
         public int Rend { get => _rend; }
         public string Damage { get => _damage;  }
-        public int AttackCount { get => _attackCount;  }
+        public string AttackCount { get => _attackCount;  }
         public int Range { get => _range; }
         public bool IsMelee { get => _isMelee;  }
         public string AttackName { get => _attackName;  }
 
-        public Attack(string attackName, int toHit, int toWound, int rend, string damage, int attackCount, int range, bool isMelee)
+        public Attack(string attackName, int toHit, int toWound, int rend, string damage, string attackCount, int range, bool isMelee)
         {
             _attackName = attackName;
             _toHit = toHit;

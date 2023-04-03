@@ -22,6 +22,8 @@ namespace AOS_WCID.Data
         private List<Artefact> _artefactList;
         private List<Spell> _spellList;
         private List<Prayer> _prayerList;
+        private List<Units> _unitsList;
+        private List<Reactions> _reactionList;
 
 
         public DataProvider() { }
@@ -39,6 +41,8 @@ namespace AOS_WCID.Data
         public List<Artefact> ArtefactList { get => _artefactList; set => _artefactList = value; }
         public List<Spell> SpellList { get => _spellList; set => _spellList = value; }
         public List<Prayer> PrayerList { get => _prayerList; set => _prayerList = value; }
+        public List<Units> UnitsList { get => _unitsList; set => _unitsList = value; }
+        public List<Reactions> ReactionList { get => _reactionList; set => _reactionList = value; }
 
         public void InitializeStuff()
         {
@@ -68,6 +72,10 @@ namespace AOS_WCID.Data
             SpellList = DataManager.ReadSpellListJsonToPath();  
 
             PrayerList = DataManager.ReadPrayerListJsonToPath();
+            
+            UnitsList = DataManager.ReadUnitListJsonToPath();
+
+            ReactionList = DataManager.ReadReactionsListJsonToPath();
         }
     }
 }

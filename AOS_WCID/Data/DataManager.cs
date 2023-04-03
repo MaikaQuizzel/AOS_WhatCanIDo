@@ -24,6 +24,8 @@ namespace AOS_WCID.Data
         private static readonly string ARTAFACTS = "Artefacrts.json";
         private static readonly string SPELLS = "Spells.json";
         private static readonly string PRAYER = "Prayer.json";
+        private static readonly string UNITS = "Units.json";
+        private static readonly string REACTIONS = "Reactions.json";
 
 
 
@@ -270,6 +272,40 @@ namespace AOS_WCID.Data
             {
                 string json = r.ReadToEnd();
                 entities = JsonSerializer.Deserialize<List<Prayer>>(json);
+            }
+            return entities;
+        }
+        public static void WriteUnitListJsonToPath(List<Units> entities)
+        {
+            string path = UNITS;
+            string json = JsonSerializer.Serialize(entities);
+            File.WriteAllText(path, json);
+        }
+        public static List<Units> ReadUnitListJsonToPath()
+        {
+            List<Units> entities = new List<Units>();
+
+            using (StreamReader r = new StreamReader(UNITS))
+            {
+                string json = r.ReadToEnd();
+                entities = JsonSerializer.Deserialize<List<Units>>(json);
+            }
+            return entities;
+        }
+        public static void WriteReactionsListJsonToPath(List<Reactions> entities)
+        {
+            string path = REACTIONS;
+            string json = JsonSerializer.Serialize(entities);
+            File.WriteAllText(path, json);
+        }
+        public static List<Reactions> ReadReactionsListJsonToPath()
+        {
+            List<Reactions> entities = new List<Reactions>();
+
+            using (StreamReader r = new StreamReader(REACTIONS))
+            {
+                string json = r.ReadToEnd();
+                entities = JsonSerializer.Deserialize<List<Reactions>>(json);
             }
             return entities;
         }

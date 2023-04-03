@@ -24,6 +24,8 @@ namespace AOS_WCID.Data
         private List<Spell> _spellList;
         private List<Prayer> _prayerList;
         private List<Artefact> _artefactList;
+        private List<Units> _units;
+        private List<Reactions> _reactionsList;
 
 
         public DataToWriteCollection() { }
@@ -42,6 +44,8 @@ namespace AOS_WCID.Data
         public List<Spell> SpellList { get => _spellList; set => _spellList = value; }
         public List<Prayer> PrayerList { get => _prayerList; set => _prayerList = value; }
         public List<Artefact> ArtefactList { get => _artefactList; set => _artefactList = value; }
+        public List<Units> Units { get => _units; set => _units = value; }
+        public List<Reactions> ReactionsList { get => _reactionsList; set => _reactionsList = value; }
 
         public void WriteStuffNow()
         {
@@ -125,16 +129,16 @@ namespace AOS_WCID.Data
             _herolist = new List<Entities.Hero>()
             {
                 new Entities.Hero("Yndrasta", 12, 3, 10, 8, 1, 280, new List<string>(){"ORDER", "STORMCAST ETERNALS", "THUNDERSTRIKE", "HERO", "YNDRASTA", "SINGLE", "UNIQUE" }, new List<Attack>(){ new Attack("" +
-                "Thengavar", 2, 2, 2, "D6", 1, 18, false), new Attack("Blade of the High Heavens", 3, 2, 2, "3", 4,1, true ) }, new List<string>(){ "The Prime Huntress: " +
+                "Thengavar", 2, 2, 2, "D6", "1", 18, false), new Attack("Blade of the High Heavens", 3, 2, 2, "3", "4",1, true ) }, new List<string>(){ "The Prime Huntress: " +
                 "If any enemy MONSTERS are within 3\" of this unit, add 10 to the number of wounds suffered by those MONSTERS when determining which row on their damage table to use.", "Champion of Sigmar" +
                 ":This unit has a 4+ ward.", "Dazzling Radiance:Once per turn in your hero phase, if this unit is on the battlefield, you can return 1 slain model to each friendly STORMCAST ETERNALS unit" +
                 " with a Wounds characteristic of 3 or less that is wholly within 12\" of this unit.", "Hawk of the Celestial Skies: Do not take battleshock tests for friendly STORMCAST ETERNALS and " +
                 "CITIES OF SIGMAR units wholly within 12\" of this unit." } ),
                 new Entities.Hero("Knight Arcanum", 5, 3, 8, 6, 1, 110, new List<string>(){"SINGLE","ORDER", "STORMCAST ETERNALS", "THUNDERSTRIKE", "HERO", "WIZARD", "KNIGHT", "" +
-                "KNIGHT-ARCANUM"}, new List<Attack>(){new Attack("Valedictor’s Stave", 3 , 4, 1, "D3", 3, 2, true) }, new List<string>(){ "Indomitable Loreseekers:Predatory endless spells cannot pass across this unit" +
+                "KNIGHT-ARCANUM"}, new List<Attack>(){new Attack("Valedictor’s Stave", 3 , 4, 1, "D3", "3", 2, true) }, new List<string>(){ "Indomitable Loreseekers:Predatory endless spells cannot pass across this unit" +
                 " or finish a move within 3\" of this unit.", "Blaze of the Heavens: Blaze of the Heavens is a spell that has a casting value of 7 and a range of 18\". If successfully cast, pick 1 enemy unit within " +
                 "range and visible to the caster. That unit suffers D3 mortal wounds. Add 2\" to the range of this spell for each other friendly STORMCAST ETERNALS THUNDERSTRIKE unit wholly within 12\" of the caster." } ),
-                new Entities.Hero("Celestan Prime", 12, 3, 10, 8, 1, 330, new List<string>(){"SINGLE", "UNIQUE","ORDER", "STORMCAST ETERNALS", "HERO", "CELESTANT-PRIME"}, new List<Attack>(){new Attack("Ghal Maraz",3,2,3,"3",3, 2, true)}, new List<string>(){"" +
+                new Entities.Hero("Celestan Prime", 12, 3, 10, 8, 1, 330, new List<string>(){"SINGLE", "UNIQUE","ORDER", "STORMCAST ETERNALS", "HERO", "CELESTANT-PRIME"}, new List<Attack>(){new Attack("Ghal Maraz",3,2,3,"3","3", 2, true)}, new List<string>(){"" +
                 "Cometstrike Sceptre: In your shooting phase, you can pick 1 point on the battlefield within 24\" of this unit and visible to it. Each enemy unit within 3\" of that point " +
                 "suffers D3 mortal wounds.", "Retribution from On High: Instead of setting up this unit on the battlefield, you can place it to one side and say that it is set up in " +
                 "the heavens as a reserve unit. If you do so, at the end of your movement phase, you must say if this unit will remain in reserve or if it will strike from the " +
@@ -172,6 +176,20 @@ namespace AOS_WCID.Data
                 new Artefact("Arcane Tome","The bearer becomes a Wizard that knows the Arcane Bolt and Mystic Shield spells. They can attempt to cast 1 spell in your hero phase and attempt to unbind 1 spell in the enemy hero phase. If the bearer is already a Wizard, they can attempt to cast 1 additional spell instead.")
             };
             DataManager.WriteArtefactListJsonToPath(_artefactList);
+            _units = new List<Units>()
+            {
+                new Units("Vindictors", 5, 3,7,2, 5, 130, new List<string>(){"ORDER", "STORMCAST ETERNALS", "THUNDERSTRIKE", "REDEEMER", "VINDICTORS", "BATTLELINE"}, new List<Attack>(){new Attack("Stormspear", 3,3,1,"1","2",2,true)}, new List<string>(){"CHAMPION: 1 model in this unit can be a Vindictor-Prime. Add 1 to the Attacks characteristic of that model’s Stormspear.", "STANDARD BEARER: 1 in every 5 models in this unit can be an Azyrite Signifier. Add 1 to the Bravery characteristic of a unit that includes any Azyrite Signifiers.", "Stormsoul Arsenal:If the unmodified hit roll for an attack made with a Stormspear is 6, the target suffers 1 mortal wound and the attack sequence ends (do not make a wound or save roll)."}),
+                new Units("Sequitors",5,4,7,2, 5, 120, new List<string>(){"ORDER", "STORMCAST ETERNALS", "SACROSANCT", "REDEEMER", "SEQUITORS","BATTLELINE"}, new List<Attack>(){new Attack("Sacrosanct Weapons", 3,3,1,"1","2",1,true), new Attack("Stormsmite Greatmace", 3,3,1,"2","2",1, true)}, new List<string>(){"CHAMPION: 1 model in this unit can be a Sequitor-Prime. Add 1 to the Attacks characteristic of that model’s Sacrosanct Weapons or Stormsmite Greatmace. If a Sequitor-Prime is armed with Sacrosanct Weapons and a Soulshield, it can also carry a Redemption Cache.", "Redemption Cache:Slain models cannot be returned to enemy units that are within 3\" of this unit’s Sequitor-Prime.","Sequitor Aetheric Channelling: At the start of the combat phase, you must say whether this unit will channel aetheric power into its weapons or into its shields.\r\n\r\nIf you pick its weapons, until the end of that phase, if the unmodified hit roll for an attack made by this unit is 6, that attack scores 2 hits on the target instead of 1. Make a wound and save roll for each hit.\r\n\r\nIf you pick its shields, until the end of that phase, this unit has a ward of 5+."}),
+                new Units("Annihilators", 4, 2,7,3,3,180, new List<string>(){"ORDER", "STORMCAST ETERNALS", "THUNDERSTRIKE", "PALADIN", "ANNIHILATORS" }, new List<Attack>(){new Attack("Meteoric Hammer",3,3,1,"2", "3", 1, true)}, new List<string>(){"CHAMPION: 1 model in this unit can be an Annihilator-Prime. Add 1 to the Attacks characteristic of that model’s Meteoric Hammer.", "Blazing Impact: After this unit is set up on the battlefield for the first time, roll a dice for each enemy unit within 10\" of this unit. On a 3+, that unit suffers D3 mortal wounds. In addition, you can re-roll charge rolls for this unit if it was set up on the battlefield in the same turn.", "Force of a Falling Star: After this unit makes a charge move, you can pick 1 enemy unit within 1\" of this unit and roll a number of dice equal to the unmodified charge roll for that charge move. Subtract 1 from the roll if this unit only has 2 models. Subtract 2 from the roll if this unit only has 1 model. For each 4+, that enemy unit suffers 1 mortal wound."}),
+                new Units("Celestar Ballista", 3,4,7,9, 1, 130, new List<string>(){"ORDER", "STORMCAST ETERNALS", "SACROSANCT", "ORDINATORS", "WAR MACHINE", "CELESTAR BALLISTA", "ARTILLARY"}, new List<Attack>(){new Attack("Celestar Stormbolts: Lightning-charged Shot", 3,2,3,"D6", "1", 36, false), new Attack("Celestar Stormbolts: Rapid Fire", 3,3,1,"1","2D6", 18, false), new Attack("Sigmarite Blades", 3,3,1,"1","4" ,1,true)}, new List<string>(){"CREW: A Celestar Ballista has a crew of 2 Sacristan Engineers, who are armed with Sigmarite Blades. The crew must remain within 1\" of the Celestar Ballista. For rules purposes, the Celestar Ballista and its crew are treated as a single model.", "Versatile Weapon: Each time this unit shoots, choose either the Lightning-charged Shot or Rapid Fire weapon characteristics for all the attacks it makes with its Celestar Stormbolts."}),
+                new Units("Gryph-hounds", 9,0,6,2, 6,90, new List<string>(){"ORDER", "STORMCAST ETERNALS", "GRYPH-HOUNDS"}, new List<Attack>(){new Attack("Vicious Beak and Claws", 3,4,0,"1","4",1,true)}, new List<string>(){"CHAMPION: If this unit has 3 or more models, 1 model in this unit can be a Gryph-hound Alpha. Add 1 to the Attacks characteristics of that model’s Vicious Beak and Claws.", "Darting Attacks: After this unit has fought and all of its attacks have been resolved, it can retreat 6\".", "Warning Cry: If an enemy reserve unit or summoned unit is set up on the battlefield for the first time within 12\" of this unit, you can pick up to 3 friendly STORMCAST ETERNALS units wholly within 12\" of this unit to shoot. Any shooting attacks made by a STORMCAST ETERNALS unit picked with this ability must target that reserve unit or summoned unit."})
+            };
+            DataManager.WriteUnitListJsonToPath(_units);
+            _reactionsList = new List<Reactions>()
+            {
+                new Reactions("If a friendly STORMCAST ETERNALS model is slain within 1\" of an enemy unit, before removing that model from play, pick 1 enemy unit within 1\" of that model and roll a number of dice equal to the Wounds characteristic of that slain model. Add 1 to the number of dice you roll if the slain model has the THUNDERSTRIKE keyword. For each 6+, the target suffers 1 mortal wound at the end of that phase.")
+            };
+
  
         }
     }

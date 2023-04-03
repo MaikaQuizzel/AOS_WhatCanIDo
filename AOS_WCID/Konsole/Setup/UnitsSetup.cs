@@ -171,9 +171,80 @@ namespace AOS_WCID.Konsole.Setup
             }
             AuswahlArtefact();
         }
-        public void BattlelinePick() {  }
-        public void AttelleryPick() {  }
-        public void EndlessSpellPick() {  }
+        public void BattlelinePick() 
+        {
+            chooseText.Clear();
+            chooseText.AppendLine("Which battleline would you like to add?");
+            List<Units> battlelineList= new List<Units>();
+            for (int i = 0; i < initialStuff.UnitsList.Count(); i++)
+            {
+                if (initialStuff.UnitsList[i].Keywords().Contains("BATTLELINE"))
+                {
+                    battlelineList.Add(initialStuff.UnitsList[i]);
+                }
+            }
+            int battlelineID = -1;
+            int battlelineListCount = battlelineList.Count();
+            bool isValidID = false;
+
+            while (!isValidID)
+            {
+                Console.WriteLine(chooseText.ToString());
+                for (int i = 0; i < battlelineListCount; i++)
+                {
+                    Console.WriteLine($"{i} für {battlelineList[i]}");
+                }
+                isValidID = IsValidInput(battlelineListCount, out battlelineID);
+            }
+            playerPick.UnitsList.Add(battlelineList[battlelineID]);
+
+        }
+        public void AttelleryPick() 
+        {
+            chooseText.Clear();
+            chooseText.AppendLine("Which atillery wuld you like to add?");
+            List<Units> attileryList = new List<Units>();
+            for (int i = 0; i < initialStuff.UnitsList.Count(); i++)
+            {
+                if (initialStuff.UnitsList[i].Keywords().Contains("ATTI"))
+                {
+                    attileryList.Add(initialStuff.UnitsList[i]);
+                }
+            }
+            int attileryID = -1;
+            int attileryListCount = attileryList.Count();
+            bool isValidID = false;
+
+            while (!isValidID)
+            {
+                Console.WriteLine(chooseText.ToString());
+                for (int i = 0; i < attileryListCount; i++)
+                {
+                    Console.WriteLine($"{i} für {attileryList[i]}");
+                }
+                isValidID = IsValidInput(attileryListCount, out attileryID );
+            }
+            playerPick.UnitsList.Add(attileryList[attileryID]);
+        }
+        public void EndlessSpellPick() 
+        {
+            chooseText.AppendLine("Welches Batallion willst du spielen?");
+
+            int batallionID = -1;
+            int batallionListCount = initialStuff.BatallionList.Count();
+            bool isValidID = false;
+
+            while (!isValidID)
+            {
+                Console.WriteLine(chooseText.ToString());
+                for (int i = 0; i < batallionListCount; i++)
+                {
+                    Console.WriteLine($"{i} für {initialStuff.BatallionList[i]}");
+                }
+                isValidID = IsValidInput(batallionListCount, out batallionID);
+            }
+            playerPick.Batallion = initialStuff.BatallionList[batallionID];
+        }
         public void OtherPick() {  }
         public void AuswahlCommandTrait()
         {
