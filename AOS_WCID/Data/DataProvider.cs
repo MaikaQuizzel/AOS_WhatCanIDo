@@ -24,7 +24,7 @@ namespace AOS_WCID.Data
         private List<Prayer> _prayerList;
         private UnitList _unitsList;
         private List<Reactions> _reactionList;
-        private List<EndlessSpell> endlessSpellsList;
+        private EndlessSpellList endlessSpellsList;
 
 
         public DataProvider() { }
@@ -44,7 +44,7 @@ namespace AOS_WCID.Data
         public List<Prayer> PrayerList { get => _prayerList; set => _prayerList = value; }
         public UnitList UnitsList { get => _unitsList; set => _unitsList = value; }
         public List<Reactions> ReactionList { get => _reactionList; set => _reactionList = value; }
-        public List<EndlessSpell> EndlessSpellsList { get => endlessSpellsList; set => endlessSpellsList = value; }
+        public EndlessSpellList EndlessSpellsList { get => endlessSpellsList; set => endlessSpellsList = value; }
 
         public void InitializeStuff()
         {

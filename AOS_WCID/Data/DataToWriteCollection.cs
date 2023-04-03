@@ -18,7 +18,7 @@ namespace AOS_WCID.Data
         private List<TenetAbility> tenetAbilityListShield;
         private List<TenetAbility> tenetAbilityListTempest;
         private List<Batallion> batallionList;
-        private List<EndlessSpell> endlessSpellList;
+        private EndlessSpellList endlessSpellList = new EndlessSpellList();
         private HeroesList _herolist = new HeroesList(); 
         private List<CommandTrait> _commandTraitList;
         private List<Spell> _spellList;
@@ -38,7 +38,7 @@ namespace AOS_WCID.Data
         public List<TenetAbility> TenetAbilityListShield { get => tenetAbilityListShield; set => tenetAbilityListShield = value; }
         public List<TenetAbility> TenetAbilityListTempest { get => tenetAbilityListTempest; set => tenetAbilityListTempest = value; }
         public List<Batallion> BatallionList { get => batallionList; set => batallionList = value; }
-        public List<EndlessSpell> EndlessSpellList { get => endlessSpellList; set => endlessSpellList = value; }
+        public EndlessSpellList EndlessSpellList { get => endlessSpellList; set => endlessSpellList = value; }
         public HeroesList Herolist { get => _herolist; set => _herolist = value; }
         public List<CommandTrait> CommandTraitList { get => _commandTraitList; set => _commandTraitList = value; }
         public List<Spell> SpellList { get => _spellList; set => _spellList = value; }
@@ -96,7 +96,7 @@ namespace AOS_WCID.Data
                 new Batallion("Linebreaker", "Once per battle, 1 unit from this batallion can receive the All-out Attack or All-out Defence command without the comman being issued and without a point beeing spend.", 1,0,0,2,0)
             };
             DataManager.WriteBatallionListJsonToPath(batallionList);
-            endlessSpellList = new List<EndlessSpell>()
+            var endliess = new List<EndlessSpell>()
             {
                 new EndlessSpell("CELESTIAN VORTEX",0,"Summon Celestian Vortex: The wizard\r\ncasts a pair of ensorcelled hammers into the\r\nair, which begin to spin. " +
                 "As the vortex gets\r\nmore intense, the hammers multiply to form\r\na maelstrom of skull-crushing force.\r\n" +
@@ -126,6 +126,9 @@ namespace AOS_WCID.Data
                 " Comet disrupt the arcane\r\nabilities of nearby wizards.\r\nSubtract 1 from casting rolls" +
                 " for Wizards\r\nwhile they are within 5\" of this model."}, "An Everblaze Comet is a single model.", new List<string>{"ENDLESS SPELL", "AZYR", "EVERBLAZE COMET"})
             };
+            endlessSpellList.EndlessSpells = new List<EndlessSpell>();
+            endlessSpellList.EndlessSpells.AddRange(endliess);
+            DataManager.WriteEndlessSpellsListJsonToPath(endlessSpellList);
 
             var heroes = new List<Hero>()
             {

@@ -172,20 +172,20 @@ namespace AOS_WCID.Data
             }
             return entities;
         }
-        public static void WriteEndlessSpellsListJsonToPath(List<EndlessSpell> entities)
+        public static void WriteEndlessSpellsListJsonToPath(EndlessSpellList entities)
         {
             string path = ENDLESSSPELLS;
             string json = JsonSerializer.Serialize(entities);
             File.WriteAllText(path, json);
         }
-        public static List<EndlessSpell> ReadEndlessSpellsListJsonToPath()
+        public static EndlessSpellList ReadEndlessSpellsListJsonToPath()
         {
-            List<EndlessSpell> entities = new List<EndlessSpell>();
+            EndlessSpellList entities = new EndlessSpellList();
 
             using (StreamReader r = new StreamReader(ENDLESSSPELLS))
             {
                 string json = r.ReadToEnd();
-                entities = JsonSerializer.Deserialize<List<EndlessSpell>>(json);
+                entities = JsonSerializer.Deserialize<EndlessSpellList>(json);
             }
             return entities;
         }
