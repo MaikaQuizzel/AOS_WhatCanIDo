@@ -37,7 +37,7 @@ namespace AOS_WCID.Logic
             setup.EingabeFaction();
             setup.EingabeSubfaction();
 
-            unitSetup.EingabeBattallion();
+            unitSetup.UnitSetup();
 
             
         }

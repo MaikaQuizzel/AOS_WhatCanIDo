@@ -16,6 +16,13 @@ namespace AOS_WCID.Konsole.Setup
             this.playerPick = playerPick;
             this.initialStuff = initialStuff;
         }
+        public void UnitSetup()
+        {
+            EingabeBattallion();
+            EingabeGeneral();
+            EingabeUnits();
+
+        }
 
         public void EingabeBattallion()
         {
@@ -30,7 +37,7 @@ namespace AOS_WCID.Konsole.Setup
                 Console.WriteLine(chooseText.ToString());
                 for (int i = 0; i < batallionListCount; i++)
                 {
-                    Console.WriteLine($"{i} für {initialStuff.BatallionList[i]}");
+                    Console.WriteLine($"{i} für {initialStuff.BatallionList[i].Name}");
                 }
                 isValidID = IsValidInput(batallionListCount, out batallionID);
             }
@@ -303,8 +310,10 @@ namespace AOS_WCID.Konsole.Setup
 
             chooseText.Clear();
             
-            chooseText.Clear();
+
             chooseText.AppendLine($"Choose your command trait for {hero.Name}");
+            chooseText.Clear();
+            isValidID = false;
 
             while (!isValidID)
             {
