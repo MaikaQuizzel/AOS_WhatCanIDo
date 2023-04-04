@@ -29,8 +29,8 @@ namespace AOS_WCID.Konsole.Setup
         public void EingabeGameMode()
         {
             StringBuilder chooseText = new StringBuilder();
-            chooseText.Append("Für welchen Spielmodus möchtest du erstellen");
-            chooseText.AppendLine("\n 0 für Path to Glory \n 1 für normal");
+            chooseText.Append("Which Gamemode do you want to play?");
+            chooseText.AppendLine("\n 0 for Path to Glory \n 1 for normal");
 
             int gameMode = -1;
 
@@ -43,18 +43,18 @@ namespace AOS_WCID.Konsole.Setup
                 if (gameMode == 0 || gameMode == 1)
                 {
                     playerPick.GameName = gameMode == 0 ? StringConstants.GAMEMODEPATH : "Normal";
-                    Console.WriteLine($"Du hast {playerPick.GameName} gewählt.");
+                    Console.WriteLine($"You picked {playerPick.GameName}.");
                     continue;
                 }
-                Console.WriteLine("\" 0\" oder \" 1\" eingeben");
+                Console.WriteLine("Enter \" 0\" or \" 1\" ");
             }
-
+            ConsoleSpacer.PrintSpacer();
         }
 
         public void EingabeGrandAlliance()
         {
             StringBuilder chooseText = new StringBuilder();
-            chooseText.AppendLine("Welche Alliance willst du spielen");
+            chooseText.AppendLine("Which Alliance do you want to play?");
             int listCount = initialStuff.AlliancesList.Count();
             int allianceID=-1;
 
@@ -64,7 +64,7 @@ namespace AOS_WCID.Konsole.Setup
 
                 for (int i = 0; i < listCount; i++)
                 {
-                    Console.WriteLine($"{i} für {initialStuff.AlliancesList[i].Name}");
+                    Console.WriteLine($"{i} for {initialStuff.AlliancesList[i].Name}");
                 }
 
                 int.TryParse(consolenReader.GetLine(), out allianceID);
@@ -72,9 +72,10 @@ namespace AOS_WCID.Konsole.Setup
                 if (IsValidGrandAlliance(allianceID, listCount))
                 {
                     playerPick.GrandAlliance = initialStuff.AlliancesList[allianceID];
-                    Console.WriteLine($"Du hast {playerPick.GrandAlliance.Name} gewählt");
+                    Console.WriteLine($"You picked {playerPick.GrandAlliance.Name}.");
                 }
             }
+            ConsoleSpacer.PrintSpacer();
         }
         private static bool IsValidGrandAlliance(int allianceID, int listCount) 
         {
@@ -84,7 +85,7 @@ namespace AOS_WCID.Konsole.Setup
         public void EingabeFaction()
         {
             StringBuilder chooseText = new StringBuilder();
-            chooseText.AppendLine("Welche Fraktion möchtest du spielen?");
+            chooseText.AppendLine("Which faction do you want to play?");
 
             int factionID= -1;
             int factionCount = initialStuff.FactionsList.Count();
@@ -94,17 +95,14 @@ namespace AOS_WCID.Konsole.Setup
                 Console.WriteLine(chooseText.ToString());
                 for (int i = 0; i < factionCount; i++)
                 {
-                    Console.WriteLine($"{i} für {initialStuff.FactionsList[i].FactionName}");
+                    Console.WriteLine($"{i} for {initialStuff.FactionsList[i].FactionName}");
                 }
 
                 int.TryParse(consolenReader.GetLine(), out factionID);
-
-                if (IsValidFaction(factionID, factionCount))
-                {
-                    playerPick.Faction = initialStuff.FactionsList[factionID];
-                    Console.WriteLine($"Du hast {playerPick.Faction.FactionName} als Fraktion gewählt");
-                }
             }
+            playerPick.Faction = initialStuff.FactionsList[factionID];
+            Console.WriteLine($"You picked {playerPick.Faction.FactionName} as a faction");
+            ConsoleSpacer.PrintSpacer();    
         }
         private static bool IsValidFaction(int factionID, int listCount) 
         {
@@ -113,7 +111,7 @@ namespace AOS_WCID.Konsole.Setup
         public void EingabeSubfaction()
         {
             StringBuilder chooseText = new StringBuilder();
-            chooseText.AppendLine("Welche Subfrakion möchtest du spielen?");
+            chooseText.AppendLine("Which Subfaction do you want to play?");
 
             int subfactionCount = initialStuff.SubfactionList.Count();
             int subfactionID = -1;
@@ -124,7 +122,7 @@ namespace AOS_WCID.Konsole.Setup
                 int num = 0;
                 for (int i = 0; i < subfactionCount; i++)
                 {
-                    Console.WriteLine($"{i} für {initialStuff.SubfactionList[i].Name}.");
+                    Console.WriteLine($"{i} for {initialStuff.SubfactionList[i].Name}.");
                 }
 
                 int.TryParse(consolenReader.GetLine(), out subfactionID);
@@ -133,17 +131,20 @@ namespace AOS_WCID.Konsole.Setup
                     continue;
 
                 playerPick.Subfaction = initialStuff.SubfactionList[subfactionID];
-                Console.WriteLine($"Du hast {playerPick.Subfaction.Name} als Subraktion gewählt");
-                
-                if (NeedsCustomSubfaction(playerPick))
-                {
-                    PickTenet();
-                    initialStuff.TenetList.Remove(playerPick.Tenets[0]);
-                    PickTenetAbillity();
-                    PickTenet();
-                    PickTenetAbillity();
-                }
+                Console.WriteLine($"You picked {playerPick.Subfaction.Name} as a Subfraction");
+                ConsoleSpacer.PrintSpacer();
+
             }
+            if (NeedsCustomSubfaction(playerPick))
+             {
+                PickTenet();
+                initialStuff.TenetList.Remove(playerPick.Tenets[0]);
+                PickTenetAbillity();
+                PickTenet();
+                PickTenetAbillity();
+
+            }
+            ConsoleSpacer.PrintSpacer();
         }
         public static bool IsValidSubfaction(int subfactionID, int subfactionCount)
         {
@@ -159,7 +160,7 @@ namespace AOS_WCID.Konsole.Setup
         {
             StringBuilder chooseText = new StringBuilder();
             
-            chooseText.AppendLine(playerPick.Tenets.Count()==0 ? "Was ist deine erste Liste?" : "Was ist deine zweite Liste?") ;
+            chooseText.AppendLine(playerPick.Tenets.Count()==0 ? "What is your first Tenat?" : "What is your second Tenat?") ;
 
             int tenetID = -1;
             
@@ -171,11 +172,12 @@ namespace AOS_WCID.Konsole.Setup
                 Console.WriteLine(chooseText.ToString());
                 for (int i = 0; i < tenetCount; i++)
                 {
-                    Console.WriteLine($"{i} für {initialStuff.TenetList[i].Name}");
+                    Console.WriteLine($"{i} for {initialStuff.TenetList[i].Name}");
                 }
                 isValidTenet = IsValidInput(tenetCount, out tenetID);
             }
             playerPick.Tenets.Add( initialStuff.TenetList[tenetID]);
+            ConsoleSpacer.PrintSpacer();
         }
 
         public void PickTenetAbillity()
@@ -184,7 +186,7 @@ namespace AOS_WCID.Konsole.Setup
             int tenetAbilityID = -1;
             StringBuilder chooseText = new StringBuilder();
           
-            chooseText.AppendLine(playerPick.TenetAbilities.Count()==0 ? "Was ist deine erste Fähigkeit?" : "Was ist deine zweite Fähigkeit?");
+            chooseText.AppendLine(playerPick.TenetAbilities.Count()==0 ? "What is your first ability?" : "What is your second ability?");
 
             bool isValidAbilityId = false;
 
@@ -193,7 +195,7 @@ namespace AOS_WCID.Konsole.Setup
                 Console.WriteLine(chooseText.ToString());
                 for (int i = 0; i < currentTenet.Abilities.Count(); i++)
                 {
-                    Console.WriteLine($"{i} für {currentTenet.Abilities[i].Name}");
+                    Console.WriteLine($"{i} for {currentTenet.Abilities[i].Name}");
                 }
 
                 isValidAbilityId = IsValidInput(currentTenet.Abilities.Count, out tenetAbilityID);
@@ -203,6 +205,7 @@ namespace AOS_WCID.Konsole.Setup
                     playerPick.TenetAbilities.Add(currentTenet.Abilities[tenetAbilityID]);
                 }
             }
+            ConsoleSpacer.PrintSpacer();
         }
 
     }

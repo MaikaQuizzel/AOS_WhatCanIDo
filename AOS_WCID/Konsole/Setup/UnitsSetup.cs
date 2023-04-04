@@ -42,6 +42,7 @@ namespace AOS_WCID.Konsole.Setup
                 isValidID = IsValidInput(batallionListCount, out batallionID);
             }
             playerPick.Batallion = initialStuff.BatallionList[batallionID];
+            ConsoleSpacer.PrintSpacer();
         }
         public void EingabeGeneral()
         {
@@ -61,8 +62,8 @@ namespace AOS_WCID.Konsole.Setup
             chooseText.AppendLine("f for finish");
 
             ConsolenReader reader = new ConsolenReader();
-            
             int userInt;
+
             while (!auswahlFertig)
             {
 
@@ -103,6 +104,7 @@ namespace AOS_WCID.Konsole.Setup
                     }
                 }
             }
+            ConsoleSpacer.PrintSpacer();
         }
         public void HeroPick(bool isGeneralPick) 
         {
@@ -166,9 +168,8 @@ namespace AOS_WCID.Konsole.Setup
                 }
 
                 isValidGeneral = IsValidInput(heroListCount,out heroID);
-
-                
             }
+            ConsoleSpacer.PrintSpacer();
             playerPick.HeroList.Add(initialStuff.HeroList.Heros[heroID]);
             if (playerPick.HeroList.Last().Keywords.Contains("WIZARD"))
             {
@@ -206,6 +207,7 @@ namespace AOS_WCID.Konsole.Setup
                 isValidID = IsValidInput(battlelineListCount, out battlelineID);
             }
             playerPick.UnitsList.Add(battlelineList[battlelineID]);
+            ConsoleSpacer.PrintSpacer();
 
         }
         public void ArtelleryPick() 
@@ -234,6 +236,7 @@ namespace AOS_WCID.Konsole.Setup
                 isValidID = IsValidInput(attileryListCount, out attileryID );
             }
             playerPick.UnitsList.Add(attileryList[attileryID]);
+            ConsoleSpacer.PrintSpacer();
         }
         public void EndlessSpellPick() 
         {
@@ -253,6 +256,7 @@ namespace AOS_WCID.Konsole.Setup
                 isValidID = IsValidInput(endlessSpellCount, out endlessSpellID);
             }
             playerPick.EndlessSpellList.Add( initialStuff.EndlessSpellsList.EndlessSpells[endlessSpellID]);
+            ConsoleSpacer.PrintSpacer();
         }
         public void OtherPick() 
         {
@@ -280,6 +284,7 @@ namespace AOS_WCID.Konsole.Setup
                 isValidID = IsValidInput(otherListCount, out otherID);
             }
             playerPick.UnitsList.Add(otherlist[otherID]);
+            ConsoleSpacer.PrintSpacer();
         }
         public void AuswahlCommandTrait()
         {

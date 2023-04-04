@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AOS_WCID.Entities
 {
-    public class Hero 
+    public class Hero :IUnit
     {
         //public string Name1;
         //public int Move1;
@@ -54,5 +54,55 @@ namespace AOS_WCID.Entities
         public List<string> Keywords { get => _keywords; set => _keywords = value; }
         public List<Attack> Attacks { get => _attacks; set => _attacks = value; }
         public List<string> Abilities { get => _abilities; set => _abilities = value; }
+
+        List<string> IModels.Abilities()
+        {
+            throw new NotImplementedException();
+        }
+
+        List<Attack> IUnit.Attacks()
+        {
+            throw new NotImplementedException();
+        }
+
+        int IUnit.Bravery()
+        {
+            throw new NotImplementedException();
+        }
+
+        List<string> IModels.Keywords()
+        {
+            throw new NotImplementedException();
+        }
+
+        int IUnit.Move()
+        {
+            throw new NotImplementedException();
+        }
+
+        string IModels.Name()
+        {
+            throw new NotImplementedException();
+        }
+
+        int IUnit.Points()
+        {
+            throw new NotImplementedException();
+        }
+
+        int IUnit.Save()
+        {
+            throw new NotImplementedException();
+        }
+
+        int IUnit.Size()
+        {
+            throw new NotImplementedException();
+        }
+
+        int IUnit.Wounds()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

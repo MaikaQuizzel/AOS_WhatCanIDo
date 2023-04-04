@@ -8,7 +8,13 @@ namespace AOS_WCID.Entities
 {
     public class Ability
     {
-        public string description;
+        private string description;
 
+        public Ability(string description)
+        {
+            this.description = description;
+        }
+
+        public string Description { get => description; set => description = value; }
     }
 }

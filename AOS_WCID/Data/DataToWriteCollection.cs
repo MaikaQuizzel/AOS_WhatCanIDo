@@ -197,7 +197,7 @@ namespace AOS_WCID.Data
 
             _reactionsList = new List<Reactions>()
             {
-                new Reactions("If a friendly STORMCAST ETERNALS model is slain within 1\" of an enemy unit, before removing that model from play, pick 1 enemy unit within 1\" of that model and roll a number of dice equal to the Wounds characteristic of that slain model. Add 1 to the number of dice you roll if the slain model has the THUNDERSTRIKE keyword. For each 6+, the target suffers 1 mortal wound at the end of that phase.")
+                new Reactions("If a friendly STORMCAST ETERNALS model is slain within 1\" of an enemy unit, before removing that model from play, pick 1 enemy unit within 1\" of that model and roll a number of dice equal to the Wounds characteristic of that slain model. Add 1 to the number of dice you roll if the slain model has the THUNDERSTRIKE keyword. For each 6+, the target suffers 1 mortal wound at the end of that phase.", factionsList.FirstOrDefault(x => x.FactionName.Equals("Stormcast Eternals")) )
             };
             DataManager.WriteReactionsListJsonToPath(_reactionsList);
 
