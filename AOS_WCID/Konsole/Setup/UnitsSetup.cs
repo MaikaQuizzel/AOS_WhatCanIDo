@@ -59,13 +59,15 @@ namespace AOS_WCID.Konsole.Setup
             chooseText.AppendLine("4 for  endless spell");
             chooseText.AppendLine("5 for other");
             chooseText.AppendLine("f for finish");
-            
+
             ConsolenReader reader = new ConsolenReader();
-            string userinput = reader.GetLine();
+            
             int userInt;
             while (!auswahlFertig)
             {
+
                 Console.WriteLine(chooseText.ToString());
+                string userinput = reader.GetLine();
 
                 if (userinput.Equals("f"))
                 {
@@ -199,7 +201,7 @@ namespace AOS_WCID.Konsole.Setup
                 Console.WriteLine(chooseText.ToString());
                 for (int i = 0; i < battlelineListCount; i++)
                 {
-                    Console.WriteLine($"{i} für {battlelineList[i]}");
+                    Console.WriteLine($"{i} für {battlelineList[i].Name}");
                 }
                 isValidID = IsValidInput(battlelineListCount, out battlelineID);
             }
@@ -227,7 +229,7 @@ namespace AOS_WCID.Konsole.Setup
                 Console.WriteLine(chooseText.ToString());
                 for (int i = 0; i < attileryListCount; i++)
                 {
-                    Console.WriteLine($"{i} für {attileryList[i]}");
+                    Console.WriteLine($"{i} für {attileryList[i].Name}");
                 }
                 isValidID = IsValidInput(attileryListCount, out attileryID );
             }
@@ -246,7 +248,7 @@ namespace AOS_WCID.Konsole.Setup
                 Console.WriteLine(chooseText.ToString());
                 for (int i = 0; i < endlessSpellCount; i++)
                 {
-                    Console.WriteLine($"{i} für {initialStuff.EndlessSpellsList.EndlessSpells[i]}");
+                    Console.WriteLine($"{i} für {initialStuff.EndlessSpellsList.EndlessSpells[i].Name}");
                 }
                 isValidID = IsValidInput(endlessSpellCount, out endlessSpellID);
             }
@@ -310,24 +312,6 @@ namespace AOS_WCID.Konsole.Setup
 
             chooseText.Clear();
             
-
-            chooseText.AppendLine($"Choose your command trait for {hero.Name}");
-            chooseText.Clear();
-            isValidID = false;
-
-            while (!isValidID)
-            {
-                Console.WriteLine(chooseText.ToString());
-                for (int i = 0; i < commandTraitListCount; i++)
-                {
-                    Console.WriteLine($"{i} für {initialStuff.CommandTraitList[i].Name}");
-                }
-                isValidID = IsValidInput(commandTraitListCount, out commandTraitID);
-            }
-            playerPick.CommandTrait = initialStuff.CommandTraitList[commandTraitID];
-            playerPick.CommandTrait.Owner = playerPick.HeroList.First();
-
-            chooseText.Clear();
             
         }
         public void AuswahlArtefact()
