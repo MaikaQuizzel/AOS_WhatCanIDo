@@ -8,16 +8,6 @@ namespace AOS_WCID.Entities
 {
     public class Hero :IUnit
     {
-        //public string Name1;
-        //public int Move1;
-        //public int Saver1;
-        //public int Bravery1;
-        //public int Wounds1;
-        //public int Size1;
-        //public int Points1;
-        //public List<string> Keywords1;
-        //public List<Attack> Attacks1;
-        //public List<string> Abilities1;
 
         string _name;
         int _move;
