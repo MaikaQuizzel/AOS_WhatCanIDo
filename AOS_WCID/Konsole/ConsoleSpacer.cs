@@ -15,12 +15,13 @@ namespace AOS_WCID.Konsole
             StringBuilder chooseText = new StringBuilder();
             chooseText.AppendLine("");
 
-            int size = 15;
+            int size = 35;
             for (int i = 0; i < size; i++)
             {
                 chooseText.Append("-");
             }
             chooseText.AppendLine("");
+            Console.WriteLine(chooseText.ToString());
         }
     }
 }
