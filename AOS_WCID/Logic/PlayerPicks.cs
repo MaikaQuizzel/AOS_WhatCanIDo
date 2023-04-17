@@ -7,7 +7,7 @@ using AOS_WCID.Entities;
 
 namespace AOS_WCID.Logic
 {
-    public class PlayerPicks
+    public sealed class PlayerPicks
     {
         private string gameName = "";
         private GrandAlliance grandAlliance;
