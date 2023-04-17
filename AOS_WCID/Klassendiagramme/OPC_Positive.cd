@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AOS_WCID.Entities.Hero">
+    <Position X="4.75" Y="1.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAIYAQAMAAgWAAgABLQIQAAAIAEAAAESAgQAIAwAA=</HashCode>
+      <FileName>Entities\Hero.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="AOS_WCID.Entities.IUnit" Collapsed="true">
+    <Position X="2.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAMAAgAAAAAABQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\IUnit.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="AOS_WCID.Entities.IModels" Collapsed="true">
+    <Position X="0.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Entities\IModels.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

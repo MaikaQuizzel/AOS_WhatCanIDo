@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AOS_WCID.Konsole.Setup.CoreSetup" Collapsed="true">
+    <Position X="5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACBIAAAAAAABgAICAAAAAAAAAAAAEEAABAAgAAQABA=</HashCode>
+      <FileName>Konsole\Setup\CoreSetup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AOS_WCID.Konsole.Setup.UnitsSetup" Collapsed="true">
+    <Position X="5.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAEAAAAIBAQAQAAEAgAAAAgAAAAECQBAAAABAAAg=</HashCode>
+      <FileName>Konsole\Setup\UnitsSetup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AOS_WCID.Logic.PlayerPicks" Collapsed="true">
+    <Position X="5.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>FBAEAIAAAAAAAAAKQEFAChABAFAQAiAEQAAgCEQAFAA=</HashCode>
+      <FileName>Logic\PlayerPicks.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AOS_WCID.Logic.Main" Collapsed="true">
+    <Position X="1.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAgAAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>Logic\Main.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
