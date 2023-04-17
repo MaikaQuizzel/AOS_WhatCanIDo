@@ -8,5 +8,10 @@ namespace AOS_WCID.Logic
 {
     public class GameRulePrinter
     {
+        private PlayerPicks playerPicks;
+        public GameRulePrinter(PlayerPicks playerPicks) 
+        {
+            this.playerPicks = playerPicks;
+        }
     }
 }
