@@ -30,7 +30,7 @@
 //                unitsSetup.EingabeBattallion();
 
 //                // Assert
-//                Assert.Equals(unitsSetup.initialStuff.BatallionList[1], unitsSetup.playerPick.Batallion);
+//                Assert.Equals(unitsSetup.initialStuff.BatallionList[1], unitsSetup.PlayerPicks.Instance.Batallion);
 //            }
 
 //            [TestMethod]
@@ -47,15 +47,15 @@
 //                unitsSetup.EingabeBattallion();
 
 //                // Assert
-//                Assert.Null(unitsSetup.playerPick.Batallion);
+//                Assert.Null(unitsSetup.PlayerPicks.Instance.Batallion);
 //            }
 //        [TestMethod]
 //        public void EingabeBattallion_ValidInput_ShouldSetPlayerPickBatallion1()
 //        {
 //            // Arrange
-//            var playerPick = new PlayerPicks();
+//            var PlayerPicks.Instance = new PlayerPicks();
 //            var initialStuff = new DataProvider();
-//            var unitsSetup = new UnitsSetup(playerPick, initialStuff);
+//            var unitsSetup = new UnitsSetup(PlayerPicks.Instance, initialStuff);
 //            initialStuff.BatallionList.Add(new Batallion("Batallion1", "Description1", 1, 2, 3, 4, 5));
 //            initialStuff.BatallionList.Add(new Batallion("Batallion2", "Description2", 2, 3, 4, 5, 6));
 
@@ -64,17 +64,17 @@
 //            unitsSetup.EingabeBattallion();
 
 //            // Assert
-//            Assert.Equals(initialStuff.BatallionList[1], playerPick.Batallion);
+//            Assert.Equals(initialStuff.BatallionList[1], PlayerPicks.Instance.Batallion);
 //        }
 
 //        [TestMethod]
 //        public void EingabeBattallion_InvalidInput_ShouldNotSetPlayerPickBatallion1()
 //        {
 //            // Arrange
-//            var playerPick = new PlayerPicks();
+//            var PlayerPicks.Instance = new PlayerPicks();
 //            var initialStuff = new DataProvider();
             
-//            var unitsSetup = new UnitsSetup(playerPick, initialStuff);
+//            var unitsSetup = new UnitsSetup(PlayerPicks.Instance, initialStuff);
 //            initialStuff.BatallionList.Add(new Batallion("Batallion1", "Description1", 1, 2, 3, 4, 5));
 //            initialStuff.BatallionList.Add(new Batallion("Batallion2", "Description2", 2, 3, 4, 5, 6));
 
@@ -83,7 +83,7 @@
 //            unitsSetup.EingabeBattallion();
 
 //            // Assert
-//            Assert.IsNull(playerPick.Batallion);
+//            Assert.IsNull(PlayerPicks.Instance.Batallion);
 //        }
 //    }
 //}

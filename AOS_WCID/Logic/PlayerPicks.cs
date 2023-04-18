@@ -9,6 +9,9 @@ namespace AOS_WCID.Logic
 {
     public sealed class PlayerPicks
     {
+        private static readonly Lazy<PlayerPicks> lazy= new Lazy<PlayerPicks> ((() => new PlayerPicks()));
+        public static PlayerPicks Instance { get { return lazy.Value; } }
+
         private string gameName = "";
         private GrandAlliance grandAlliance;
         private Faction faction;
@@ -25,7 +28,7 @@ namespace AOS_WCID.Logic
         private List<EndlessSpell> _endlessSpellList;
 
 
-        public PlayerPicks() 
+        private PlayerPicks() 
         {
             tenetAbilities = new List<TenetAbility>();
             _heroList = new List<Hero>();

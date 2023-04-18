@@ -13,7 +13,6 @@ namespace AOS_WCID.Logic
 {
     public class Main
     {
-        private PlayerPicks playerPick;
         private DataProvider initialStuff;
 
 
@@ -26,9 +25,9 @@ namespace AOS_WCID.Logic
             initialStuff = new DataProvider();
             initialStuff.InitializeStuff();
 
-            playerPick = new PlayerPicks();
-            CoreSetup setup = new CoreSetup(playerPick, initialStuff);
-            UnitsSetup unitSetup = new UnitsSetup(playerPick, initialStuff);
+           
+            CoreSetup setup = new CoreSetup(initialStuff);
+            UnitsSetup unitSetup = new UnitsSetup(initialStuff);
 
             //Console.WriteLine(initialStuff.);
 

@@ -11,15 +11,13 @@ namespace AOS_WCID.Konsole.Setup
 {
     public class CoreSetup:InputValidator
     {
-        private PlayerPicks playerPick;
+        
         private DataProvider initialStuff;
 
-        public PlayerPicks PlayerPick { get => playerPick; set => playerPick = value; }
         public DataProvider InitialStuff { get => initialStuff; set => initialStuff = value; }
 
-        public CoreSetup(PlayerPicks picks, DataProvider initStuff)
+        public CoreSetup( DataProvider initStuff)
         {
-            playerPick = picks;
             initialStuff = initStuff;
             consolenReader = new ConsolenReader();
         }
@@ -42,8 +40,8 @@ namespace AOS_WCID.Konsole.Setup
 
                 if (gameMode == 0 || gameMode == 1)
                 {
-                    playerPick.GameName = gameMode == 0 ? StringConstants.GAMEMODEPATH : "Normal";
-                    Console.WriteLine($"You picked {playerPick.GameName}.");
+                    PlayerPicks.Instance.GameName = gameMode == 0 ? StringConstants.GAMEMODEPATH : "Normal";
+                    Console.WriteLine($"You picked {PlayerPicks.Instance.GameName}.");
                     continue;
                 }
                 Console.WriteLine("Enter \" 0\" or \" 1\" ");
@@ -71,8 +69,8 @@ namespace AOS_WCID.Konsole.Setup
                 
                 if (IsValidGrandAlliance(allianceID, listCount))
                 {
-                    playerPick.GrandAlliance = initialStuff.AlliancesList[allianceID];
-                    Console.WriteLine($"You picked {playerPick.GrandAlliance.Name}.");
+                    PlayerPicks.Instance.GrandAlliance = initialStuff.AlliancesList[allianceID];
+                    Console.WriteLine($"You picked {PlayerPicks.Instance.GrandAlliance.Name}.");
                 }
             }
             ConsoleSpacer.PrintSpacer();
@@ -100,8 +98,8 @@ namespace AOS_WCID.Konsole.Setup
 
                 int.TryParse(consolenReader.GetLine(), out factionID);
             }
-            playerPick.Faction = initialStuff.FactionsList[factionID];
-            Console.WriteLine($"You picked {playerPick.Faction.FactionName} as a faction");
+            PlayerPicks.Instance.Faction = initialStuff.FactionsList[factionID];
+            Console.WriteLine($"You picked {PlayerPicks.Instance.Faction.FactionName} as a faction");
             ConsoleSpacer.PrintSpacer();    
         }
         private static bool IsValidFaction(int factionID, int listCount) 
@@ -130,15 +128,15 @@ namespace AOS_WCID.Konsole.Setup
                 if (!IsValidSubfaction(subfactionID, subfactionCount))
                     continue;
 
-                playerPick.Subfaction = initialStuff.SubfactionList[subfactionID];
-                Console.WriteLine($"You picked {playerPick.Subfaction.Name} as a Subfraction");
+                PlayerPicks.Instance.Subfaction = initialStuff.SubfactionList[subfactionID];
+                Console.WriteLine($"You picked {PlayerPicks.Instance.Subfaction.Name} as a Subfraction");
                 ConsoleSpacer.PrintSpacer();
 
             }
-            if (NeedsCustomSubfaction(playerPick))
+            if (NeedsCustomSubfaction())
              {
                 PickTenet();
-                initialStuff.TenetList.Remove(playerPick.Tenets[0]);
+                initialStuff.TenetList.Remove(PlayerPicks.Instance.Tenets[0]);
                 PickTenetAbillity();
                 PickTenet();
                 PickTenetAbillity();
@@ -150,9 +148,9 @@ namespace AOS_WCID.Konsole.Setup
         {
             return subfactionID >= 0 && subfactionID < subfactionCount;
         }
-        public static bool NeedsCustomSubfaction(PlayerPicks playerPick)
+        public static bool NeedsCustomSubfaction()
         {
-            return playerPick.GameName.Equals(StringConstants.GAMEMODEPATH) && playerPick.Subfaction.Name.Equals(StringConstants.NOSUBFACTION);
+            return PlayerPicks.Instance.GameName.Equals(StringConstants.GAMEMODEPATH) && PlayerPicks.Instance.Subfaction.Name.Equals(StringConstants.NOSUBFACTION);
         }
        
 
@@ -160,7 +158,7 @@ namespace AOS_WCID.Konsole.Setup
         {
             StringBuilder chooseText = new StringBuilder();
             
-            chooseText.AppendLine(playerPick.Tenets.Count()==0 ? "What is your first Tenat?" : "What is your second Tenat?") ;
+            chooseText.AppendLine(PlayerPicks.Instance.Tenets.Count()==0 ? "What is your first Tenat?" : "What is your second Tenat?") ;
 
             int tenetID = -1;
             
@@ -176,17 +174,17 @@ namespace AOS_WCID.Konsole.Setup
                 }
                 isValidTenet = IsValidInput(tenetCount, out tenetID);
             }
-            playerPick.Tenets.Add( initialStuff.TenetList[tenetID]);
+            PlayerPicks.Instance.Tenets.Add( initialStuff.TenetList[tenetID]);
             ConsoleSpacer.PrintSpacer();
         }
 
         public void PickTenetAbillity()
         {
-            Tenets currentTenet = playerPick.Tenets.Last();
+            Tenets currentTenet = PlayerPicks.Instance.Tenets.Last();
             int tenetAbilityID = -1;
             StringBuilder chooseText = new StringBuilder();
           
-            chooseText.AppendLine(playerPick.TenetAbilities.Count()==0 ? "What is your first ability?" : "What is your second ability?");
+            chooseText.AppendLine(PlayerPicks.Instance.TenetAbilities.Count()==0 ? "What is your first ability?" : "What is your second ability?");
 
             bool isValidAbilityId = false;
 
@@ -202,7 +200,7 @@ namespace AOS_WCID.Konsole.Setup
 
                 if (isValidAbilityId)
                 {
-                    playerPick.TenetAbilities.Add(currentTenet.Abilities[tenetAbilityID]);
+                    PlayerPicks.Instance.TenetAbilities.Add(currentTenet.Abilities[tenetAbilityID]);
                 }
             }
             ConsoleSpacer.PrintSpacer();
