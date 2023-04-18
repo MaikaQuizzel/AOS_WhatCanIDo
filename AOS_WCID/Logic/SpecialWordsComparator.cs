@@ -7,21 +7,40 @@ using System.Threading.Tasks;
 
 namespace AOS_WCID.Logic
 {
-    public  class SpecialWordsComparator
+    public class SpecialWordsComparator
     {
-        private List<string> wordsHeroPhase;
-        private List<string> wordsMovmentPhase;
-        private List<string> wordsChargePhase;
-        private List<string> wordsShootingPhase;
-        private List<string> wordsCombatPhase;
-        private List<string> wordsBattleshockPhase;
+        private static List<string> wordsHeroPhase = new List<string>() {
+                "hero phase",
+                "casting value"
+            };
+        private static List<string> wordsMovmentPhase = new List<string>() {
+                "set up",
+                "reserve",
+                "movement phase"
+            };
+        private static List<string> wordsChargePhase = new List<string>() {
+                "charge move",
+                "casting value"
+            };
+        private static List<string> wordsShootingPhase = new List<string>() {
+                "aim",
+                "shooting phase"
+            };
+        private static List<string> wordsCombatPhase = new List<string>() {
+                "ward",
+                "casting value",
+                "make a hit",
+                "save roll"
+            };
+        private static List<string> wordsBattleshockPhase = new List<string>() {
+                "battleshock test"
+            };
 
         public SpecialWordsComparator() 
         {
-
         }
 
-        public bool CompareAbilitiyToList(string ability, string phase) 
+        public static bool CompareAbilitiyToList(string ability, string phase) 
         {
             var listToCompare = new List<string>();
             if(phase == StringConstants.HEROPHASE)
@@ -55,9 +74,6 @@ namespace AOS_WCID.Logic
             }
             return false;    
         }
-        private void InitWordLists()
-        {
 
-        }
     }
 }
