@@ -15,5 +15,6 @@ namespace AOS_WCID.Entities
         int Wounds();
         int Size();
         int Points();
+        
     }
 }

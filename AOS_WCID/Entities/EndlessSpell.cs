@@ -27,15 +27,13 @@ namespace AOS_WCID.Entities
             _keyWords = keyWords;
         }
 
-        public string Name { get => _name; }
+        
         public int Points { get => _points; }
         public string Summoning { get => _summoning;  }
         public string Predatory { get => _predatory; }
-        public List<string> AbilityList { get => _abilityList; }
         public string Description { get => _description; }
-        public List<string> KeyWords { get => _keyWords;  }
 
-        string IModels.Name()
+        public string Name()
         {
             return _name;
         }

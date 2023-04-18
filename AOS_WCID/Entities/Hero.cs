@@ -34,65 +34,65 @@ namespace AOS_WCID.Entities
             _abilities = abilities;
         }
 
-        public string Name { get => _name; set => _name = value; }
-        public int Move { get => _move; set => _move = value; }
-        public int Save { get => _save; set => _save = value; }
-        public int Bravery { get => _bravery; set => _bravery = value; }
-        public int Wounds { get => _wounds; set => _wounds = value; }
-        public int Size { get => _size; set => _size = value; }
-        public int Points { get => _points; set => _points = value; }
-        public List<string> Keywords { get => _keywords; set => _keywords = value; }
-        public List<Attack> Attacks { get => _attacks; set => _attacks = value; }
-        public List<string> Abilities { get => _abilities; set => _abilities = value; }
+        //public string Name { get => _name; set => _name = value; }
+        //public int Move { get => _move; set => _move = value; }
+        //public int Save { get => _save; set => _save = value; }
+        //public int Bravery { get => _bravery; set => _bravery = value; }
+        //public int Wounds { get => _wounds; set => _wounds = value; }
+        //public int Size { get => _size; set => _size = value; }
+        //public int Points { get => _points; set => _points = value; }
+        //public List<string> Keywords { get => _keywords; set => _keywords = value; }
+        //public List<Attack> Attacks {  set => _attacks = value; }
+        //public List<string> Abilities { get => _abilities; set => _abilities = value; }
 
-        List<string> IModels.Abilities()
+        public List<string> Abilities()
         {
-            throw new NotImplementedException();
+            return _abilities;
         }
 
-        List<Attack> IUnit.Attacks()
+        public List<Attack> Attacks()
         {
-            throw new NotImplementedException();
+            return _attacks;
         }
 
-        int IUnit.Bravery()
+        public int Bravery()
         {
-            throw new NotImplementedException();
+            return _bravery;
         }
 
-        List<string> IModels.Keywords()
+        public List<string> Keywords()
         {
-            throw new NotImplementedException();
+            return _keywords;
         }
 
-        int IUnit.Move()
+        public int Move()
         {
-            throw new NotImplementedException();
+            return _move;
         }
 
-        string IModels.Name()
+        public string Name()
         {
-            throw new NotImplementedException();
+            return _name;
         }
 
-        int IUnit.Points()
+        public int Points()
         {
-            throw new NotImplementedException();
+            return _points;
         }
 
-        int IUnit.Save()
+        public int Save()
         {
-            throw new NotImplementedException();
+            return _save;
         }
 
-        int IUnit.Size()
+        public int Size()
         {
-            throw new NotImplementedException();
+            return _size;
         }
 
-        int IUnit.Wounds()
+        public int Wounds()
         {
-            throw new NotImplementedException();
+            return _wounds;
         }
     }
 }
