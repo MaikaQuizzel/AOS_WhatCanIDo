@@ -72,6 +72,13 @@ namespace AOS_WCID.Logic
             {
                 listToCompare.AddRange(wordsBattleshockPhase);
             }
+            foreach(string word in listToCompare)
+            {
+                if (ability.Contains(word))
+                {
+                    return true;
+                }
+            }
             return false;    
         }
 
