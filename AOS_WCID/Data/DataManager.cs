@@ -327,6 +327,20 @@ namespace AOS_WCID.Data
         //    }
         //    return entities;
         //}
+        public static void WriteJsonToPath<T>(List<T> entities, string path)
+        {
+            var json = JsonSerializer.Serialize(entities);
+            File.WriteAllText(path, json);
+        }
+
+        public static List<T> ReadJsonFromPath<T>(string path)
+        {
+            using (StreamReader r = new StreamReader(path))
+            {
+                string json = r.ReadToEnd();
+                return JsonSerializer.Deserialize<List<T>>(json);
+            }
+        }
 
     }
 }

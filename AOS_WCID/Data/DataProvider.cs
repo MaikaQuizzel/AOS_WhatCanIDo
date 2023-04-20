@@ -9,77 +9,43 @@ namespace AOS_WCID.Data
 {
     public class DataProvider
     {
-        private List<GrandAlliance> alliancesList;
-        private List<Faction> factionsList;
-        private List<Subfaction> subfactionList;
-        private List<Tenets> tenetList;
-        private List<TenetAbility> tenetAbilityListHammer;
-        private List<TenetAbility> tenetAbilityListShield;
-        private List<TenetAbility> tenetAbilityListTempest;
-        private List<Batallion> batallionList;
-        private HeroesList heroList;
-        private List<CommandTrait> _commandTraitList;
-        private List<Artefact> _artefactList;
-        private List<Spell> _spellList;
-        private List<Prayer> _prayerList;
-        private UnitList _unitsList;
-        private List<Reactions> _reactionList;
-        private EndlessSpellList endlessSpellsList;
+        private readonly List<GrandAlliance> alliancesList = DataManager.ReadGrandAllianceJsonToPath();
+        private readonly List<Subfaction> subfactionList = DataManager.ReadSubfactionListJsonToPath();
+        private readonly List<Tenets> tenetList = DataManager.ReadTenetsJsonToPath();
+        private readonly List<TenetAbility> tenetAbilityListHammer = DataManager.ReadHammerAbilitiesListJsonToPath();
+        private readonly List<TenetAbility> tenetAbilityListShield = DataManager.ReadShieldAbilitiesListJsonToPath();
+        private readonly List<TenetAbility> tenetAbilityListTempest = DataManager.ReadTempestAbilitiesListJsonToPath();
+        private readonly List<Batallion> batallionList = DataManager.ReadBatallionListJsonToPath();
+        private readonly HeroesList heroList = DataManager.ReadHeroListJsonToPath();
+        private readonly List<CommandTrait> _commandTraitList = DataManager.ReadCommandsListJsonToPath();
+        private readonly List<Faction> factionsList = DataManager.ReadFactionsJsonToPath();
+        private readonly List<Artefact> _artefactList = DataManager.ReadArtefactListJsonToPath();
+        private readonly List<Spell> _spellList = DataManager.ReadSpellListJsonToPath();
+        private readonly List<Prayer> _prayerList = DataManager.ReadPrayerListJsonToPath();
+        private readonly UnitList _unitsList = DataManager.ReadUnitListJsonToPath();
+        private readonly List<Reactions> _reactionList = DataManager.ReadReactionsListJsonToPath();
+        private readonly EndlessSpellList endlessSpellsList = DataManager.ReadEndlessSpellsListJsonToPath();
 
 
         public DataProvider() { }
 
-        public List<GrandAlliance> AlliancesList { get => alliancesList; set => alliancesList = value; }
-        public List<Faction> FactionsList { get => factionsList; set => factionsList = value; }
-        public List<Subfaction> SubfactionList { get => subfactionList; set => subfactionList = value; }
-        public List<Tenets> TenetList { get => tenetList; set => tenetList = value; }
-        public List<TenetAbility> TenetAbilityListHammer { get => tenetAbilityListHammer; set => tenetAbilityListHammer = value; }
-        public List<TenetAbility> TenetAbilityListShield { get => tenetAbilityListShield; set => tenetAbilityListShield = value; }
-        public List<TenetAbility> TenetAbilityListTempest { get => tenetAbilityListTempest; set => tenetAbilityListTempest = value; }
-        public List<Batallion> BatallionList { get => batallionList; set => batallionList = value; }
-        public HeroesList HeroList { get => heroList; set => heroList = value; }
-        public List<CommandTrait> CommandTraitList { get => _commandTraitList; set => _commandTraitList = value; }
-        public List<Artefact> ArtefactList { get => _artefactList; set => _artefactList = value; }
-        public List<Spell> SpellList { get => _spellList; set => _spellList = value; }
-        public List<Prayer> PrayerList { get => _prayerList; set => _prayerList = value; }
-        public UnitList UnitsList { get => _unitsList; set => _unitsList = value; }
-        public List<Reactions> ReactionList { get => _reactionList; set => _reactionList = value; }
-        public EndlessSpellList EndlessSpellsList { get => endlessSpellsList; set => endlessSpellsList = value; }
+        public List<GrandAlliance> AlliancesList { get => alliancesList;  }
+        public List<Faction> FactionsList { get => factionsList;  }
+        public List<Subfaction> SubfactionList { get => subfactionList;  }
+        public List<Tenets> TenetList { get => tenetList; }
+        public List<TenetAbility> TenetAbilityListHammer { get => tenetAbilityListHammer;  }
+        public List<TenetAbility> TenetAbilityListShield { get => tenetAbilityListShield;  }
+        public List<TenetAbility> TenetAbilityListTempest { get => tenetAbilityListTempest;  }
+        public List<Batallion> BatallionList { get => batallionList;  }
+        public HeroesList HeroList { get => heroList;  }
+        public List<CommandTrait> CommandTraitList { get => _commandTraitList;  }
+        public List<Artefact> ArtefactList { get => _artefactList; }
+        public List<Spell> SpellList { get => _spellList; }
+        public List<Prayer> PrayerList { get => _prayerList;  }
+        public UnitList UnitsList { get => _unitsList;  }
+        public List<Reactions> ReactionList { get => _reactionList; }
+        public EndlessSpellList EndlessSpellsList { get => endlessSpellsList; }
 
-        public void InitializeStuff()
-        {
-            //Dummy Data from JSON
-            alliancesList = DataManager.ReadGrandAllianceJsonToPath();
-
-            FactionsList = DataManager.ReadFactionsJsonToPath();
-
-            SubfactionList =DataManager.ReadSubfactionListJsonToPath();
-
-            TenetAbilityListHammer = DataManager.ReadHammerAbilitiesListJsonToPath();
-
-            TenetAbilityListShield = DataManager.ReadShieldAbilitiesListJsonToPath();
-
-            TenetAbilityListTempest = DataManager.ReadTempestAbilitiesListJsonToPath();
-
-            TenetList = DataManager.ReadTenetsJsonToPath();
-
-            BatallionList = DataManager.ReadBatallionListJsonToPath();
-
-            HeroList = DataManager.ReadHeroListJsonToPath();  
-            
-            CommandTraitList = DataManager.ReadCommandsListJsonToPath();
-
-            ArtefactList = DataManager.ReadArtefactListJsonToPath();   
-            
-            SpellList = DataManager.ReadSpellListJsonToPath();  
-
-            PrayerList = DataManager.ReadPrayerListJsonToPath();
-            
-            UnitsList = DataManager.ReadUnitListJsonToPath();
-
-            ReactionList = DataManager.ReadReactionsListJsonToPath();
-
-            EndlessSpellsList = DataManager.ReadEndlessSpellsListJsonToPath();
-        }
+        
     }
 }

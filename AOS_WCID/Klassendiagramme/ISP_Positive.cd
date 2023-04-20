@@ -1,18 +1,40 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="AOS_WCID.Entities.Hero" Collapsed="true">
-    <Position X="5.25" Y="3" Width="1.5" />
+  <Class Name="AOS_WCID.Entities.Hero">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAIYAQAMAAgWAAgABLQIQAAAIAEAAAESAgQAIAwAA=</HashCode>
+      <HashCode>AAAAIYAAAMAAgQAAgAALQIQAAAAAAAAAACAgQAIAgAA=</HashCode>
       <FileName>Entities\Hero.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Interface Name="AOS_WCID.Entities.IUnit" Collapsed="true">
-    <Position X="3.25" Y="2.25" Width="1.5" />
+  <Class Name="AOS_WCID.Entities.EndlessSpell">
+    <Position X="2" Y="3.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAIQAAAEAggAAEgAEEAAQAAAAAAAAAAAAAAQABgAA=</HashCode>
+      <FileName>Entities\EndlessSpell.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="AOS_WCID.Entities.IUnit">
+    <Position X="4" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAIAAAMAAgAAAAAABQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Entities\IUnit.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="AOS_WCID.Entities.IModels">
+    <Position X="2" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Entities\IModels.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Font Name="Segoe UI" Size="9" />

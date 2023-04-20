@@ -1,30 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="AOS_WCID.Entities.Hero" Collapsed="true">
-    <Position X="3.5" Y="3" Width="1.5" />
+  <Class Name="AOS_WCID.Entities.Hero">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAIYAQAMAAgWAAgABLQIQAAAIAEAAAESAgQAIAwAA=</HashCode>
+      <HashCode>AAAAIYAAAMAAgQAAgAALQIQAAAAAAAAAACAgQAIAgAA=</HashCode>
       <FileName>Entities\Hero.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="AOS_WCID.Entities.EndlessSpell" Collapsed="true">
-    <Position X="5.5" Y="1.75" Width="1.5" />
+  <Class Name="AOS_WCID.Entities.EndlessSpell">
+    <Position X="1" Y="2.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
-      <HashCode>AACAIQAAAEAggAAEgAEEAAQAAQAAAAAAAQAAAQABgAA=</HashCode>
+      <HashCode>AAAAIQAAAEAggAAEgAEEAAQAAAAAAAAAAAAAAQABgAA=</HashCode>
       <FileName>Entities\EndlessSpell.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.1" />
   </Class>
-  <Interface Name="AOS_WCID.Entities.IModels" Collapsed="true">
-    <Position X="4.25" Y="0.75" Width="1.5" />
+  <Class Name="AOS_WCID.Entities.Units">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAIYAAAMAAgQAAgAALQIQAAAAAAAAAACAgQAIAgAA=</HashCode>
+      <FileName>Entities\Units.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="AOS_WCID.Entities.IModels">
+    <Position X="1" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAQAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAgAA=</HashCode>
       <FileName>Entities\IModels.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="AOS_WCID.Entities.IUnit" Collapsed="true">
-    <Position X="3.5" Y="1.75" Width="1.5" />
+  <Interface Name="AOS_WCID.Entities.IUnit">
+    <Position X="3" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAIAAAMAAgAAAAAABQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Entities\IUnit.cs</FileName>

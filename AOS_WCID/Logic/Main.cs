@@ -23,7 +23,7 @@ namespace AOS_WCID.Logic
             coll.WriteStuffNow();
 
             initialStuff = new DataProvider();
-            initialStuff.InitializeStuff();
+         
 
            
             CoreSetup setup = new CoreSetup(initialStuff);

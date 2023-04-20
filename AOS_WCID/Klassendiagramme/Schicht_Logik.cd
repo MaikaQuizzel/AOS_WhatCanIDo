@@ -1,31 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="AOS_WCID.Konsole.Setup.CoreSetup" Collapsed="true">
-    <Position X="5" Y="2.5" Width="1.5" />
+  <Class Name="AOS_WCID.Konsole.Setup.CoreSetup">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
-      <HashCode>AACBIAAAAAAABgAICAAAAAAAAAAAAEEAABAAgAAQABA=</HashCode>
+      <HashCode>AACBIAAAAAAABgAICAAAAAAAAAAAAEAAABAAgAAQABA=</HashCode>
       <FileName>Konsole\Setup\CoreSetup.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="AOS_WCID.Konsole.Setup.UnitsSetup" Collapsed="true">
-    <Position X="5.75" Y="4" Width="1.5" />
+  <Class Name="AOS_WCID.Konsole.Setup.UnitsSetup">
+    <Position X="10" Y="1.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
-      <HashCode>AAABAEAAAAIBAQAQAAEAgAAAAgAAAAECQBAAAABAAAg=</HashCode>
+      <HashCode>AAAAAEAAAAIBAQAQAAEAgAAAAgAAAAECQBAAAABAAAg=</HashCode>
       <FileName>Konsole\Setup\UnitsSetup.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="AOS_WCID.Logic.PlayerPicks" Collapsed="true">
-    <Position X="5.25" Y="1.25" Width="1.5" />
+  <Class Name="AOS_WCID.Logic.PlayerPicks">
+    <Position X="7.5" Y="1.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
-      <HashCode>FBAEAIAAAAAAAAAKQEFAChABAFAQAiAEQAAgCEQAFAA=</HashCode>
+      <HashCode>FBAEAIAAAAAAAAAKQEFAChABAFAQAiAEQAAgCFQAFAA=</HashCode>
       <FileName>Logic\PlayerPicks.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="AOS_WCID.Logic.Main" Collapsed="true">
-    <Position X="1.75" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAABAAAAAAAAAAAAAAAAAAAgAAAAAAAAABAAAAAAAAA=</HashCode>
-      <FileName>Logic\Main.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

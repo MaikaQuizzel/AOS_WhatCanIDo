@@ -48,7 +48,7 @@ namespace AOS_WCID.Logic
             stringBuilder.Append(PlayerPicks.Instance.Batallion.Name);
             stringBuilder.Append('\n');
 
-            string path=""
+            string path = "";
 
             WritePhases();
             using (StreamWriter writer = new StreamWriter(path))

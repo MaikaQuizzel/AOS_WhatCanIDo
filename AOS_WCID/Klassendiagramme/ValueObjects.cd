@@ -1,19 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="AOS_WCID.Data.DataManager">
-    <Position X="3.5" Y="1" Width="2.75" />
-    <Compartments>
-      <Compartment Name="Fields" Collapsed="true" />
-    </Compartments>
-    <TypeIdentifier>
-      <HashCode>MQAEAEAAQJFA4AgABieRICAMQIQgQQxAAQEAgJAAwBA=</HashCode>
-      <FileName>Data\DataManager.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="AOS_WCID.Data.DataProvider">
-    <Position X="6.75" Y="1" Width="1.5" />
+    <Position X="7.25" Y="1" Width="1.5" />
     <Compartments>
-      <Compartment Name="Fields" Collapsed="true" />
       <Compartment Name="Properties" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
