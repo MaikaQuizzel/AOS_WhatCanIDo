@@ -48,7 +48,7 @@ namespace AOS_WCID.Logic
             stringBuilder.Append(PlayerPicks.Instance.Batallion.Name);
             stringBuilder.Append('\n');
 
-            string path = "";
+            string path = DateTime.Now.ToString() + "-GamePrint.txt";
 
             WritePhases();
             using (StreamWriter writer = new StreamWriter(path))
@@ -64,15 +64,15 @@ namespace AOS_WCID.Logic
             int unitList = PlayerPicks.Instance.UnitsList.Count();
             for (int i = 0; i < heroList; i++)
             {
-                totalPoints += PlayerPicks.Instance.HeroList[i].Points();
+                totalPoints += PlayerPicks.Instance.HeroList[i].Points;
             }
             for (int i = 0; i < endlessSpellList; i++)
             {
-                totalPoints += PlayerPicks.Instance.EndlessSpellList[i].Points;
+                totalPoints += ((EndlessSpell)PlayerPicks.Instance.EndlessSpellList[i]).Points;
             }
             for (int i = 0; i < unitList; i++)
             {
-                totalPoints += PlayerPicks.Instance.UnitsList[i].Points();
+                totalPoints += PlayerPicks.Instance.UnitsList[i].Points;
             }
         }
         private void WritePhases()
@@ -91,11 +91,11 @@ namespace AOS_WCID.Logic
             foreach (Hero hero in PlayerPicks.Instance.HeroList)
             {
                 stringBuilder.AppendLine($"{hero.Name}: ");
-                foreach (String ability in hero.Abilities())
+                foreach (Ability ability in hero.Abilities)
                 {
-                    if(SpecialWordsComparator.CompareAbilitiyToList(ability, StringConstants.HEROPHASE))
+                    if(SpecialWordsComparator.CompareAbilitiyToList(ability.ToString(), StringConstants.HEROPHASE))
                     {
-                        stringBuilder.Append("\t").Append(ability);
+                        stringBuilder.Append("\t").Append(ability.ToString());
                     }
                 }
                 foreach (Artefact artefact in PlayerPicks.Instance.ArtefactList)
@@ -119,11 +119,11 @@ namespace AOS_WCID.Logic
             foreach (Hero hero in PlayerPicks.Instance.HeroList)
             {
                 stringBuilder.AppendLine($"{hero.Name}: ");
-                foreach (string ability in hero.Abilities())
+                foreach (Ability ability in hero.Abilities)
                 {
-                    if (SpecialWordsComparator.CompareAbilitiyToList(ability, StringConstants.MOVEMENTPHASE))
+                    if (SpecialWordsComparator.CompareAbilitiyToList(ability.Description, StringConstants.MOVEMENTPHASE))
                     {
-                        stringBuilder.Append("\t").Append(ability);
+                        stringBuilder.Append("\t").Append(ability.Description);
                     }
                 }
                 foreach(Artefact artefact in PlayerPicks.Instance.ArtefactList)
@@ -141,11 +141,11 @@ namespace AOS_WCID.Logic
             foreach(Units unit in PlayerPicks.Instance.UnitsList)
             {
                 stringBuilder.AppendLine($"{unit.Name}: ");
-                foreach(string ability in unit.Abilities())
+                foreach(Ability ability in unit.Abilities)
                 {
-                    if (SpecialWordsComparator.CompareAbilitiyToList(ability, StringConstants.MOVEMENTPHASE))
+                    if (SpecialWordsComparator.CompareAbilitiyToList(ability.Description, StringConstants.MOVEMENTPHASE))
                     {
-                        stringBuilder.Append("\t").Append(ability);
+                        stringBuilder.Append("\t").Append(ability.Description);
                     }
                 }
             }
@@ -153,11 +153,11 @@ namespace AOS_WCID.Logic
             foreach (EndlessSpell unit in PlayerPicks.Instance.EndlessSpellList)
             {
                 stringBuilder.AppendLine($"{unit.Name}: ");
-                foreach (string ability in unit.Abilities())
+                foreach (Ability ability in unit.Abilities)
                 {
-                    if (SpecialWordsComparator.CompareAbilitiyToList(ability, StringConstants.MOVEMENTPHASE))
+                    if (SpecialWordsComparator.CompareAbilitiyToList(ability.Description, StringConstants.MOVEMENTPHASE))
                     {
-                        stringBuilder.Append("\t").Append(ability);
+                        stringBuilder.Append("\t").Append(ability.Description);
                     }
                 }
             }

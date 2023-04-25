@@ -8,6 +8,15 @@ namespace AOS_WCID.Entities
 {
     public class EndlessSpellList
     {
-        public List<EndlessSpell> EndlessSpells { get; set; }   
+        private List<EndlessSpell> _endlessSpellList = new List<EndlessSpell>();
+
+
+        public EndlessSpellList(List<EndlessSpell> spells) 
+        { 
+            _endlessSpellList = spells;
+        }
+
+
+        public List<EndlessSpell> EndlessSpellLISTE { get => _endlessSpellList; set => _endlessSpellList = value; }   
     }
 }

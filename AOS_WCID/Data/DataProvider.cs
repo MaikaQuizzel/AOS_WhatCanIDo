@@ -9,6 +9,7 @@ namespace AOS_WCID.Data
 {
     public class DataProvider
     {
+        private readonly Hero hero = DataManager.ReadListJsonToPath();
         private readonly List<GrandAlliance> alliancesList = DataManager.ReadGrandAllianceJsonToPath();
         private readonly List<Subfaction> subfactionList = DataManager.ReadSubfactionListJsonToPath();
         private readonly List<Tenets> tenetList = DataManager.ReadTenetsJsonToPath();
@@ -25,6 +26,7 @@ namespace AOS_WCID.Data
         private readonly UnitList _unitsList = DataManager.ReadUnitListJsonToPath();
         private readonly List<Reactions> _reactionList = DataManager.ReadReactionsListJsonToPath();
         private readonly EndlessSpellList endlessSpellsList = DataManager.ReadEndlessSpellsListJsonToPath();
+       
 
 
         public DataProvider() { }

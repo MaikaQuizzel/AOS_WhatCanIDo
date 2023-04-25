@@ -9,96 +9,34 @@ namespace AOS_WCID
 {
     public class Unit : IUnit
     {
-        private int size;
-        private string name;
-        private int movementRange;
-        private List<Attack> attackList = new List<Attack>();
-        private int save;
-        private int bravery;
-        private int wounds;
-        private int points;
-        private List<string> keywords = new List<string>();
-        private int renown;
-        private bool isGeneral = false;
-        private List<Ability> abilities = new List<Ability>();
+        private int _size;
+        private string _name;
+        private int _movementRange;
+        private List<Attack> _attackList = new List<Attack>();
+        private int _save;
+        private int _bravery;
+        private int _wounds;
+        private int _points;
+        private List<string> _keywords = new List<string>();
+        private int _renown;
+        private bool _isGeneral = false;
+        private List<Ability> _abilities = new List<Ability>();
 
-        public Unit(int size, string name, int movementRange, List<Attack> attackList, int save, int bravery, int wounds, int points, List<string> keywords, int renown, bool isGeneral, List<Ability> abilities)
-        {
-            this.Size = size;
-            this.Name = name;
-            this.MovementRange = movementRange;
-            this.AttackList = attackList;
-            this.Save = save;
-            this.Bravery = bravery;
-            this.Wounds = wounds;
-            this.Points = points;
-            this.Keywords = keywords;
-            this.Renown = renown;
-            this.IsGeneral = isGeneral;
-            this.Abilities = abilities;
-        }
+        public Unit() { }
+      
 
-        public int Size { get => size; set => size = value; }
-        public string Name { get => name; set => name = value; }
-        public int MovementRange { get => movementRange; set => movementRange = value; }
-        public List<Attack> AttackList { get => attackList; set => attackList = value; }
-        public int Save { get => save; set => save = value; }
-        public int Bravery { get => bravery; set => bravery = value; }
-        public int Wounds { get => wounds; set => wounds = value; }
-        public int Points { get => points; set => points = value; }
-        public List<string> Keywords { get => keywords; set => keywords = value; }
-        public int Renown { get => renown; set => renown = value; }
-        public bool IsGeneral { get => isGeneral; set => isGeneral = value; }
-        public List<Ability> Abilities { get => abilities; set => abilities = value; }
-
-        public List<Attack> Attacks()
-        {
-            throw new NotImplementedException();
-        }
-
-        public int Move()
-        {
-            throw new NotImplementedException();
-        }
-
-        List<string> IModels.Abilities()
-        {
-            throw new NotImplementedException();
-        }
-
-        int IUnit.Bravery()
-        {
-            throw new NotImplementedException();
-        }
-
-        List<string> IModels.Keywords()
-        {
-            throw new NotImplementedException();
-        }
-
-        string IModels.Name()
-        {
-            throw new NotImplementedException();
-        }
-
-        int IUnit.Points()
-        {
-            throw new NotImplementedException();
-        }
-
-        int IUnit.Save()
-        {
-            throw new NotImplementedException();
-        }
-
-        int IUnit.Size()
-        {
-            throw new NotImplementedException();
-        }
-
-        int IUnit.Wounds()
-        {
-            throw new NotImplementedException();
-        }
+        public int Size { get => _size; set => _size = value; }
+        public string Name { get => _name; set => _name = value; }
+        public int Save { get => _save; set => _save = value; }
+        public int Bravery { get => _bravery; set => _bravery = value; }
+        public int Wounds { get => _wounds; set => _wounds = value; }
+        public int Points { get => _points; set => _points = value; }
+        public List<string> Keywords { get => _keywords; set => _keywords = value; }
+        public int Renown { get => _renown; set => _renown = value; }
+        public bool IsGeneral { get => _isGeneral; set => _isGeneral = value; }
+        public int Move { get => _movementRange; set => _movementRange = value; }
+        public List<Attack> Attacks { get => _attackList; set => _attackList = value; }
+        public List<Ability> Abilities { get => _abilities; set => _abilities = value; }
+      
     }
 }

@@ -8,9 +8,8 @@ namespace AOS_WCID.Entities
 {
     public interface IModels
     {
-        string Name();
-        List<string> Keywords();
-        List<string> Abilities();
-
+        public string Name { get; set; }
+        public List<string> Keywords { get; set; }
+        public List<Ability> Abilities { get; set; }
     }
 }

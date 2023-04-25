@@ -1,6 +1,7 @@
 ﻿using AOS_WCID.Entities;
 using System;
 using System.Collections.Generic;
+using System.IO.Pipes;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
@@ -180,7 +181,7 @@ namespace AOS_WCID.Data
         }
         public static EndlessSpellList ReadEndlessSpellsListJsonToPath()
         {
-            EndlessSpellList entities = new EndlessSpellList();
+            EndlessSpellList entities ;
 
             using (StreamReader r = new StreamReader(ENDLESSSPELLS))
             {
@@ -207,6 +208,27 @@ namespace AOS_WCID.Data
             }
             return entities;
         }
+
+        public static void WriteListJsonToPath(Hero heroes)
+        {
+            string path = "OneHero.json";
+            string json = JsonSerializer.Serialize(heroes);
+            File.WriteAllText(path, json);
+        }
+        public static Hero ReadListJsonToPath()
+        {
+            Hero entities;
+            
+            using (StreamReader r = new StreamReader("OneHero.json"))
+            {
+                string json = r.ReadToEnd();
+                entities = JsonSerializer.Deserialize<Hero>(json);
+            }
+            return entities;
+        }
+
+
+
         public static void WriteCommandsListJsonToPath(List<CommandTrait> entities)
         {
             string path = COMMANDTRAITS;

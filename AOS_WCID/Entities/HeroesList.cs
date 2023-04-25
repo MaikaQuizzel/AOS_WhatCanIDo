@@ -8,6 +8,6 @@ namespace AOS_WCID.Entities
 {
     public class HeroesList
     {
-        public List<Hero> Heros { get; set; }
+        public List<IUnit> Heros;
     }
 }

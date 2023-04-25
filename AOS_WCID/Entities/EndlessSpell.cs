@@ -12,11 +12,11 @@ namespace AOS_WCID.Entities
         private int _points;
         private string _summoning;
         private string _predatory;
-        private List<string> _abilityList;
+        private List<Ability> _abilityList;
         private string _description;
         private List<string> _keyWords;
 
-        public EndlessSpell(string name, int points, string summoning, string predatory, List<string> abilityList, string description, List<string> keyWords)
+        public EndlessSpell(string name, int points, string summoning, string predatory, List<Ability> abilityList, string description, List<string> keyWords)
         {
             _name = name;
             _points = points;
@@ -27,25 +27,13 @@ namespace AOS_WCID.Entities
             _keyWords = keyWords;
         }
 
+        public string Name { get => _name; set => _name = value; }
+        public int Points { get => _points; set => _points = value; }
+        public string Summoning { get => _summoning; set => _summoning = value; }
+        public string Predatory { get => _predatory; set => _predatory = value; }
+        public List<Ability> Abilities { get => _abilityList; set => _abilityList = value; }
+        public string Description { get => _description; set => _description = value; }
+        public List<string> Keywords { get => _keyWords; set => _keyWords = value; }
         
-        public int Points { get => _points; }
-        public string Summoning { get => _summoning;  }
-        public string Predatory { get => _predatory; }
-        public string Description { get => _description; }
-
-        public string Name()
-        {
-            return _name;
-        }
-
-        public List<string> Keywords()
-        {
-            return _keyWords;
-        }
-
-        public List<string> Abilities()
-        {
-            return _abilityList;
-        }
     }
 }

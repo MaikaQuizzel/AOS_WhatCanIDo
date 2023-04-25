@@ -6198,24 +6198,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Maike\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Maike\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Eigene-Dateien\\Dokumente\\GitHub\\AOS_WhatCanIDo\\WCID_UnitTests\\WCID_UnitTests.csproj",
+      "projectUniqueName": "C:\\Users\\Maike\\Documents\\GitHub\\AOS_WhatCanIDo\\WCID_UnitTests\\WCID_UnitTests.csproj",
       "projectName": "WCID_UnitTests",
-      "projectPath": "D:\\Eigene-Dateien\\Dokumente\\GitHub\\AOS_WhatCanIDo\\WCID_UnitTests\\WCID_UnitTests.csproj",
+      "projectPath": "C:\\Users\\Maike\\Documents\\GitHub\\AOS_WhatCanIDo\\WCID_UnitTests\\WCID_UnitTests.csproj",
       "packagesPath": "C:\\Users\\Maike\\.nuget\\packages\\",
-      "outputPath": "D:\\Eigene-Dateien\\Dokumente\\GitHub\\AOS_WhatCanIDo\\WCID_UnitTests\\obj\\",
+      "outputPath": "C:\\Users\\Maike\\Documents\\GitHub\\AOS_WhatCanIDo\\WCID_UnitTests\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
         "C:\\Users\\Maike\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6223,15 +6218,14 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\Eigene-Dateien\\Dokumente\\GitHub\\AOS_WhatCanIDo\\AOS_WCID\\AOS_WCID.csproj": {
-              "projectPath": "D:\\Eigene-Dateien\\Dokumente\\GitHub\\AOS_WhatCanIDo\\AOS_WCID\\AOS_WCID.csproj"
+            "C:\\Users\\Maike\\Documents\\GitHub\\AOS_WhatCanIDo\\AOS_WCID\\AOS_WCID.csproj": {
+              "projectPath": "C:\\Users\\Maike\\Documents\\GitHub\\AOS_WhatCanIDo\\AOS_WCID\\AOS_WCID.csproj"
             }
           }
         }

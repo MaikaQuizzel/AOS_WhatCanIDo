@@ -125,7 +125,7 @@ namespace AOS_WCID.Konsole.Setup
                 int nonUniqueHerosCounter = 0;
                 for (int i = 0; i < initialStuff.HeroList.Heros.Count(); i++)
                 {
-                    if (!initialStuff.HeroList.Heros[i].Keywords().Contains("UNIQUE"))
+                    if (!initialStuff.HeroList.Heros[i].Keywords.Contains("UNIQUE"))
                     {
                         nonUniqueHerosCounter++;
                     }
@@ -146,7 +146,7 @@ namespace AOS_WCID.Konsole.Setup
                         if (PlayerPicks.Instance.GameName.Equals(StringConstants.GAMEMODEPATH))
                         {
                             //PTG Warlord
-                            if (!initialStuff.HeroList.Heros[i].Keywords().Contains("UNIQUE"))
+                            if (!initialStuff.HeroList.Heros[i].Keywords.Contains("UNIQUE"))
                             {
                                 Console.WriteLine($"{i} für  {initialStuff.HeroList.Heros[i].Name}");
                             }
@@ -169,11 +169,11 @@ namespace AOS_WCID.Konsole.Setup
             }
             ConsoleSpacer.PrintSpacer();
             PlayerPicks.Instance.HeroList.Add(initialStuff.HeroList.Heros[heroID]);
-            if (PlayerPicks.Instance.HeroList.Last().Keywords().Contains("WIZARD"))
+            if (PlayerPicks.Instance.HeroList.Last().Keywords.Contains("WIZARD"))
             {
                 AuswahlSpell();
             }
-            if (PlayerPicks.Instance.HeroList.Last().Keywords().Contains(""))
+            if (PlayerPicks.Instance.HeroList.Last().Keywords.Contains(""))
             {
                 PickPrayer();
             }
@@ -186,7 +186,7 @@ namespace AOS_WCID.Konsole.Setup
             List<Units> battlelineList= new List<Units>();
             for (int i = 0; i < initialStuff.UnitsList.Unitss.Count(); i++)
             {
-                if (initialStuff.UnitsList.Unitss[i].Keywords().Contains("BATTLELINE"))
+                if (initialStuff.UnitsList.Unitss[i].Keywords.Contains("BATTLELINE"))
                 {
                     battlelineList.Add(initialStuff.UnitsList.Unitss[i]);
                 }
@@ -215,7 +215,7 @@ namespace AOS_WCID.Konsole.Setup
             List<Units> attileryList = new List<Units>();
             for (int i = 0; i < initialStuff.UnitsList.Unitss.Count(); i++)
             {
-                if (initialStuff.UnitsList.Unitss[i].Keywords().Contains("ARTILLARY"))
+                if (initialStuff.UnitsList.Unitss[i].Keywords.Contains("ARTILLARY"))
                 {
                     attileryList.Add(initialStuff.UnitsList.Unitss[i]);
                 }
@@ -241,7 +241,7 @@ namespace AOS_WCID.Konsole.Setup
             chooseText.AppendLine("Which endlessspell do you want to add?");
 
             int endlessSpellID = -1;
-            int endlessSpellCount = initialStuff.EndlessSpellsList.EndlessSpells.Count();
+            int endlessSpellCount = initialStuff.EndlessSpellsList.EndlessSpellLISTE.Count();
             bool isValidID = false;
 
             while (!isValidID)
@@ -249,11 +249,11 @@ namespace AOS_WCID.Konsole.Setup
                 Console.WriteLine(chooseText.ToString());
                 for (int i = 0; i < endlessSpellCount; i++)
                 {
-                    Console.WriteLine($"{i} für {initialStuff.EndlessSpellsList.EndlessSpells[i].Name}");
+                    Console.WriteLine($"{i} für {initialStuff.EndlessSpellsList.EndlessSpellLISTE[i].Name}");
                 }
                 isValidID = IsValidInput(endlessSpellCount, out endlessSpellID);
             }
-            PlayerPicks.Instance.EndlessSpellList.Add( initialStuff.EndlessSpellsList.EndlessSpells[endlessSpellID]);
+            PlayerPicks.Instance.EndlessSpellList.Add( initialStuff.EndlessSpellsList.EndlessSpellLISTE[endlessSpellID]);
             ConsoleSpacer.PrintSpacer();
         }
         public void OtherPick() 
@@ -263,7 +263,7 @@ namespace AOS_WCID.Konsole.Setup
             List<Units> otherlist = new List<Units>();
             for (int i = 0; i < initialStuff.UnitsList.Unitss.Count(); i++)
             {
-                if (!initialStuff.UnitsList.Unitss[i].Keywords().Contains("BATTLELINE")&&!initialStuff.UnitsList.Unitss[i].Keywords().Contains("ARTILLARY"))
+                if (!initialStuff.UnitsList.Unitss[i].Keywords.Contains("BATTLELINE")&&!initialStuff.UnitsList.Unitss[i].Keywords.Contains("ARTILLARY"))
                 {
                     otherlist.Add(initialStuff.UnitsList.Unitss[i]);
                 }
@@ -290,7 +290,7 @@ namespace AOS_WCID.Konsole.Setup
             int commandTraitListCount = initialStuff.CommandTraitList.Count();
             bool isValidID = false;
 
-            Hero hero;
+            IUnit hero;
             chooseText.Clear();
             if (PlayerPicks.Instance.HeroList.Count()>1 && PlayerPicks.Instance.GameName == StringConstants.GAMEMODEPATH)
             {
@@ -322,7 +322,7 @@ namespace AOS_WCID.Konsole.Setup
             int artefactID = -1;
             int artefactListCount = initialStuff.ArtefactList.Count();
             bool isValidID = false;
-            Hero hero = PlayerPicks.Instance.HeroList.Last();
+            IUnit hero = PlayerPicks.Instance.HeroList.Last();
             chooseText.Clear();
             chooseText.AppendLine($"Choose your Artefacts for {hero.Name}");
             while (!isValidID)
@@ -343,7 +343,7 @@ namespace AOS_WCID.Konsole.Setup
             int spellID = -1;
             int spellListCount = initialStuff.SpellList.Count();
             bool isValidID = false;
-            Hero hero = PlayerPicks.Instance.HeroList.Last();
+            IUnit hero = PlayerPicks.Instance.HeroList.Last();
 
             chooseText.Clear();
             chooseText.AppendLine($"Choose a Spell for {hero.Name}");
@@ -366,7 +366,7 @@ namespace AOS_WCID.Konsole.Setup
             int prayerID = -1;
             int prayerListCount = initialStuff.PrayerList.Count();
             bool isValidID = false;
-            Hero hero = PlayerPicks.Instance.HeroList.Last();
+            IUnit hero = PlayerPicks.Instance.HeroList.Last();
 
             chooseText.Clear();
             chooseText.AppendLine($"Choose a Prayer for {hero.Name}" );
