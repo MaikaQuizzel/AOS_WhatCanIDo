@@ -241,7 +241,8 @@ namespace AOS_WCID.Konsole.Setup
             chooseText.AppendLine("Which endlessspell do you want to add?");
 
             int endlessSpellID = -1;
-            int endlessSpellCount = initialStuff.EndlessSpellsList.EndlessSpellLISTE.Count();
+            int endlessSpellCount = initialStuff.EndlessSpellsList._endlessSpellList.Count(); //initialStuff.EndlessSpellsList.EndlessSpellLISTE.Count();
+
             bool isValidID = false;
 
             while (!isValidID)
@@ -249,11 +250,11 @@ namespace AOS_WCID.Konsole.Setup
                 Console.WriteLine(chooseText.ToString());
                 for (int i = 0; i < endlessSpellCount; i++)
                 {
-                    Console.WriteLine($"{i} für {initialStuff.EndlessSpellsList.EndlessSpellLISTE[i].Name}");
+                    Console.WriteLine($"{i} für {initialStuff.EndlessSpellsList._endlessSpellList[i].Name}");
                 }
                 isValidID = IsValidInput(endlessSpellCount, out endlessSpellID);
             }
-            PlayerPicks.Instance.EndlessSpellList.Add( initialStuff.EndlessSpellsList.EndlessSpellLISTE[endlessSpellID]);
+            PlayerPicks.Instance.EndlessSpellList.Add( initialStuff.EndlessSpellsList._endlessSpellList[endlessSpellID]);
             ConsoleSpacer.PrintSpacer();
         }
         public void OtherPick() 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AOS_WCID.Entities
 {
-    public class EndlessSpell: IModels
+    public class EndlessSpell: IESpell
     {
         private string _name;
         private int _points;
@@ -28,12 +28,14 @@ namespace AOS_WCID.Entities
         }
 
         public string Name { get => _name; set => _name = value; }
+        public List<string> Keywords { get => _keyWords; set => _keyWords = value; }
+        public List<Ability> Abilities { get => _abilityList; set => _abilityList = value; }
+
         public int Points { get => _points; set => _points = value; }
         public string Summoning { get => _summoning; set => _summoning = value; }
         public string Predatory { get => _predatory; set => _predatory = value; }
-        public List<Ability> Abilities { get => _abilityList; set => _abilityList = value; }
         public string Description { get => _description; set => _description = value; }
-        public List<string> Keywords { get => _keyWords; set => _keyWords = value; }
+        
         
     }
 }

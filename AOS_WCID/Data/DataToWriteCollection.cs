@@ -96,7 +96,7 @@ namespace AOS_WCID.Data
                 new Batallion("Linebreaker", "Once per battle, 1 unit from this batallion can receive the All-out Attack or All-out Defence command without the comman being issued and without a point beeing spend.", 1,0,0,2,0)
             };
             DataManager.WriteBatallionListJsonToPath(batallionList);
-            var endliess = new List<EndlessSpell>()
+            var endliess = new List<IESpell>()
             {
                 new EndlessSpell("CELESTIAN VORTEX",0,"Summon Celestian Vortex: The wizard\r\ncasts a pair of ensorcelled hammers into the\r\nair, which begin to spin. " +
                 "As the vortex gets\r\nmore intense, the hammers multiply to form\r\na maelstrom of skull-crushing force.\r\n" +
@@ -127,7 +127,8 @@ namespace AOS_WCID.Data
                 " for Wizards\r\nwhile they are within 5\" of this model.") }, "An Everblaze Comet is a single model.",
                 new List<string>{"ENDLESS SPELL", "AZYR", "EVERBLAZE COMET"})
             };
-            endlessSpellList = new EndlessSpellList(endliess);
+            endlessSpellList = new EndlessSpellList();
+            endlessSpellList._endlessSpellList = endliess;
             DataManager.WriteEndlessSpellsListJsonToPath(endlessSpellList);
 
             var heroes = new List<Hero>()
