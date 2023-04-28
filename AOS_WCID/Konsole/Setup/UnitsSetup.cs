@@ -134,6 +134,8 @@ namespace AOS_WCID.Konsole.Setup
             }
            else{
                 heroListCount = initialStuff.HeroList.Heros.Count();
+                var v = initialStuff.HeroList.Heros;
+                var a = initialStuff.HeroList.Heros.Count;
             }
             while (!isValidGeneral)
             {

@@ -19,7 +19,7 @@ namespace AOS_WCID.Data
         private List<TenetAbility> tenetAbilityListTempest;
         private List<Batallion> batallionList;
         private EndlessSpellList endlessSpellList;
-        private HeroesList _herolist = new HeroesList(); 
+        private HeroesList _herolist;
         private List<CommandTrait> _commandTraitList;
         private List<Spell> _spellList;
         private List<Prayer> _prayerList;
@@ -155,7 +155,8 @@ namespace AOS_WCID.Data
                 "cannot be re-rolled, but any modifiers are applied to it as normal."),new Ability( "Eye of the Celestial Storm: This unit has a ward of 4+.") })
             };
             _herolist.Heros = new List<IUnit>();
-            _herolist.Heros.AddRange(heroes.Cast<IUnit>().ToList());
+            _herolist.Heros = heroes.Cast<IUnit>().ToList();
+            //_herolist.Heros.AddRange(heroes.Cast<IUnit>().ToList());
 
             DataManager.WriteListJsonToPath(heroes[0]);
             
