@@ -1,4 +1,6 @@
 ﻿using AOS_WCID.Entities;
+using AOS_WCID.Entities.Interfaces;
+using AOS_WCID.Entities.NewFolder;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +21,7 @@ namespace AOS_WCID.Data
         private List<TenetAbility> tenetAbilityListTempest;
         private List<Batallion> batallionList;
         private EndlessSpellList endlessSpellList;
-        private HeroesList _herolist;
+        private HeroesList _herolist = new HeroesList();
         private List<CommandTrait> _commandTraitList;
         private List<Spell> _spellList;
         private List<Prayer> _prayerList;
@@ -131,31 +133,45 @@ namespace AOS_WCID.Data
             endlessSpellList._endlessSpellList = endliess;
             DataManager.WriteEndlessSpellsListJsonToPath(endlessSpellList);
 
-            var heroes = new List<Hero>()
-            {
-                new Hero("Yndrasta", 12, 3, 10, 8, 1, 280, new List<string>(){"ORDER", "STORMCAST ETERNALS", "THUNDERSTRIKE", "HERO", "YNDRASTA", "SINGLE", "UNIQUE" }, new List<Attack>(){ new Attack("" +
+             List<Hero> heroes = new List<Hero>()
+             {
+                 new Hero("Yndrasta", 12, 3, 10, 8, 1, 280, new List<string>() { "ORDER", "STORMCAST ETERNALS", "THUNDERSTRIKE", "HERO", "YNDRASTA", "SINGLE", "UNIQUE" }, new List<Attack>(){ new Attack("" +
                 "Thengavar", 2, 2, 2, "D6", "1", 18, false), new Attack("Blade of the High Heavens", 3, 2, 2, "3", "4",1, true ) }, new List<Ability>(){ new Ability("The Prime Huntress: " +
                 "If any enemy MONSTERS are within 3\" of this unit, add 10 to the number of wounds suffered by those MONSTERS when determining which row on their damage table to use."), new Ability( "Champion of Sigmar" +
                 ":This unit has a 4+ ward."), new Ability( "Dazzling Radiance:Once per turn in your hero phase, if this unit is on the battlefield, you can return 1 slain model to each friendly STORMCAST ETERNALS unit" +
                 " with a Wounds characteristic of 3 or less that is wholly within 12\" of this unit."),new Ability( "Hawk of the Celestial Skies: Do not take battleshock tests for friendly STORMCAST ETERNALS and " +
-                "CITIES OF SIGMAR units wholly within 12\" of this unit." )} ),
-                new Entities.Hero("Knight Arcanum", 5, 3, 8, 6, 1, 110, new List<string>(){"SINGLE","ORDER", "STORMCAST ETERNALS", "THUNDERSTRIKE", "HERO", "WIZARD", "KNIGHT", "" +
-                "KNIGHT-ARCANUM"}, new List<Attack>(){new Attack("Valedictor’s Stave", 3 , 4, 1, "D3", "3", 2, true) }, new List<Ability>(){new Ability( "Indomitable Loreseekers:Predatory endless spells cannot pass across this unit" +
-                " or finish a move within 3\" of this unit."), new Ability( "Blaze of the Heavens: Blaze of the Heavens is a spell that has a casting value of 7 and a range of 18\". If successfully cast, pick 1 enemy unit within " +
-                "range and visible to the caster. That unit suffers D3 mortal wounds. Add 2\" to the range of this spell for each other friendly STORMCAST ETERNALS THUNDERSTRIKE unit wholly within 12\" of the caster.") } ),
-                new Entities.Hero("Celestan Prime", 12, 3, 10, 8, 1, 330, new List<string>(){"SINGLE", "UNIQUE","ORDER", "STORMCAST ETERNALS", "HERO", "CELESTANT-PRIME"}, new List<Attack>(){new Attack("Ghal Maraz",3,2,3,"3","3", 2, true)}, new List<Ability>(){new Ability("" +
-                "Cometstrike Sceptre: In your shooting phase, you can pick 1 point on the battlefield within 24\" of this unit and visible to it. Each enemy unit within 3\" of that point " +
-                "suffers D3 mortal wounds."), new Ability( "Retribution from On High: Instead of setting up this unit on the battlefield, you can place it to one side and say that it is set up in " +
-                "the heavens as a reserve unit. If you do so, at the end of your movement phase, you must say if this unit will remain in reserve or if it will strike from the " +
-                "heavens.\r\n\r\nAt the end of your movement phase, if this unit remains in reserve, add 2 to the Attacks characteristic of this unit’s Ghal Maraz for the rest of" +
-                " the battle. If this unit strikes from the heavens, set this unit up on the battlefield more than 9\" from all enemy units.\r\n"), new Ability( "Orrery of Celestial Fates: " +
-                "Once per turn, before you make a hit or wound roll for an attack made by this unit, a save roll for an attack that targets this unit, or a run or charge roll " +
-                "for this unit, you can say that you will foresee the result of the roll. If you do so, instead of making the roll, you must choose the result of the roll." +
-                " The result chosen for a D6 roll must be a whole number from 1 to 6, and the result chosen for a 2D6 roll must be a whole number from 2 to 12. The result " +
-                "cannot be re-rolled, but any modifiers are applied to it as normal."),new Ability( "Eye of the Celestial Storm: This unit has a ward of 4+.") })
-            };
-            _herolist.Heros = new List<IUnit>();
-            _herolist.Heros = heroes.Cast<IUnit>().ToList();
+                "CITIES OF SIGMAR units wholly within 12\" of this unit." )}),
+            new Entities.Hero("Knight Arcanum", 5, 3, 8, 6, 1, 110, new List<string>(){"SINGLE","ORDER", "STORMCAST ETERNALS", "THUNDERSTRIKE", "HERO", "WIZARD", "KNIGHT", "" +
+                 "KNIGHT-ARCANUM"}, new List<Attack>(){new Attack("Valedictor’s Stave", 3 , 4, 1, "D3", "3", 2, true) }, new List<Ability>(){new Ability( "Indomitable Loreseekers:Predatory endless spells cannot pass across this unit" +
+                 " or finish a move within 3\" of this unit."), new Ability( "Blaze of the Heavens: Blaze of the Heavens is a spell that has a casting value of 7 and a range of 18\". If successfully cast, pick 1 enemy unit within " +
+                 "range and visible to the caster. That unit suffers D3 mortal wounds. Add 2\" to the range of this spell for each other friendly STORMCAST ETERNALS THUNDERSTRIKE unit wholly within 12\" of the caster.") } ),
+                 new Entities.Hero("Celestan Prime", 12, 3, 10, 8, 1, 330, new List<string>(){"SINGLE", "UNIQUE","ORDER", "STORMCAST ETERNALS", "HERO", "CELESTANT-PRIME"}, new List<Attack>(){new Attack("Ghal Maraz",3,2,3,"3","3", 2, true)}, new List<Ability>(){new Ability("" +
+                 "Cometstrike Sceptre: In your shooting phase, you can pick 1 point on the battlefield within 24\" of this unit and visible to it. Each enemy unit within 3\" of that point " +
+                 "suffers D3 mortal wounds."), new Ability( "Retribution from On High: Instead of setting up this unit on the battlefield, you can place it to one side and say that it is set up in " +
+                 "the heavens as a reserve unit. If you do so, at the end of your movement phase, you must say if this unit will remain in reserve or if it will strike from the " +
+                 "heavens.\r\n\r\nAt the end of your movement phase, if this unit remains in reserve, add 2 to the Attacks characteristic of this unit’s Ghal Maraz for the rest of" +
+                 " the battle. If this unit strikes from the heavens, set this unit up on the battlefield more than 9\" from all enemy units.\r\n"), new Ability( "Orrery of Celestial Fates: " +
+                 "Once per turn, before you make a hit or wound roll for an attack made by this unit, a save roll for an attack that targets this unit, or a run or charge roll " +
+                 "for this unit, you can say that you will foresee the result of the roll. If you do so, instead of making the roll, you must choose the result of the roll." +
+                 " The result chosen for a D6 roll must be a whole number from 1 to 6, and the result chosen for a 2D6 roll must be a whole number from 2 to 12. The result " +
+                 "cannot be re-rolled, but any modifiers are applied to it as normal."),new Ability( "Eye of the Celestial Storm: This unit has a ward of 4+.") })
+             };
+            Hero yndrasta = new Hero("Yndrasta", 12, 3, 10, 8, 1, 280, new List<string>() { "ORDER", "STORMCAST ETERNALS", "THUNDERSTRIKE", "HERO", "YNDRASTA", "SINGLE", "UNIQUE" }, new List<Attack>(){ new Attack("" +
+                "Thengavar", 2, 2, 2, "D6", "1", 18, false), new Attack("Blade of the High Heavens", 3, 2, 2, "3", "4",1, true ) }, new List<Ability>(){ new Ability("The Prime Huntress: " +
+                "If any enemy MONSTERS are within 3\" of this unit, add 10 to the number of wounds suffered by those MONSTERS when determining which row on their damage table to use."), new Ability( "Champion of Sigmar" +
+                ":This unit has a 4+ ward."), new Ability( "Dazzling Radiance:Once per turn in your hero phase, if this unit is on the battlefield, you can return 1 slain model to each friendly STORMCAST ETERNALS unit" +
+                " with a Wounds characteristic of 3 or less that is wholly within 12\" of this unit."),new Ability( "Hawk of the Celestial Skies: Do not take battleshock tests for friendly STORMCAST ETERNALS and " +
+                "CITIES OF SIGMAR units wholly within 12\" of this unit." )});
+
+
+            heroes.Add( yndrasta );
+            //_herolist.Heros = new List<IHero>();
+            //_herolist.Heros.Add(yndrasta as IHero);
+            _herolist.Heros = heroes.Cast<IHero>().ToList();
+
+            //_herolist.Heros = heroes.Cast<IHero>().ToList();
+            //_herolist.Heros = new List<IUnit>();
+            //_herolist.Heros = heroes.Cast<IUnit>().ToList();
             //_herolist.Heros.AddRange(heroes.Cast<IUnit>().ToList());
 
             DataManager.WriteListJsonToPath(heroes[0]);

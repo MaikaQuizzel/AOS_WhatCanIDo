@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AOS_WCID.Entities.Interfaces;
+using System.Xml.Linq;
 
-namespace AOS_WCID.Entities
+namespace AOS_WCID.Entities.Interfaces
 {
-    public class HeroesList
+    public interface  IHero : IUnit
     {
-        public List<IHero> Heros;
+
     }
 }
