@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace AOS_WCID.Entities
+namespace AOS_WCID.Entities.Interfaces
 {
-    public interface IUnit:IModels
+    public interface IUnit : IModels
     {
         public string Name { get; set; }
         public int Move { get; set; }
@@ -18,6 +18,6 @@ namespace AOS_WCID.Entities
         public int Points { get; set; }
         public List<string> Keywords { get; set; }
         public List<Attack> Attacks { get; set; }
-     
+
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AOS_WCID.Data;
 using AOS_WCID.Entities;
+using AOS_WCID.Entities.Interfaces;
 using AOS_WCID.Logic;
 using System.Text;
 

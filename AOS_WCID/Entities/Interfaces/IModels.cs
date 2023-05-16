@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AOS_WCID.Entities
+namespace AOS_WCID.Entities.Interfaces
 {
     public interface IModels
     {
