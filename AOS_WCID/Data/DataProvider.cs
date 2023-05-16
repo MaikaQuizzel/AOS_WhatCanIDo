@@ -9,7 +9,7 @@ namespace AOS_WCID.Data
 {
     public class DataProvider
     {
-        private readonly Hero hero = DataManager.ReadListJsonToPath();
+        //private readonly Hero hero = DataManager.ReadListJsonToPath();
         private readonly List<GrandAlliance> alliancesList = DataManager.ReadGrandAllianceJsonToPath();
         private readonly List<Subfaction> subfactionList = DataManager.ReadSubfactionListJsonToPath();
         private readonly List<Tenets> tenetList = DataManager.ReadTenetsJsonToPath();
@@ -17,7 +17,7 @@ namespace AOS_WCID.Data
         private readonly List<TenetAbility> tenetAbilityListShield = DataManager.ReadShieldAbilitiesListJsonToPath();
         private readonly List<TenetAbility> tenetAbilityListTempest = DataManager.ReadTempestAbilitiesListJsonToPath();
         private readonly List<Batallion> batallionList = DataManager.ReadBatallionListJsonToPath();
-        private readonly HeroesList heroList = DataManager.ReadHeroListJsonToPath();
+        private readonly HeroesList heroList = DataManager.ReadHeroListJsonToPath(); //Herrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr geht nicht
         private readonly List<CommandTrait> _commandTraitList = DataManager.ReadCommandsListJsonToPath();
         private readonly List<Faction> factionsList = DataManager.ReadFactionsJsonToPath();
         private readonly List<Artefact> _artefactList = DataManager.ReadArtefactListJsonToPath();

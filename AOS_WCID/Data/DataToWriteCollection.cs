@@ -156,28 +156,11 @@ namespace AOS_WCID.Data
                  " The result chosen for a D6 roll must be a whole number from 1 to 6, and the result chosen for a 2D6 roll must be a whole number from 2 to 12. The result " +
                  "cannot be re-rolled, but any modifiers are applied to it as normal."),new Ability( "Eye of the Celestial Storm: This unit has a ward of 4+.") })
              };
-            Hero yndrasta = new Hero("Yndrasta", 12, 3, 10, 8, 1, 280, new List<string>() { "ORDER", "STORMCAST ETERNALS", "THUNDERSTRIKE", "HERO", "YNDRASTA", "SINGLE", "UNIQUE" }, new List<Attack>(){ new Attack("" +
-                "Thengavar", 2, 2, 2, "D6", "1", 18, false), new Attack("Blade of the High Heavens", 3, 2, 2, "3", "4",1, true ) }, new List<Ability>(){ new Ability("The Prime Huntress: " +
-                "If any enemy MONSTERS are within 3\" of this unit, add 10 to the number of wounds suffered by those MONSTERS when determining which row on their damage table to use."), new Ability( "Champion of Sigmar" +
-                ":This unit has a 4+ ward."), new Ability( "Dazzling Radiance:Once per turn in your hero phase, if this unit is on the battlefield, you can return 1 slain model to each friendly STORMCAST ETERNALS unit" +
-                " with a Wounds characteristic of 3 or less that is wholly within 12\" of this unit."),new Ability( "Hawk of the Celestial Skies: Do not take battleshock tests for friendly STORMCAST ETERNALS and " +
-                "CITIES OF SIGMAR units wholly within 12\" of this unit." )});
 
-
-            heroes.Add( yndrasta );
-            //_herolist.Heros = new List<IHero>();
-            //_herolist.Heros.Add(yndrasta as IHero);
             _herolist.Heros = heroes.Cast<IHero>().ToList();
-
-            //_herolist.Heros = heroes.Cast<IHero>().ToList();
-            //_herolist.Heros = new List<IUnit>();
-            //_herolist.Heros = heroes.Cast<IUnit>().ToList();
-            //_herolist.Heros.AddRange(heroes.Cast<IUnit>().ToList());
-
-            DataManager.WriteListJsonToPath(heroes[0]);
-            
-
             DataManager.WriteHeroListJsonToPath(_herolist);
+
+
             _commandTraitList = new List<CommandTrait>()
             {
                 new CommandTrait("Master of Magic", "nce per hero phase, you can re-roll one casting roll, dispelling roll or unbinding roll for this general."),
