@@ -124,7 +124,7 @@ namespace AOS_WCID.Konsole.Setup
             if (PlayerPicks.Instance.GameName.Equals(StringConstants.GAMEMODEPATH)&& isGeneralPick)
             {
                 int nonUniqueHerosCounter = 0;
-                for (int i = 0; i < initialStuff.HeroList.Heros.Count(); i++)
+                for (int i = 0; i < initialStuff.HeroList.Heros.Count(); i++)  //initial stuff ist ne instanz von dataprovider
                 {
                     if (!initialStuff.HeroList.Heros[i].Keywords.Contains("UNIQUE"))
                     {

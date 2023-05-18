@@ -141,7 +141,7 @@ namespace AOS_WCID.Data
                 ":This unit has a 4+ ward."), new Ability( "Dazzling Radiance:Once per turn in your hero phase, if this unit is on the battlefield, you can return 1 slain model to each friendly STORMCAST ETERNALS unit" +
                 " with a Wounds characteristic of 3 or less that is wholly within 12\" of this unit."),new Ability( "Hawk of the Celestial Skies: Do not take battleshock tests for friendly STORMCAST ETERNALS and " +
                 "CITIES OF SIGMAR units wholly within 12\" of this unit." )}),
-            new Entities.Hero("Knight Arcanum", 5, 3, 8, 6, 1, 110, new List<string>(){"SINGLE","ORDER", "STORMCAST ETERNALS", "THUNDERSTRIKE", "HERO", "WIZARD", "KNIGHT", "" +
+                 new Entities.Hero("Knight Arcanum", 5, 3, 8, 6, 1, 110, new List<string>(){"SINGLE","ORDER", "STORMCAST ETERNALS", "THUNDERSTRIKE", "HERO", "WIZARD", "KNIGHT", "" +
                  "KNIGHT-ARCANUM"}, new List<Attack>(){new Attack("Valedictor’s Stave", 3 , 4, 1, "D3", "3", 2, true) }, new List<Ability>(){new Ability( "Indomitable Loreseekers:Predatory endless spells cannot pass across this unit" +
                  " or finish a move within 3\" of this unit."), new Ability( "Blaze of the Heavens: Blaze of the Heavens is a spell that has a casting value of 7 and a range of 18\". If successfully cast, pick 1 enemy unit within " +
                  "range and visible to the caster. That unit suffers D3 mortal wounds. Add 2\" to the range of this spell for each other friendly STORMCAST ETERNALS THUNDERSTRIKE unit wholly within 12\" of the caster.") } ),
