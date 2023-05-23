@@ -22,7 +22,7 @@ namespace AOS_WCID.Logic
             DataToWriteCollection coll = new DataToWriteCollection();
             coll.WriteStuffNow();
 
-            initialStuff = new DataProvider();
+            initialStuff = new DataProvider(coll);
          
 
            

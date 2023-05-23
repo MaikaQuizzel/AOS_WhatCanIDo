@@ -9,6 +9,7 @@ namespace AOS_WCID.Data
 {
     public class DataProvider
     {
+        private DataToWriteCollection _dataToWriteCollection;
         //private readonly Hero hero = DataManager.ReadListJsonToPath();
         private readonly List<GrandAlliance> alliancesList = DataManager.ReadGrandAllianceJsonToPath();
         private readonly List<Subfaction> subfactionList = DataManager.ReadSubfactionListJsonToPath();
@@ -17,19 +18,27 @@ namespace AOS_WCID.Data
         private readonly List<TenetAbility> tenetAbilityListShield = DataManager.ReadShieldAbilitiesListJsonToPath();
         private readonly List<TenetAbility> tenetAbilityListTempest = DataManager.ReadTempestAbilitiesListJsonToPath();
         private readonly List<Batallion> batallionList = DataManager.ReadBatallionListJsonToPath();
-        private readonly HeroesList heroList = DataManager.ReadHeroListJsonToPath(); //Herrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr geht nicht
+        private readonly HeroesList heroList = new HeroesList();
+        //private readonly HeroesList heroList = DataManager.ReadHeroListJsonToPath(); //Herrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr geht nicht
         private readonly List<CommandTrait> _commandTraitList = DataManager.ReadCommandsListJsonToPath();
         private readonly List<Faction> factionsList = DataManager.ReadFactionsJsonToPath();
         private readonly List<Artefact> _artefactList = DataManager.ReadArtefactListJsonToPath();
         private readonly List<Spell> _spellList = DataManager.ReadSpellListJsonToPath();
         private readonly List<Prayer> _prayerList = DataManager.ReadPrayerListJsonToPath();
-        private readonly UnitList _unitsList = DataManager.ReadUnitListJsonToPath();
+        private readonly UnitList _unitsList = new UnitList();
         private readonly List<Reactions> _reactionList = DataManager.ReadReactionsListJsonToPath();
-        private readonly EndlessSpellList endlessSpellsList = DataManager.ReadEndlessSpellsListJsonToPath();
+        private readonly EndlessSpellList endlessSpellsList = new EndlessSpellList();
+       
        
 
 
-        public DataProvider() { }
+        public DataProvider(DataToWriteCollection dataToWriteCollection) { 
+   
+            heroList = dataToWriteCollection.Herolist;
+            endlessSpellsList = dataToWriteCollection.EndlessSpellList;
+            //_unitsList = dataToWriteCollection.
+        
+        }
 
         public List<GrandAlliance> AlliancesList { get => alliancesList;  }
         public List<Faction> FactionsList { get => factionsList;  }

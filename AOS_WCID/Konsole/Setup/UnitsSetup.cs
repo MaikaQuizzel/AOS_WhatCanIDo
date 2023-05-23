@@ -105,7 +105,7 @@ namespace AOS_WCID.Konsole.Setup
             }
             ConsoleSpacer.PrintSpacer();
         }
-        public void HeroPick(bool isGeneralPick) 
+        public void HeroPick(bool isGeneralPick) /// Some Broken here idk 
         {
             chooseText.Clear();
             chooseText.AppendLine("Wähle dein ");
@@ -135,8 +135,6 @@ namespace AOS_WCID.Konsole.Setup
             }
            else{
                 heroListCount = initialStuff.HeroList.Heros.Count();
-                var v = initialStuff.HeroList.Heros;
-                var a = initialStuff.HeroList.Heros.Count;
             }
             while (!isValidGeneral)
             {
