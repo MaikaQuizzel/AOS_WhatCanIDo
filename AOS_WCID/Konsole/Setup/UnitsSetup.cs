@@ -105,34 +105,6 @@ namespace AOS_WCID.Konsole.Setup
             }
             ConsoleSpacer.PrintSpacer();
         }
-        private int GetHeroListCountForPTG()
-        {
-            int nonUniqueHerosCounter = 0;
-            for (int i = 0; i < initialStuff.HeroList.Heros.Count(); i++)  //initial stuff ist ne instanz von dataprovider
-            {
-                if (!initialStuff.HeroList.Heros[i].Keywords.Contains("UNIQUE"))
-                {
-                    nonUniqueHerosCounter++;
-                }
-            }
-            return nonUniqueHerosCounter;
-        }
-        public void WriteGeneralsToConsole()
-        {
-            if (PlayerPicks.Instance.GameName.Equals(StringConstants.GAMEMODEPATH))
-            {
-                //PTG Warlord
-                if (!initialStuff.HeroList.Heros[i].Keywords.Contains("UNIQUE"))
-                {
-                    Console.WriteLine($"{i} für  {initialStuff.HeroList.Heros[i].Name}");
-                }
-            }
-            else
-            {
-                //General
-                Console.WriteLine($"{i} für  {initialStuff.HeroList.Heros[i].Name}");
-            }
-        }
         public void HeroPick(bool isGeneralPick) /// Some Broken here idk 
         {
             chooseText.Clear();
@@ -151,7 +123,15 @@ namespace AOS_WCID.Konsole.Setup
             int heroListCount = 0;
             if (PlayerPicks.Instance.GameName.Equals(StringConstants.GAMEMODEPATH)&& isGeneralPick)
             {
-                heroListCount = GetHeroListCountForPTG();
+                int nonUniqueHerosCounter = 0;
+                for (int i = 0; i < initialStuff.HeroList.Heros.Count(); i++)  //initial stuff ist ne instanz von dataprovider
+                {
+                    if (!initialStuff.HeroList.Heros[i].Keywords.Contains("UNIQUE"))
+                    {
+                        nonUniqueHerosCounter++;
+                    }
+                }
+                heroListCount = nonUniqueHerosCounter;
             }
            else{
                 heroListCount = initialStuff.HeroList.Heros.Count();
@@ -164,7 +144,19 @@ namespace AOS_WCID.Konsole.Setup
 
                     if (isGeneralPick)
                     {
-                        WriteGenerals();
+                        if (PlayerPicks.Instance.GameName.Equals(StringConstants.GAMEMODEPATH))
+                        {
+                            //PTG Warlord
+                            if (!initialStuff.HeroList.Heros[i].Keywords.Contains("UNIQUE"))
+                            {
+                                Console.WriteLine($"{i} für  {initialStuff.HeroList.Heros[i].Name}");
+                            }
+                        }
+                        else
+                        {
+                            //General
+                            Console.WriteLine($"{i} für  {initialStuff.HeroList.Heros[i].Name}");
+                        }
                     }
                     else
                     {
