@@ -171,13 +171,13 @@ namespace AOS_WCID.Konsole.Setup
                         //normaler Hero in liste
                         Console.WriteLine($"{i} für  {initialStuff.HeroList.Heros[i].Name}");
                     }
+                    
                 }
+
                 isValidGeneral = IsValidInput(heroListCount,out heroID);
             }
-
             ConsoleSpacer.PrintSpacer();
             PlayerPicks.Instance.HeroList.Add(initialStuff.HeroList.Heros[heroID]);
-            
             if (PlayerPicks.Instance.HeroList.Last().Keywords.Contains("WIZARD"))
             {
                 AuswahlSpell();
@@ -188,7 +188,6 @@ namespace AOS_WCID.Konsole.Setup
             }
             AuswahlArtefact();
         }
-
         public void BattlelinePick() 
         {
             chooseText.Clear();
