@@ -48,6 +48,51 @@ namespace AOS_WCID.Konsole.Setup
             HeroPick(true);
             AuswahlCommandTrait();
         }
+        private int CountHerosInList(bool isGeneralPick)
+        {
+            int heroListCount;
+            if (PlayerPicks.Instance.GameName.Equals(StringConstants.GAMEMODEPATH) && isGeneralPick)
+            {
+                int nonUniqueHerosCounter = 0;
+                for (int i = 0; i < initialStuff.HeroList.Heros.Count(); i++)  //initial stuff ist ne instanz von dataprovider
+                {
+                    if (!initialStuff.HeroList.Heros[i].Keywords.Contains("UNIQUE"))
+                    {
+                        nonUniqueHerosCounter++;
+                    }
+                }
+                heroListCount = nonUniqueHerosCounter;
+            }
+            else
+            {
+                heroListCount = initialStuff.HeroList.Heros.Count();
+            }
+            return heroListCount;
+        }
+        public void WriteHeroToConsole(bool isGeneralPick, int i)
+        {
+            if (isGeneralPick)
+            {
+                if (PlayerPicks.Instance.GameName.Equals(StringConstants.GAMEMODEPATH))
+                {
+                    //PTG Warlord
+                    if (!initialStuff.HeroList.Heros[i].Keywords.Contains("UNIQUE"))
+                    {
+                        Console.WriteLine($"{i} für  {initialStuff.HeroList.Heros[i].Name}");
+                    }
+                }
+                else
+                {
+                    //Genieral
+                    Console.WriteLine($"{i} für  {initialStuff.HeroList.Heros[i].Name}");
+                }
+            }
+            else
+            {
+                //normaler Hero in liste
+                Console.WriteLine($"{i} für  {initialStuff.HeroList.Heros[i].Name}");
+            }
+        }
         public void EingabeUnits()
         {
             bool auswahlFertig = false;
@@ -120,53 +165,17 @@ namespace AOS_WCID.Konsole.Setup
             
             int heroID = -1;
             bool isValidGeneral = false;
-            int heroListCount = 0;
-            if (PlayerPicks.Instance.GameName.Equals(StringConstants.GAMEMODEPATH)&& isGeneralPick)
-            {
-                int nonUniqueHerosCounter = 0;
-                for (int i = 0; i < initialStuff.HeroList.Heros.Count(); i++)  //initial stuff ist ne instanz von dataprovider
-                {
-                    if (!initialStuff.HeroList.Heros[i].Keywords.Contains("UNIQUE"))
-                    {
-                        nonUniqueHerosCounter++;
-                    }
-                }
-                heroListCount = nonUniqueHerosCounter;
-            }
-           else{
-                heroListCount = initialStuff.HeroList.Heros.Count();
-            }
+            int heroListCount = CountHerosInList(isGeneralPick);
+            
             while (!isValidGeneral)
             {
                 Console.WriteLine(chooseText.ToString());
-                for (int i = 0; i < heroListCount; i++)
-                {   
-
-                    if (isGeneralPick)
-                    {
-                        if (PlayerPicks.Instance.GameName.Equals(StringConstants.GAMEMODEPATH))
-                        {
-                            //PTG Warlord
-                            if (!initialStuff.HeroList.Heros[i].Keywords.Contains("UNIQUE"))
-                            {
-                                Console.WriteLine($"{i} für  {initialStuff.HeroList.Heros[i].Name}");
-                            }
-                        }
-                        else
-                        {
-                            //General
-                            Console.WriteLine($"{i} für  {initialStuff.HeroList.Heros[i].Name}");
-                        }
-                    }
-                    else
-                    {
-                        //normaler Hero in liste
-                        Console.WriteLine($"{i} für  {initialStuff.HeroList.Heros[i].Name}");
-                    }
-                    
+                for (int i = 0; i < initialStuff.HeroList.Heros.Count(); i++)
+                {
+                    WriteHeroToConsole(isGeneralPick, i);
                 }
 
-                isValidGeneral = IsValidInput(heroListCount,out heroID);
+                isValidGeneral = IsValidInput(initialStuff.HeroList.Heros.Count(), out heroID);
             }
             ConsoleSpacer.PrintSpacer();
             PlayerPicks.Instance.HeroList.Add(initialStuff.HeroList.Heros[heroID]);

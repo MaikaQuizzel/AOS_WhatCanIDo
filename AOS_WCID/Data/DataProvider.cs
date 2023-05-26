@@ -36,7 +36,7 @@ namespace AOS_WCID.Data
    
             heroList = dataToWriteCollection.Herolist;
             endlessSpellsList = dataToWriteCollection.EndlessSpellList;
-            //_unitsList = dataToWriteCollection.
+            _unitsList = dataToWriteCollection.Units;
         
         }
 
