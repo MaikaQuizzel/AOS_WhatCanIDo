@@ -1,6 +1,7 @@
 ﻿using AOS_WCID.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO.Pipes;
 using System.Linq;
 using System.Text;
@@ -34,6 +35,12 @@ namespace AOS_WCID.Data
         {
             string path = TENETSJSON;
             string json = JsonSerializer.Serialize(entities);
+
+            if (json == "null" || json == "[]")
+            {
+                throw new DataException(path);
+            }
+
             File.WriteAllText(path, json); 
         }
 
@@ -47,6 +54,12 @@ namespace AOS_WCID.Data
                 entities = JsonSerializer.Deserialize<List<Tenets>>(json);
             }
 
+            if (entities == null || !entities.Any())
+            {
+                throw new DataException(TENETSJSON);
+            }
+
+
             return entities;
         }
 
@@ -54,6 +67,12 @@ namespace AOS_WCID.Data
         {
             string path = GAJASON;
             string json = JsonSerializer.Serialize(entities);
+
+            if (json == "null" || json == "[]")
+            {
+                throw new DataException(path);
+            }
+
             File.WriteAllText(path, json);
         }
 
@@ -66,6 +85,12 @@ namespace AOS_WCID.Data
                 string json = r.ReadToEnd();
                 entities = JsonSerializer.Deserialize<List<GrandAlliance>>(json);
             }
+
+            if (entities == null || !entities.Any())
+            {
+                throw new DataException(GAJASON);
+            }
+
             return entities;
         }
 
@@ -73,6 +98,12 @@ namespace AOS_WCID.Data
         {
             string path = FACTIONSJSON;
             string json = JsonSerializer.Serialize(entities);
+
+            if (json == "null" || json == "[]")
+            {
+                throw new DataException(path);
+            }
+
             File.WriteAllText(path, json);
         }
         public static List<Faction> ReadFactionsJsonToPath()
@@ -84,6 +115,12 @@ namespace AOS_WCID.Data
                 string json = r.ReadToEnd();
                 entities = JsonSerializer.Deserialize<List<Faction>>(json);
             }
+
+            if (entities == null || !entities.Any())
+            {
+                throw new DataException(FACTIONSJSON);
+            }
+
             return entities;
         }
 
@@ -91,6 +128,12 @@ namespace AOS_WCID.Data
         {
             string path = SUBFACTIONSJSON;
             string json = JsonSerializer.Serialize(entities);
+
+            if (json == "null" || json == "[]")
+            {
+                throw new DataException(path);
+            }
+
             File.WriteAllText(path, json);
         }
         public static List<Subfaction> ReadSubfactionListJsonToPath()
@@ -102,12 +145,24 @@ namespace AOS_WCID.Data
                 string json = r.ReadToEnd();
                 entities = JsonSerializer.Deserialize<List<Subfaction>>(json);
             }
+
+            if (entities == null || !entities.Any())
+            {
+                throw new DataException(SUBFACTIONSJSON);
+            }
+
             return entities;
         }
         public static void WriteHammerAbilitiesListJsonToPath(List<TenetAbility> entities)
         {
             string path = HAMMERABILITIES;
             string json = JsonSerializer.Serialize(entities);
+
+            if (json == "null" || json == "[]")
+            {
+                throw new DataException(path);
+            }
+
             File.WriteAllText(path, json);
         }
         public static List<TenetAbility> ReadHammerAbilitiesListJsonToPath()
@@ -119,12 +174,24 @@ namespace AOS_WCID.Data
                 string json = r.ReadToEnd();
                 entities = JsonSerializer.Deserialize<List<TenetAbility>>(json);
             }
+
+            if (entities == null || !entities.Any())
+            {
+                throw new DataException(HAMMERABILITIES);
+            }
+
             return entities;
         }
         public static void WriteShiedAbilitiesListJsonToPath(List<TenetAbility> entities)
         {
             string path = SHIELSABILITIES;
             string json = JsonSerializer.Serialize(entities);
+
+            if (json == "null" || json == "[]")
+            {
+                throw new DataException(path);
+            }
+
             File.WriteAllText(path, json);
         }
         public static List<TenetAbility> ReadShieldAbilitiesListJsonToPath()
@@ -136,12 +203,24 @@ namespace AOS_WCID.Data
                 string json = r.ReadToEnd();
                 entities = JsonSerializer.Deserialize<List<TenetAbility>>(json);
             }
+
+            if (entities == null || !entities.Any())
+            {
+                throw new DataException(SHIELSABILITIES);
+            }
+
             return entities;
         }
         public static void WriteTempestAbilitiesListJsonToPath(List<TenetAbility> entities)
         {
             string path = TEMPESTABILITIES;
             string json = JsonSerializer.Serialize(entities);
+
+            if (json == "null" || json == "[]")
+            {
+                throw new DataException(path);
+            }
+
             File.WriteAllText(path, json);
         }
         public static List<TenetAbility> ReadTempestAbilitiesListJsonToPath()
@@ -153,6 +232,13 @@ namespace AOS_WCID.Data
                 string json = r.ReadToEnd();
                 entities = JsonSerializer.Deserialize<List<TenetAbility>>(json);
             }
+
+
+            if (entities == null || !entities.Any())
+            {
+                throw new DataException(TEMPESTABILITIES);
+            }
+
             return entities;
         }
 
@@ -160,6 +246,12 @@ namespace AOS_WCID.Data
         {
             string path = BATALLION;
             string json = JsonSerializer.Serialize(entities);
+
+            if (json == "null" || json == "[]")
+            {
+                throw new DataException(path);
+            }
+
             File.WriteAllText(path, json);
         }
         public static List<Batallion> ReadBatallionListJsonToPath()
@@ -171,12 +263,24 @@ namespace AOS_WCID.Data
                 string json = r.ReadToEnd();
                 entities = JsonSerializer.Deserialize<List<Batallion>>(json);
             }
+
+            if (entities == null || !entities.Any())
+            {
+                throw new DataException(BATALLION);
+            }
+
             return entities;
         }
         public static void WriteEndlessSpellsListJsonToPath(EndlessSpellList entities)
         {
             string path = ENDLESSSPELLS;
             string json = JsonSerializer.Serialize(entities);
+
+            if (json == "null" || json == "[]")
+            {
+                throw new DataException(path);
+            }
+
             File.WriteAllText(path, json);
         }
         public static EndlessSpellList ReadEndlessSpellsListJsonToPath()
@@ -188,6 +292,12 @@ namespace AOS_WCID.Data
                 string json = r.ReadToEnd();
                 entities = JsonSerializer.Deserialize<EndlessSpellList>(json);
             }
+
+            if (entities == null || !entities._endlessSpellList.Any())
+            {
+                throw new DataException(ENDLESSSPELLS);
+            }
+
             return entities;
         }
 
@@ -195,6 +305,12 @@ namespace AOS_WCID.Data
         {
             string path = HEROS;
             string json = JsonSerializer.Serialize(entities);   // DAs tut nicht serialisieren but why
+
+            if (json == "null" || json == "[]")
+            {
+                throw new DataException(path);
+            }
+
             File.WriteAllText(path, json);
         }
         public static HeroesList ReadHeroListJsonToPath()
@@ -206,33 +322,25 @@ namespace AOS_WCID.Data
                 string json = r.ReadToEnd();
                 entities = JsonSerializer.Deserialize<HeroesList>(json);
             }
-            return entities;
-        }
 
-        public static void WriteListJsonToPath(Hero heroes)
-        {
-            string path = "OneHero.json";
-            string json = JsonSerializer.Serialize(heroes);
-            File.WriteAllText(path, json);
-        }
-        public static Hero ReadListJsonToPath()
-        {
-            Hero entities;
-            
-            using (StreamReader r = new StreamReader("OneHero.json"))
+            if (entities == null || !entities.Heros.Any())
             {
-                string json = r.ReadToEnd();
-                entities = JsonSerializer.Deserialize<Hero>(json);
+                throw new DataException(HEROS);
             }
+
             return entities;
         }
-
-
 
         public static void WriteCommandsListJsonToPath(List<CommandTrait> entities)
         {
             string path = COMMANDTRAITS;
             string json = JsonSerializer.Serialize(entities);
+
+            if (json == "null" || json == "[]")
+            {
+                throw new DataException(path);
+            }
+
             File.WriteAllText(path, json);
         }
         public static List<CommandTrait> ReadCommandsListJsonToPath()
@@ -244,12 +352,24 @@ namespace AOS_WCID.Data
                 string json = r.ReadToEnd();
                 entities = JsonSerializer.Deserialize<List<CommandTrait>>(json);
             }
+
+            if (entities == null || !entities.Any())
+            {
+                throw new DataException(COMMANDTRAITS);
+            }
+
             return entities;
         }
         public static void WriteArtefactListJsonToPath(List<Artefact> entities)
         {
             string path = ARTAFACTS;
             string json = JsonSerializer.Serialize(entities);
+
+            if (json == "null" || json == "[]")
+            {
+                throw new DataException(path);
+            }
+
             File.WriteAllText(path, json);
         }
         public static List<Artefact> ReadArtefactListJsonToPath()
@@ -261,12 +381,24 @@ namespace AOS_WCID.Data
                 string json = r.ReadToEnd();
                 entities = JsonSerializer.Deserialize<List<Artefact>>(json);
             }
+
+            if (entities == null || !entities.Any())
+            {
+                throw new DataException(ARTAFACTS);
+            }
+
             return entities;
         }
         public static void WriteSpellListJsonToPath(List<Spell> entities)
         {
             string path = SPELLS;
             string json = JsonSerializer.Serialize(entities);
+
+            if (json == "null" || json == "[]")
+            {
+                throw new DataException(path);
+            }
+
             File.WriteAllText(path, json);
         }
         public static List<Spell> ReadSpellListJsonToPath()
@@ -278,12 +410,24 @@ namespace AOS_WCID.Data
                 string json = r.ReadToEnd();
                 entities = JsonSerializer.Deserialize<List<Spell>>(json);
             }
+
+            if (entities == null || !entities.Any())
+            {
+                throw new DataException(SPELLS);
+            }
+
             return entities;
         }
         public static void WritePrayerListJsonToPath(List<Prayer> entities)
         {
             string path = PRAYER;
             string json = JsonSerializer.Serialize(entities);
+
+            if (json == "null" || json == "[]")
+            {
+                throw new DataException(path);
+            }
+
             File.WriteAllText(path, json);
         }
         public static List<Prayer> ReadPrayerListJsonToPath()
@@ -295,29 +439,37 @@ namespace AOS_WCID.Data
                 string json = r.ReadToEnd();
                 entities = JsonSerializer.Deserialize<List<Prayer>>(json);
             }
+
+            if (entities == null || !entities.Any())
+            {
+                throw new DataException(PRAYER);
+            }
+
             return entities;
         }
         public static void WriteUnitListJsonToPath(UnitList entities)
         {
             string path = UNITS;
             string json = JsonSerializer.Serialize(entities);
+
+            if (json == "null" || json == "[]")
+            {
+                throw new DataException(path);
+            }
+
             File.WriteAllText(path, json);
         }
-        public static UnitList ReadUnitListJsonToPath()
-        {
-            UnitList entities = new UnitList();
 
-            using (StreamReader r = new StreamReader(UNITS))
-            {
-                string json = r.ReadToEnd();
-                entities = JsonSerializer.Deserialize<UnitList>(json);
-            }
-            return entities;
-        }
         public static void WriteReactionsListJsonToPath(List<Reactions> entities)
         {
             string path = REACTIONS;
             string json = JsonSerializer.Serialize(entities);
+
+            if (json == "null" || json == "[]")
+            {
+                throw new DataException(path);
+            }
+
             File.WriteAllText(path, json);
         }
         public static List<Reactions> ReadReactionsListJsonToPath()
@@ -329,6 +481,12 @@ namespace AOS_WCID.Data
                 string json = r.ReadToEnd();
                 entities = JsonSerializer.Deserialize<List<Reactions>>(json);
             }
+
+            if (entities == null || !entities.Any())
+            {
+                throw new DataException(REACTIONS);
+            }
+
             return entities;
         }
 

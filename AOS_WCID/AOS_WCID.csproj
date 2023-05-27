@@ -8,7 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Data\JSONFiles\" />
+    <Compile Remove="Data\JSONFiles\**" />
+    <EmbeddedResource Remove="Data\JSONFiles\**" />
+    <None Remove="Data\JSONFiles\**" />
   </ItemGroup>
 
 </Project>
