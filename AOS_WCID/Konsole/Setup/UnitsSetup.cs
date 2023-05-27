@@ -48,6 +48,7 @@ namespace AOS_WCID.Konsole.Setup
             HeroPick(true);
             AuswahlCommandTrait();
         }
+
         private int CountHerosInList(bool isGeneralPick)
         {
             int heroListCount;
@@ -69,6 +70,7 @@ namespace AOS_WCID.Konsole.Setup
             }
             return heroListCount;
         }
+
         public void WriteHeroToConsole(bool isGeneralPick, int i)
         {
             if (isGeneralPick)
@@ -150,7 +152,7 @@ namespace AOS_WCID.Konsole.Setup
             }
             ConsoleSpacer.PrintSpacer();
         }
-        public void HeroPick(bool isGeneralPick) /// Some Broken here idk 
+        public void HeroPick(bool isGeneralPick) 
         {
             chooseText.Clear();
             chooseText.AppendLine("Wähle dein ");
