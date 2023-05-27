@@ -1,2 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AOS_WCID.Konsole.Setup.CoreSetup">
+    <Position X="7.5" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AACBIAAAAAAABgAICAAAAAAAAAAAAEAAABAAgAAQABA=</HashCode>
+      <FileName>Konsole\Setup\CoreSetup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
