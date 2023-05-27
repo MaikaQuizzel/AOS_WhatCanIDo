@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AOS_WCID.Data;
 
-namespace WCID_UnitTests
+namespace WCID_UnitTests.Data
 {
     [TestClass]
     public class GrandAllianceSerializationTests
