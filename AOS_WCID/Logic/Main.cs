@@ -8,6 +8,7 @@ using AOS_WCID.Data;
 using AOS_WCID.Konsole;
 using AOS_WCID.Entities;
 using AOS_WCID.Konsole.Setup;
+using AOS_WCID.Konsole.Setup.Core;
 
 namespace AOS_WCID.Logic
 {
@@ -23,22 +24,11 @@ namespace AOS_WCID.Logic
             coll.WriteStuffNow();
 
             initialStuff = new DataProvider(coll);
-         
 
-           
             CoreSetup setup = new CoreSetup(initialStuff);
+            setup.RunSetup();
+
             UnitsSetup unitSetup = new UnitsSetup(initialStuff);
-
-            //Console.WriteLine(initialStuff.);
-
-            setup.EingabeGameMode();
-            setup.EingabeGrandAlliance();
-            setup.EingabeFaction();
-            setup.EingabeSubfaction();
-
-            unitSetup.UnitSetup();
-
-            
         }
 
     }
