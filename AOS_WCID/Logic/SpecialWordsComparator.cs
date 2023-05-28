@@ -24,7 +24,9 @@ namespace AOS_WCID.Logic
             };
         private static List<string> wordsShootingPhase = new List<string>() {
                 "aim",
-                "shooting phase"
+                "ward",
+                "shooting phase",
+                "save roll"
             };
         private static List<string> wordsCombatPhase = new List<string>() {
                 "ward",
