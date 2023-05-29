@@ -29,11 +29,11 @@ namespace AOS_WCID.Logic
             stringBuilder.Append('\n');
 
             stringBuilder.Append("Faction: ");
-            stringBuilder.Append(PlayerPicks.Instance.Faction);
+            stringBuilder.Append(PlayerPicks.Instance.Faction.FactionName);
             stringBuilder.Append('\n');
 
             stringBuilder.Append("Subfaction: ");
-            stringBuilder.Append(PlayerPicks.Instance.Subfaction);
+            stringBuilder.Append(PlayerPicks.Instance.Subfaction.Name);
             if (PlayerPicks.Instance.Subfaction.Name == StringConstants.NOSUBFACTION)
             {
                 foreach (TenetAbility tenetAbility in PlayerPicks.Instance.TenetAbilities)
@@ -47,10 +47,13 @@ namespace AOS_WCID.Logic
             stringBuilder.Append("Batellion: ");
             stringBuilder.Append(PlayerPicks.Instance.Batallion.Name);
             stringBuilder.Append('\n');
+            stringBuilder.Append(PlayerPicks.Instance.Batallion.Description);
+            stringBuilder.Append('\n');
 
             string path =  DateTime.Now.ToString("");
             path = String.Concat(path.Where(c=>!Char.IsWhiteSpace(c)));
-            path = String.Concat(path.Where(c => !Char.IsSymbol(c)));
+            path = path.Replace(".","" );
+            path = path.Replace(":", "");
 
             path = path +"GamePrint.txt";
 
@@ -59,6 +62,8 @@ namespace AOS_WCID.Logic
             {
                 writer.Write(stringBuilder);
             }
+            //File.WriteAllText(path, stringBuilder.ToString());
+
 
         }
         private void AddPoints()
@@ -81,12 +86,24 @@ namespace AOS_WCID.Logic
         }
         private void WritePhases()
         {
+            stringBuilder.Append("\n");
             HeroPhase();
-            MovementPhase();
-            ShootingPhase();
-            ChargePhase();
-            CombatPhase();
-            BattleshockPhase();
+            stringBuilder.Append('\n');
+            stringBuilder.Append("\n");
+            PhasePrinter(StringConstants.MOVEMENTPHASE);
+            stringBuilder.Append("\n");
+            stringBuilder.Append('\n');
+            PhasePrinter(StringConstants.CHARGEPHASE);
+            stringBuilder.Append("\n");
+            stringBuilder.Append('\n');
+            PhasePrinter(StringConstants.SHOOTINGPHASE);
+            stringBuilder.Append("\n");
+            stringBuilder.Append('\n');
+            PhasePrinter(StringConstants.COMBATPHASE);
+            stringBuilder.Append("\n");
+            stringBuilder.Append('\n');
+            PhasePrinter(StringConstants.BATTLESHOCKPHASE);
+            stringBuilder.Append("\n");
         }
         private void HeroPhase() {
             stringBuilder.AppendLine("Hero Phase");
@@ -115,9 +132,9 @@ namespace AOS_WCID.Logic
             }
 
         }
-        private void MovementPhase()
+        private void PhasePrinter(string phase)
         {
-            stringBuilder.AppendLine("Movement Phase");
+            stringBuilder.AppendLine(phase);
             stringBuilder.Append("\n");
 
             foreach (Hero hero in PlayerPicks.Instance.HeroList)
@@ -125,7 +142,7 @@ namespace AOS_WCID.Logic
                 stringBuilder.AppendLine($"{hero.Name}: ");
                 foreach (Ability ability in hero.Abilities)
                 {
-                    if (SpecialWordsComparator.CompareAbilitiyToList(ability.Description, StringConstants.MOVEMENTPHASE))
+                    if (SpecialWordsComparator.CompareAbilitiyToList(ability.Description, phase))
                     {
                         stringBuilder.Append("\t").Append(ability.Description);
                     }
@@ -134,7 +151,7 @@ namespace AOS_WCID.Logic
                 {
                     if(artefact.Owner == hero)
                     {
-                        if(SpecialWordsComparator.CompareAbilitiyToList(artefact.Description, StringConstants.MOVEMENTPHASE)){
+                        if(SpecialWordsComparator.CompareAbilitiyToList(artefact.Description, phase)){
                             stringBuilder.Append("\t").Append(artefact.Name).Append(": ").Append(artefact.Description);
                         }
                     }
@@ -147,7 +164,7 @@ namespace AOS_WCID.Logic
                 stringBuilder.AppendLine($"{unit.Name}: ");
                 foreach(Ability ability in unit.Abilities)
                 {
-                    if (SpecialWordsComparator.CompareAbilitiyToList(ability.Description, StringConstants.MOVEMENTPHASE))
+                    if (SpecialWordsComparator.CompareAbilitiyToList(ability.Description, phase))
                     {
                         stringBuilder.Append("\t").Append(ability.Description);
                     }
@@ -159,22 +176,13 @@ namespace AOS_WCID.Logic
                 stringBuilder.AppendLine($"{unit.Name}: ");
                 foreach (Ability ability in unit.Abilities)
                 {
-                    if (SpecialWordsComparator.CompareAbilitiyToList(ability.Description, StringConstants.MOVEMENTPHASE))
+                    if (SpecialWordsComparator.CompareAbilitiyToList(ability.Description, phase))
                     {
                         stringBuilder.Append("\t").Append(ability.Description);
                     }
                 }
             }
         }
-        private void ShootingPhase() { 
-            
-        }
-        private void ChargePhase()
-        {
-
-        }
-        private void CombatPhase() { }
-        private void BattleshockPhase() { }
         
     }
 }
