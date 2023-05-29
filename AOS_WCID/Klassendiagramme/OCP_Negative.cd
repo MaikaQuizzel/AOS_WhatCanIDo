@@ -1,2 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AOS_WCID.Data.DataToWriteCollection">
+    <Position X="5.25" Y="1.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAMAAYCAAAAAAgIIQEBAAAUAQEAJAAMEGICACkKAQAY=</HashCode>
+      <FileName>Data\DataToWriteCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AOS_WCID.Data.DataProvider">
+    <Position X="7.25" Y="1.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAEAIYCAAAAAAgIIQEAAAAECQFIJAgKCCICAChCAUAY=</HashCode>
+      <FileName>Data\DataProvider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AOS_WCID.Entities.Ability" Collapsed="true">
+    <Position X="9.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Ability.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AOS_WCID.Entities.EndlessSpell" Collapsed="true">
+    <Position X="9.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIQAAAEAggAAEgAEEAAQAAAAAAAAAAAAAAQABgAA=</HashCode>
+      <FileName>Entities\EndlessSpell.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AOS_WCID.Entities.Stormhost" Collapsed="true">
+    <Position X="9.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Stormhost.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
