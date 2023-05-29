@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AOS_WCID.Data.DataManager">
+    <Position X="0.5" Y="0.5" Width="3.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>MQAEAEAAQJFA4AgABieRICAMQIQgQQRAAQEAgJQAwBA=</HashCode>
+      <FileName>Data\DataManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AOS_WCID.Entities.Ability" Collapsed="true">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Ability.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AOS_WCID.Entities.Artefact" Collapsed="true">
+    <Position X="11.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAoACAAAAgAAAEAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Artefact.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AOS_WCID.Entities.Attack" Collapsed="true">
+    <Position X="13" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAADAAAAgCAAAEAQkAAAgDAAAAAAAACEEAABAAAA=</HashCode>
+      <FileName>Entities\Attack.Cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AOS_WCID.Entities.Batallion" Collapsed="true">
+    <Position X="14.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAIAAAgIACAICACAAQAAAAEAACAAAAAgACAAIA=</HashCode>
+      <FileName>Entities\Batallion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AOS_WCID.Entities.CommandTrait" Collapsed="true">
+    <Position X="16.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgACAAAAgAAAAIAAAAAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\CommandTrait.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AOS_WCID.Entities.EndlessSpell" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIQAAAEAggAAEgAEEAAQAAAAAAAAAAAAAAQABgAA=</HashCode>
+      <FileName>Entities\EndlessSpell.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="AOS_WCID.Entities.EndlessSpellList" Collapsed="true">
+    <Position X="11.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\EndlessSpellList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AOS_WCID.Entities.Faction" Collapsed="true">
+    <Position X="13" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAABAAAAAAAACAAAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Faction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AOS_WCID.Entities.GrandAlliance" Collapsed="true">
+    <Position X="14.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\GrandAlliance.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AOS_WCID.Entities.Hero" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIYAAAMAAgQAAgAALQIQAAAAAAAAAACAgQAIAgAA=</HashCode>
+      <FileName>Entities\Hero.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="AOS_WCID.Entities.HeroesList" Collapsed="true">
+    <Position X="9.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\HeroesList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AOS_WCID.Entities.Prayer" Collapsed="true">
+    <Position X="11.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAoACAAAAgAAAEAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Prayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AOS_WCID.Entities.Reactions" Collapsed="true">
+    <Position X="13" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAACAAAAAAAAAAAAAQAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Reactions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AOS_WCID.Entities.Spell" Collapsed="true">
+    <Position X="14.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAoACAAAAgAAAEAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Spell.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AOS_WCID.Entities.Stormhost" Collapsed="true">
+    <Position X="16.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Stormhost.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AOS_WCID.Entities.Subfaction" Collapsed="true">
+    <Position X="9.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAIAAAAAQAAAAEAAAAQAAAAEAAAAA=</HashCode>
+      <FileName>Entities\Subfaction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AOS_WCID.Entities.TenetAbility" Collapsed="true">
+    <Position X="11.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAIAAAAAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\TenetAbility.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AOS_WCID.Entities.Tenets" Collapsed="true">
+    <Position X="13" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIQAAAAAAAAAAAAAAAIQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Tenets.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AOS_WCID.Entities.UnitList" Collapsed="true">
+    <Position X="14.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Entities\UnitList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AOS_WCID.Entities.Units" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIYAAAMAAgQAAgAALQIQAAAAAAAAAACAgQAIAgAA=</HashCode>
+      <FileName>Entities\Units.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="AOS_WCID.Data.DataToWriteCollection">
+    <Position X="4" Y="4" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAMAAYCAAAAAAgIIQEBAAAUAQEAJAAMEGICACkKAQAY=</HashCode>
+      <FileName>Data\DataToWriteCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="AOS_WCID.Entities.NewFolder.IESpell" Collapsed="true">
+    <Position X="4.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAggAAAgAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Interfaces\IESpell.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="AOS_WCID.Entities.Interfaces.IHero" Collapsed="true">
+    <Position X="7" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Interfaces\IHero.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="AOS_WCID.Entities.Interfaces.IModels" Collapsed="true">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Entities\Interfaces\IModels.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="AOS_WCID.Entities.Interfaces.IUnit" Collapsed="true">
+    <Position X="7" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAMAAgAAAAAABQAQAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Entities\Interfaces\IUnit.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

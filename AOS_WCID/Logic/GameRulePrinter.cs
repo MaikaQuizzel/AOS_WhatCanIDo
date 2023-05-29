@@ -48,7 +48,11 @@ namespace AOS_WCID.Logic
             stringBuilder.Append(PlayerPicks.Instance.Batallion.Name);
             stringBuilder.Append('\n');
 
-            string path = DateTime.Now.ToString() + "-GamePrint.txt";
+            string path =  DateTime.Now.ToString("");
+            path = String.Concat(path.Where(c=>!Char.IsWhiteSpace(c)));
+            path = String.Concat(path.Where(c => !Char.IsSymbol(c)));
+
+            path = path +"GamePrint.txt";
 
             WritePhases();
             using (StreamWriter writer = new StreamWriter(path))

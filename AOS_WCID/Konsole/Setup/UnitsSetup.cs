@@ -98,6 +98,8 @@ namespace AOS_WCID.Konsole.Setup
         public void EingabeUnits()
         {
             bool auswahlFertig = false;
+             StringBuilder saveTexter  = new StringBuilder();
+            
             chooseText.Clear();
             chooseText.AppendLine("What do you want to add?");
             chooseText.AppendLine("1 for hero");
@@ -106,7 +108,7 @@ namespace AOS_WCID.Konsole.Setup
             chooseText.AppendLine("4 for  endless spell");
             chooseText.AppendLine("5 for other");
             chooseText.AppendLine("f for finish");
-
+            saveTexter.Append( chooseText);
             ConsolenReader reader = new ConsolenReader();
             int userInt;
 
@@ -119,6 +121,7 @@ namespace AOS_WCID.Konsole.Setup
                 if (userinput.Equals("f"))
                 {
                     auswahlFertig = true;
+                    chooseText.Append( saveTexter);
                     return;
                 }
                 if(int.TryParse(userinput, out userInt))
@@ -126,26 +129,37 @@ namespace AOS_WCID.Konsole.Setup
                     if (userInt ==1)
                     {
                         HeroPick(false);
+                        chooseText.Append(saveTexter);
+                        ConsoleSpacer.PrintSpacer();
                         continue;
+
                     }
                     if (userInt == 2)
                     {
                         BattlelinePick();
+                        chooseText.Append(saveTexter);
+                        ConsoleSpacer.PrintSpacer();
                         continue;
                     }
                     if (userInt == 3)
                     {
                         ArtelleryPick();
+                        chooseText.Append(saveTexter);
+                        ConsoleSpacer.PrintSpacer();
                         continue;
                     }
                     if (userInt == 4)
                     {
                         EndlessSpellPick();
+                        chooseText.Append(saveTexter);
+                        ConsoleSpacer.PrintSpacer();
                         continue;
                     }
                     if (userInt == 5)
                     {
                         OtherPick();
+                        chooseText.Append(saveTexter);
+                        ConsoleSpacer.PrintSpacer();
                         continue;
                     }
                 }
@@ -290,7 +304,7 @@ namespace AOS_WCID.Konsole.Setup
                 Console.WriteLine(chooseText.ToString());
                 for (int i = 0; i < otherListCount; i++)
                 {
-                    Console.WriteLine($"{i} für {otherlist[i]}");
+                    Console.WriteLine($"{i} für {otherlist[i].Name}");
                 }
                 isValidID = IsValidInput(otherListCount, out otherID);
             }

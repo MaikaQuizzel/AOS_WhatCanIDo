@@ -1,2 +1,93 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AOS_WCID.Konsole.Setup.Core.CoreSetup" Collapsed="true">
+    <Position X="7" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAABAAAAAQAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Konsole\Setup\Core\CoreSetup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AOS_WCID.Konsole.Setup.Core.SelectFaction" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgCAAAgAAAAAAAQAAAAAAAAAAAABA=</HashCode>
+      <FileName>Konsole\Setup\Core\SelectFaction.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="AOS_WCID.Konsole.Setup.Core.SelectGameMode" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAgAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Konsole\Setup\Core\SelectGameMode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="AOS_WCID.Konsole.Setup.Core.SelectGrandAlliance" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAgAAAAgAAAAAAAQAAAAAAAAAAAABA=</HashCode>
+      <FileName>Konsole\Setup\Core\SelectGrandAlliance.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="AOS_WCID.Konsole.Setup.Core.SelectSubfaction" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAgAgAAAAgAAAAAAAQAAAAAAAAAAAABA=</HashCode>
+      <FileName>Konsole\Setup\Core\SelectSubfaction.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="AOS_WCID.Konsole.Setup.Core.SelectTenet" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAgAAAAAAAQAAAAAAAAIAAABA=</HashCode>
+      <FileName>Konsole\Setup\Core\SelectTenet.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="AOS_WCID.Konsole.Setup.Core.SelectTenetAbility" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAgAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Konsole\Setup\Core\SelectTenetAbility.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="AOS_WCID.Konsole.Setup.UnitsSetup" Collapsed="true">
+    <Position X="8.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAIBAQAQAAEAwAAAAgAAAQECQBAAAABAAAg=</HashCode>
+      <FileName>Konsole\Setup\UnitsSetup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AOS_WCID.Logic.PlayerPicks">
+    <Position X="5.25" Y="0.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>FBAEAIAAAAAAAAAKQEFAChABAFAQAiAEQAAgCFQAFAA=</HashCode>
+      <FileName>Logic\PlayerPicks.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AOS_WCID.Logic.GameRulePrinter">
+    <Position X="3.25" Y="0.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAIAACACAABQEAAAAAwAAAAAAAABACAAAAEEAAAAAAA=</HashCode>
+      <FileName>Logic\GameRulePrinter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="AOS_WCID.Konsole.Setup.Core.ICoreSelection" Collapsed="true">
+    <Position X="7" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Konsole\Setup\Core\ICoreSelection.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

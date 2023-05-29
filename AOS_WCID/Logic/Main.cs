@@ -29,6 +29,9 @@ namespace AOS_WCID.Logic
             setup.RunSetup();
 
             UnitsSetup unitSetup = new UnitsSetup(initialStuff);
+            unitSetup.UnitSetup();
+            GameRulePrinter printer = new GameRulePrinter();
+            printer.CreateFile();
         }
 
     }
